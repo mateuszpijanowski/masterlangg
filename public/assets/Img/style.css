@@ -2,12 +2,17 @@
 body{
 	text-align:center;
 	font-size:30px;
+	
 	}
 @media only screen and (max-width: 1140px) {
 	.account-page{
 	width:80% !important;
 	left:10% !important;
 
+}
+.register-page{
+	left:25% !important;
+	width:50% !important;
 }
 
 .options-page{
@@ -26,11 +31,12 @@ body{
 	left:15% !important;
 }
 .register-page{
-	top:15% !important;
+	left:15% !important;
+	width:70% !important;
 }
 #gamePanel{
 
-	background-image: none !important;
+	background-image:none !important;
 
 }
 
@@ -49,7 +55,10 @@ body{
     animation: animation16 0.5s normal forwards !important;
 }
 
-
+.register-page{
+	left:5% !important;
+	width:90% !important;
+}
 
 
 
@@ -81,6 +90,11 @@ body{
 	color:#cf324e;
 	margin:0px;
 }
+.difficultyDisplays{
+	font-size:27px;
+	color:#cf324e;
+	
+}
 .infoAccount{
 	font-size:25px;
 	line-height:25px !important;
@@ -91,6 +105,10 @@ body{
 	color:#cf324e;
 	margin:0px;
 }
+.stringRegister{
+	color:#fff !important;
+	
+}
 a{	
 	text-decoration: none;
 	color:#fff;
@@ -99,7 +117,11 @@ a:hover {
 	text-decoration: none;
 	color:#fff;
 }
-
+.copy{
+	color:#fff;
+	font-size:11px;
+	margin-bottom:0px;
+}
 .CHANGELOGIN-page,
 .CHANGEPASSWORD-page,
 .CHANGEE-MAIL-page{
@@ -140,6 +162,7 @@ a:hover {
 	
 }
 .levelOfDifficulty:hover,.levelOfDifficulty:active,.levelOfDifficulty:focus {
+  cursor:pointer;
   background: #101217;
   color:#cf324e;
 }
@@ -163,8 +186,10 @@ a:hover {
 .accountButton:hover,.accountButton:active,.accountButton:focus {
   background: #101217;
   color:#cf324e;
+  cursor:pointer;
 }
 .accountButtonLogOut:hover,.accountButtonLogOut:active,.accountButtonLogOut:focus {
+  cursor:pointer;
   background: #bf223e;
   border:3px solid #bf223e;
 }
@@ -179,12 +204,13 @@ a:hover {
 }
 .register-page{
   position:absolute;
-  top:30%;
+  top:20%;
   left:40%;
   display:none;
   z-index:2;
-  width:100% ;
-  left:0% ;
+  width:30% ;
+  left:35%;
+  margin-top:0px;
 }
 .topDiv
 {	
@@ -203,8 +229,9 @@ a:hover {
 	height:100px;
 	margin:10px 0 10px 0;
 	line-height:86px;
-	
+	width:100%;
 	padding:0px;
+	text-align:center;
 }
 .langList
 {	margin-top:5%;
@@ -579,6 +606,7 @@ a:hover {
   box-sizing: border-box;
   font-size: 14px;
 }
+.startGame,
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -593,6 +621,9 @@ a:hover {
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
+
+.startGame:hover,.startGame:active,.startGame:focus,
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
@@ -640,4 +671,21 @@ a:hover {
 }
 .container .info span .fa {
   color: #EF3B3A;
+}
+
+.startGame{
+	margin:10px 0 10px 0;
+	width:100%;
+	height:auto;
+	font-size:auto;
+	border-radius:5px;
+	height:100px;
+	line-height:86px;
+	width:100%;
+	padding:0px;
+	font-size: 70%;
+	
+}
+#ok{
+	font-size:100%;
 }

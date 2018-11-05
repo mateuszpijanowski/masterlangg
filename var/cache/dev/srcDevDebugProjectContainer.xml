@@ -377,6 +377,20 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>/var/www/html/masterlangg/var/log/dev.log</argument>
     </service>
+    <service id="App\Controller\Difficulty" class="App\Controller\Difficulty" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\Difficulty"/>
+      </call>
+    </service>
+    <service id="App\Controller\LoginTest" class="App\Controller\LoginTest" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\LoginTest"/>
+      </call>
+    </service>
     <service id="App\Controller\Main" class="App\Controller\Main" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -384,20 +398,54 @@
         <argument type="service" id=".service_locator.ychIlgF.App\Controller\Main"/>
       </call>
     </service>
-    <service id="App\Controller\ProductController" class="App\Controller\ProductController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\NewEmail" class="App\Controller\NewEmail" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.ychIlgF.App\Controller\ProductController"/>
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\NewEmail"/>
       </call>
     </service>
-    <service id="App\Repository\PriceRepository" class="App\Repository\PriceRepository" public="false" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
+    <service id="App\Controller\NewLogin" class="App\Controller\NewLogin" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\NewLogin"/>
+      </call>
     </service>
-    <service id="App\Repository\ProductRepository" class="App\Repository\ProductRepository" public="false" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
+    <service id="App\Controller\NewPass" class="App\Controller\NewPass" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\NewPass"/>
+      </call>
+    </service>
+    <service id="App\Controller\Registration" class="App\Controller\Registration" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\Registration"/>
+      </call>
+    </service>
+    <service id="App\Controller\Reset" class="App\Controller\Reset" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\Reset"/>
+      </call>
+    </service>
+    <service id="App\Controller\ScoreUpdate" class="App\Controller\ScoreUpdate" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\ScoreUpdate"/>
+      </call>
+    </service>
+    <service id="App\Controller\Translation" class="App\Controller\Translation" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\Translation"/>
+      </call>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -1903,6 +1951,14 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2624,7 +2680,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.sM40yJu"/>
+      <argument type="service" id=".service_locator.9_yeNH1"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4135,16 +4191,36 @@
         <argument>server:log</argument>
       </call>
     </service>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Difficulty" class="App\Controller\Difficulty" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Difficulty" class="App\Controller\Difficulty" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Difficulty" class="App\Controller\Difficulty" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\LoginTest" class="App\Controller\LoginTest" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LoginTest" class="App\Controller\LoginTest" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\LoginTest" class="App\Controller\LoginTest" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Main" class="App\Controller\Main" public="false" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Main" class="App\Controller\Main" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Main" class="App\Controller\Main" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\ProductController" class="App\Controller\ProductController" public="false" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProductController" class="App\Controller\ProductController" public="false" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ProductController" class="App\Controller\ProductController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PriceRepository" class="App\Repository\PriceRepository" public="false" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\PriceRepository" class="App\Repository\PriceRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProductRepository" class="App\Repository\ProductRepository" public="false" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\ProductRepository" class="App\Repository\ProductRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\NewEmail" class="App\Controller\NewEmail" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NewEmail" class="App\Controller\NewEmail" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NewEmail" class="App\Controller\NewEmail" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\NewLogin" class="App\Controller\NewLogin" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NewLogin" class="App\Controller\NewLogin" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NewLogin" class="App\Controller\NewLogin" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Reset" class="App\Controller\Reset" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Reset" class="App\Controller\Reset" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Reset" class="App\Controller\Reset" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\ScoreUpdate" class="App\Controller\ScoreUpdate" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ScoreUpdate" class="App\Controller\ScoreUpdate" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ScoreUpdate" class="App\Controller\ScoreUpdate" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Translation" class="App\Controller\Translation" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Translation" class="App\Controller\Translation" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Translation" class="App\Controller\Translation" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
       <tag name="console.command" command="make:auth"/>
       <argument type="service" id="maker.maker.make_authenticator"/>
@@ -4289,9 +4365,18 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.9_yeNH1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.XMePXeM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.OieSNJ8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\Main::main" type="service" id=".service_locator.XMePXeM"/>
+        <argument key="App\Controller\Main:main" type="service" id=".service_locator.XMePXeM"/>
+      </argument>
     </service>
     <service id=".service_locator.yQVjGlt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -4358,12 +4443,9 @@
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
-    <service id=".service_locator.sM40yJu" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.9_yeNH1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="App\Repository\PriceRepository" type="service" id="App\Repository\PriceRepository"/>
-        <argument key="App\Repository\ProductRepository" type="service" id="App\Repository\ProductRepository"/>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="security.logout.handler.csrf_token_clearing" class="Symfony\Component\Security\Http\Logout\CsrfTokenClearingLogoutHandler" public="false">
       <argument type="service" id="security.csrf.token_storage"/>
@@ -4530,7 +4612,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.9_yeNH1"/>
+      <argument type="service" id=".service_locator.OieSNJ8"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -4551,13 +4633,53 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.ychIlgF.App\Controller\Difficulty" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\Difficulty</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\LoginTest" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\LoginTest</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
     <service id=".service_locator.ychIlgF.App\Controller\Main" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>App\Controller\Main</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.ychIlgF" method="withContext"/>
     </service>
-    <service id=".service_locator.ychIlgF.App\Controller\ProductController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <argument>App\Controller\ProductController</argument>
+    <service id=".service_locator.ychIlgF.App\Controller\NewEmail" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\NewEmail</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\NewLogin" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\NewLogin</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\NewPass" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\NewPass</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\Registration" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\Registration</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\Reset" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\Reset</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\ScoreUpdate" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\ScoreUpdate</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\Translation" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\Translation</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.ychIlgF" method="withContext"/>
     </service>
@@ -4933,7 +5055,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.9_yeNH1"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.OieSNJ8"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~lqGrC8_" public="false"/>
