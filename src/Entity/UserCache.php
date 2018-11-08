@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UserCache
  *
- * @ORM\Table(name="user_cache", uniqueConstraints={@ORM\UniqueConstraint(name="id_user", columns={"id_user"}), @ORM\UniqueConstraint(name="score", columns={"score"})})
+ * @ORM\Table(name="user_cache", uniqueConstraints={@ORM\UniqueConstraint(name="id_user", columns={"id_user"})})
  * @ORM\Entity
  */
 class UserCache
@@ -24,9 +24,9 @@ class UserCache
     /**
      * @var int
      *
-     * @ORM\Column(name="score", type="integer", nullable=false)
+     * @ORM\Column(name="id_user", type="integer", nullable=false)
      */
-    private $score;
+    private $idUser;
 
     /**
      * @var string
@@ -43,28 +43,25 @@ class UserCache
     private $time;
 
     /**
-     * @var \UserData
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="UserData")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
-     * })
+     * @ORM\Column(name="score", type="integer", nullable=false)
      */
-    private $idUser;
+    private $score;
 
     public function getIdCache(): ?int
     {
         return $this->idCache;
     }
 
-    public function getScore(): ?int
+    public function getIdUser(): ?int
     {
-        return $this->score;
+        return $this->idUser;
     }
 
-    public function setScore(int $score): self
+    public function setIdUser(int $idUser): self
     {
-        $this->score = $score;
+        $this->idUser = $idUser;
 
         return $this;
     }
@@ -93,14 +90,14 @@ class UserCache
         return $this;
     }
 
-    public function getIdUser(): ?UserData
+    public function getScore(): ?int
     {
-        return $this->idUser;
+        return $this->score;
     }
 
-    public function setIdUser(?UserData $idUser): self
+    public function setScore(int $score): self
     {
-        $this->idUser = $idUser;
+        $this->score = $score;
 
         return $this;
     }

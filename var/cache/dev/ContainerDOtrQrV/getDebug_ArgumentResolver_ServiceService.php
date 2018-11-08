@@ -12,10 +12,10 @@ include_once $this->targetDirs[3].'/vendor/symfony/http-kernel/Controller/Argume
 
 return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(new \Symfony\Component\DependencyInjection\ServiceLocator(array('App\\Controller\\Main::main' => function () {
     return ($this->privates['.service_locator.XMePXeM'] ?? $this->load('get_ServiceLocator_XMePXeMService.php'));
-}, 'App\\Controller\\Ranking::index' => function () {
+}, 'App\\Controller\\Ranking::ranking' => function () {
     return ($this->privates['.service_locator.gGr0Wzu'] ?? $this->load('get_ServiceLocator_GGr0WzuService.php'));
 }, 'App\\Controller\\Main:main' => function () {
     return ($this->privates['.service_locator.XMePXeM'] ?? $this->load('get_ServiceLocator_XMePXeMService.php'));
-}, 'App\\Controller\\Ranking:index' => function () {
+}, 'App\\Controller\\Ranking:ranking' => function () {
     return ($this->privates['.service_locator.gGr0Wzu'] ?? $this->load('get_ServiceLocator_GGr0WzuService.php'));
 }))), ($this->privates['debug.stopwatch'] ?? $this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true)));

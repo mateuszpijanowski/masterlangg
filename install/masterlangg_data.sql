@@ -2,10 +2,10 @@
 -- version 4.6.6deb4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Oct 24, 2018 at 06:48 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.11-2+0~20181015120801.9+stretch~1.gbp8105e0
+-- Host: localhost
+-- Generation Time: Nov 08, 2018 at 05:39 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.11-4+0~20181106031630.10+stretch~1.gbp789850
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -140,17 +140,21 @@ INSERT INTO `lang_list` (`id_lang`, `lang_name`, `lang_fullname`) VALUES
 CREATE TABLE `user_cache` (
   `id_cache` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `score` int(11) NOT NULL,
   `difficulty` text NOT NULL,
-  `time` int(11) NOT NULL
+  `time` int(11) NOT NULL,
+  `score` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_cache`
 --
 
-INSERT INTO `user_cache` (`id_cache`, `id_user`, `score`, `difficulty`, `time`) VALUES
-(1, 1, 128, 'easy', 180);
+INSERT INTO `user_cache` (`id_cache`, `id_user`, `difficulty`, `time`, `score`) VALUES
+(1, 1, 'NORMAL', 120, 0),
+(2, 2, 'EASY', 180, 0),
+(3, 3, 'easy', 180, 0),
+(4, 4, 'easy', 180, 0),
+(5, 5, 'easy', 180, 0);
 
 -- --------------------------------------------------------
 
@@ -170,7 +174,11 @@ CREATE TABLE `user_data` (
 --
 
 INSERT INTO `user_data` (`id_user`, `nick`, `pass`, `email`) VALUES
-(1, 'admin123', '1234', 'test@gmail.com');
+(1, 'admin', '1111', '1234'),
+(2, 'tester1', '1234', '1234'),
+(3, 'tester2', '1234', '1234'),
+(4, 'tester3', '1234', '1234'),
+(5, 'adam', '1234', '1234');
 
 -- --------------------------------------------------------
 
@@ -190,7 +198,11 @@ CREATE TABLE `user_ranking` (
 --
 
 INSERT INTO `user_ranking` (`id_ranking`, `id_user`, `nick`, `score`) VALUES
-(1, 1, 'admin123', 128);
+(1, 1, 'admin', 0),
+(2, 2, 'tester1', 0),
+(3, 3, 'tester2', 0),
+(4, 4, 'tester3', 0),
+(5, 5, 'adam', 0);
 
 --
 -- Indexes for dumped tables
@@ -207,8 +219,7 @@ ALTER TABLE `lang_list`
 --
 ALTER TABLE `user_cache`
   ADD PRIMARY KEY (`id_cache`),
-  ADD UNIQUE KEY `id_user` (`id_user`),
-  ADD UNIQUE KEY `score` (`score`);
+  ADD UNIQUE KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `user_data`
@@ -224,7 +235,6 @@ ALTER TABLE `user_data` ADD FULLTEXT KEY `nick` (`nick`);
 ALTER TABLE `user_ranking`
   ADD PRIMARY KEY (`id_ranking`),
   ADD UNIQUE KEY `id_user` (`id_user`),
-  ADD UNIQUE KEY `score` (`score`),
   ADD UNIQUE KEY `nick_2` (`nick`);
 ALTER TABLE `user_ranking` ADD FULLTEXT KEY `nick` (`nick`);
 
@@ -241,33 +251,26 @@ ALTER TABLE `lang_list`
 -- AUTO_INCREMENT for table `user_cache`
 --
 ALTER TABLE `user_cache`
-  MODIFY `id_cache` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cache` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user_data`
 --
 ALTER TABLE `user_data`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user_ranking`
 --
 ALTER TABLE `user_ranking`
-  MODIFY `id_ranking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_ranking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `user_cache`
---
-ALTER TABLE `user_cache`
-  ADD CONSTRAINT `user_cache_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user_data` (`id_user`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_ranking`
 --
 ALTER TABLE `user_ranking`
   ADD CONSTRAINT `user_ranking_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user_data` (`id_user`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_ranking_ibfk_2` FOREIGN KEY (`score`) REFERENCES `user_cache` (`score`) ON UPDATE CASCADE,
   ADD CONSTRAINT `user_ranking_ibfk_3` FOREIGN KEY (`nick`) REFERENCES `user_data` (`nick`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -327,7 +327,9 @@ class Main extends AbstractController
         // LOG OUT
         if(isset($_POST['logout']))
         {
-            $session->clear();
+            $session->clear(); // CLEAR ALL SESSION
+
+            return new JsonResponse(true);
         }
 
         // HTML RENDER
