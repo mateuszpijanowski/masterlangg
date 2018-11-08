@@ -107,6 +107,22 @@ class Main extends AbstractController
             }
         }
 
+      /*
+      if(isset($_POST['#login']))
+        {
+            $login=$_POST['#login'];
+
+            $response=$this->forward('App\Controller\Ranking::ranking', array(
+                'login' => $login,
+            ));
+
+            $response=$response->getContent();
+            $response=json_decode($response, true);
+
+            return new JsonResponse($response);
+        }
+      */
+
         // EDIT ACCOUNT
 
         /*
@@ -230,44 +246,50 @@ class Main extends AbstractController
         /*
          * RETURN:
          * +STATUS [TRUE/FLASE]
-         * +ADD [VALUE OF POINTS]
+         * +SCORE
          * OR
          * +DIFFICULTY ERROR
+         * OR
+         * +ERROR!
          */
-        if(isset($_POST['sel_lang']) && isset($_POST['time']) && isset($_POST['score']))
+        if(isset($_POST['sel_lang']) && isset($_POST['time']) && isset($_POST['difficulty']))
         {
             $sel_lang=$_POST['sel_lang'];
             $time=$_POST['time'];
-            $score=$_POST['score'];
+            $score=$session->get('session');
             $random_lang=$session->get('random_lang');
+            $id_user=$session->get('id_user');
 
             $response=$this->forward('App\Controller\Translation::trans_test', array(
                 'sel_lang' => $sel_lang,
                 'random_lang' => $random_lang,
-                'score' => $score,
+                'difficulty' => $score,
                 'time' => $time,
+                'score' => $score,
             ));
 
-            return new JsonResponse($response->getContent());
-        }
+            $response=$response->getContent();
+            $response=json_decode($response, true);
+            $score=$response['score'];
 
-        // SCORE UPDATE
+            $session->set('score', $score);
 
-        /*
-         * RETURN:
-         * +OK/ERROR
-         */
-        if(isset($_POST['score']))
-        {
-            $score=$_POST['score'];
-            $id_user=$session->get('id_user');
-
-            $response=$this->forward('App\Controller\ScoreUpdate::score_update', array(
+            $score_update=$this->forward('App\Controller\ScoreUpdate::score_update', array(
                 'id_user' => $id_user,
                 'score' => $score,
             ));
 
-            return new JsonResponse($response->getContent());
+            $score_update=$score_update->getContent();
+
+            if($score_update=="OK")
+            {
+                return new JsonResponse($response);
+            }
+
+            else {
+                return new JsonResponse($score_update);
+            }
+
         }
 
         // RESTART

@@ -38,17 +38,8 @@ class Translation extends AbstractController
         return new JsonResponse($response);
     }
 
-    public function trans_test($sel_lang, $random_lang, $difficulty, $time)
+    public function trans_test($sel_lang, $random_lang, $difficulty, $time, $score)
     {
-        if($sel_lang==$random_lang)
-        {
-            $status=true;
-        }
-
-        else {
-            $status=false;
-        }
-
         if($difficulty=="EASY")
         {
             $difficulty_add=100;
@@ -71,9 +62,22 @@ class Translation extends AbstractController
 
         $points=$difficulty_add*$time;
 
+        if($sel_lang==$random_lang)
+        {
+            $status=true;
+
+            $score=$score+$points;
+        }
+
+        else {
+            $status=false;
+
+            $score=$score-$points;
+        }
+
         $response=array(
             "status"=>$status,
-            "add"=>$points,
+            "score"=>$score,
         );
 
         return new JsonResponse($response);
