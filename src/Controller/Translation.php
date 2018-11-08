@@ -40,6 +40,8 @@ class Translation extends AbstractController
 
     public function trans_test($sel_lang, $random_lang, $difficulty, $time, $score)
     {
+        $time=(int)$time;
+
         if($difficulty=="EASY")
         {
             $difficulty_add=100;
@@ -73,6 +75,11 @@ class Translation extends AbstractController
             $status=false;
 
             $score=$score-$points;
+
+            if($score<0)
+            {
+                $score=0;
+            }
         }
 
         $response=array(

@@ -10,11 +10,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class NewPass extends AbstractController
 {
 
-    public function newpass($newpass, $login)
+    public function newpass($newpass, $id_user)
     {
         $entityManager=$this->getDoctrine()->getManager();
         $update=$entityManager->getRepository(UserData::class)->findOneBy([
-            'nick' => $login,
+            'idUser' => $id_user,
         ]);
 
         if(!$update)

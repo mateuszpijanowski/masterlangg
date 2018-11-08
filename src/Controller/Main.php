@@ -60,6 +60,12 @@ class Main extends AbstractController
             $response=$response->getContent();
             $response=json_decode($response, true);
 
+            if($response=="Bad login or password!")
+            {
+                return new JsonResponse($response);
+                exit();
+            }
+
             $id_user=$response['id_user'];
             $login=$response['login'];
             $email=$response['email'];
@@ -84,27 +90,24 @@ class Main extends AbstractController
          * RETURN:
          * +OK/BAD NICK/BAD EMAIL
          */
-        if(isset($_POST['loginRegister']) && isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['emailRegister']))
-        {
-            $login_reg=$_POST['loginRegister'];
-            $pass_reg1=$_POST['password1'];
-            $pass_reg2=$_POST['password2'];
-            $email_reg=$_POST['emailRegister'];
+        if(isset($_POST['loginRegister']) && isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['emailRegister'])) {
+            $login_reg = $_POST['loginRegister'];
+            $pass_reg1 = $_POST['password1'];
+            $pass_reg2 = $_POST['password2'];
+            $email_reg = $_POST['emailRegister'];
 
-            if ($pass_reg1==$pass_reg2)
-            {
-                $response=$this->forward('App\Controller\Registration::registration', array(
+            if ($pass_reg1 == $pass_reg2) {
+                $response = $this->forward('App\Controller\Registration::registration', array(
                     'login_reg' => $login_reg,
-                    'pass_reg1' => $pass_reg1,
+                    'pass_reg' => $pass_reg1,
                     'email_reg' => $email_reg,
                 ));
 
                 return new JsonResponse($response->getContent());
-            }
-
-            else {
+            } else {
                 return new JsonResponse("Bad password");
             }
+
         }
 
       /*
@@ -201,9 +204,9 @@ class Main extends AbstractController
          * RETURN:
          * +OK/ERROR
          */
-        if(isset($_POST['difficulty']))
+        if(isset($_POST['difficulty_update']))
         {
-            $difficulty=$_POST['difficulty'];
+            $difficulty=$_POST['difficulty_update'];
 
             $response=$this->forward('App\Controller\Difficulty::difficulty', array(
                 'difficulty' => $difficulty,
@@ -256,6 +259,7 @@ class Main extends AbstractController
         {
             $sel_lang=$_POST['sel_lang'];
             $time=$_POST['time'];
+            $difficulty=$_POST['difficulty'];
             $score=$session->get('session');
             $random_lang=$session->get('random_lang');
             $id_user=$session->get('id_user');
@@ -263,13 +267,20 @@ class Main extends AbstractController
             $response=$this->forward('App\Controller\Translation::trans_test', array(
                 'sel_lang' => $sel_lang,
                 'random_lang' => $random_lang,
-                'difficulty' => $score,
+                'difficulty' => $difficulty,
                 'time' => $time,
                 'score' => $score,
             ));
 
             $response=$response->getContent();
             $response=json_decode($response, true);
+
+            if($response=="Difficulty ERROR!")
+            {
+                return new JsonResponse($response);
+                exit();
+            }
+
             $score=$response['score'];
 
             $session->set('score', $score);

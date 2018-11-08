@@ -24,8 +24,26 @@ class Difficulty extends AbstractController
         }
 
         $update->setDifficulty($difficulty);
+
+        if($difficulty=="EASY")
+        {
+            $time=180;
+        }
+
+        if($difficulty=="NORMAL")
+        {
+            $time=120;
+        }
+
+        if($difficulty=="HARD")
+        {
+            $time=90;
+        }
+
+        $update->setTime($time);
+
         $entityManager->flush();
 
-        return new JsonResponse("OK");
+        return new JsonResponse($time);
     }
 }

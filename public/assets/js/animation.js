@@ -61,8 +61,8 @@ $(document).ready(function(){
         if(clickAnimation==true){
 		var data = {};
 	   	    data['sel_lang'] = 'jp';/////////tu do zrobienia jezyk
-		    data['time'] = 'jp';
-		    data['difficulty'] = 'jp'; 
+		    data['time'] = '100';
+		    data['difficulty'] = 'EASY';
 		ajax2(data);
         }
     });
@@ -136,7 +136,7 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty'] = 'EASY';
+	   	    data['difficulty_update'] = 'EASY';
 		ajax2(data);
         }
     });
@@ -145,7 +145,7 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty'] = 'NORMAL';
+	   	    data['difficulty_update'] = 'NORMAL';
 		ajax2(data);
         }
     });
@@ -154,7 +154,7 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty'] = 'HARD';
+	   	    data['difficulty_update'] = 'HARD';
 		ajax2(data);
         }
     });

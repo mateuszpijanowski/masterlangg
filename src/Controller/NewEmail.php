@@ -10,11 +10,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class NewEmail extends AbstractController
 {
 
-    public function newemail($newemail, $login)
+    public function newemail($newemail, $id_user)
     {
         $entityManager=$this->getDoctrine()->getManager();
         $update=$entityManager->getRepository(UserData::class)->findOneBy([
-            'nick' => $login,
+            'idUser' => $id_user,
         ]);
 
         if(!$update)

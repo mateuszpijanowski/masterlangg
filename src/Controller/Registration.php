@@ -44,6 +44,8 @@ class Registration extends AbstractController
             $reg_data->setPass($pass_reg);
             $reg_data->setEmail($email_reg);
 
+            $entityManager->flush();
+
             $reg_cache=new UserCache();
             $reg_cache->setScore(0);
             $reg_cache->setDifficulty('EASY');
