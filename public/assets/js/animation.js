@@ -9,50 +9,69 @@ $(document).ready(function(){
     $( ".start" ).click(function() {
         if(clickAnimation==true){
             clickStop();
-            inputRead("#login");
-            inputRead("#password");
+	    var data = {};
+    		data['login'] = inputRead("#login");
+   		data['password'] = inputRead("#password");
+	    ajax2(data);
             login();			//przy logowaniu mui zostać wywołana ta fukcja a tu musi byc usunieta
         }
     });
     $( "#startRegister" ).click(function() {
         if(clickAnimation==true){
-            inputRead("#loginRegister");
-            inputRead("#password1");
-            inputRead("#password2");
-            inputRead("#emailRegister");
+		var data = {};
+		    data['loginRegister'] = inputRead("#loginRegister");
+	   	    data['password1'] = inputRead("#password1");
+		    data['password2'] = inputRead("#password2");
+	   	    data['emailRegister'] = inputRead("#emailRegister");
+		ajax2(data);
         }
     });
     $( "#ChangeLOGIN" ).click(function() {
         if(clickAnimation==true){
-            inputRead(".ChangeLOGIN");
+            
+		var data = {};
+	   	    data['ChangeLOGIN'] = inputRead(".ChangeLOGIN");
+		ajax2(data);
         }
     });
     $( "#ChangePASSWORD" ).click(function() {
         if(clickAnimation==true){
-            inputRead(".ChangePASSWORD1");
-            inputRead(".ChangePASSWORD2");
+		var data = {};
+		    data['ChangePASSWORD1'] = inputRead(".ChangePASSWORD1");
+	   	    data['ChangePASSWORD2'] = inputRead(".ChangePASSWORD2");
+		ajax2(data);
         }
     });
     $( "#ChangeMAIL" ).click(function() {
         if(clickAnimation==true){
-            inputRead(".ChangeMAIL");
+            
+		var data = {};
+	   	    data['ChangeMAIL'] = inputRead(".ChangeMAIL");
+		ajax2(data);
         }
     });
     $( "#startGame" ).click(function() {
         if(clickAnimation==true){
-            const input = document.querySelector('#quotation');
-            const val = input.value;
-            ajax(val,'#quotation');
+		var data = {};
+	   	    data['user_text'] = inputRead("#quotation");
+		ajax2(data);
         }
     });
     $( "#ok" ).click(function() {
         if(clickAnimation==true){
-            ajax('ok','#ok');
+		var data = {};
+	   	    data['sel_lang'] = 'jp';/////////tu do zrobienia jezyk
+		    data['time'] = 'jp';
+		    data['difficulty'] = 'jp'; 
+		ajax2(data);
         }
     });
     $( ".accountButtonLogOut" ).click(function() { //uwaga usunąć ten wywoływacz
         if(clickAnimation==true){
             clickStop();
+		var data = {};
+	   	    data['logout'] = 'logout';
+		ajax2(data);
             logOut();									  //przy logowaniu mui zostać wywołana ta fukcja
         }
     });
@@ -116,21 +135,27 @@ $(document).ready(function(){
         if(clickAnimation==true){
             clickStop();
             PageMenuHide(".options-page");
-            ajax('EASY','levelOfDifficulty');
+            	var data = {};
+	   	    data['difficulty'] = 'EASY';
+		ajax2(data);
         }
     });
     $("#NORMAL").click(function() {
         if(clickAnimation==true){
             clickStop();
             PageMenuHide(".options-page");
-            ajax('NORMAL','levelOfDifficulty');
+            	var data = {};
+	   	    data['difficulty'] = 'NORMAL';
+		ajax2(data);
         }
     });
     $("#HARD").click(function() {
         if(clickAnimation==true){
             clickStop();
             PageMenuHide(".options-page");
-            ajax('HARD','levelOfDifficulty');
+            	var data = {};
+	   	    data['difficulty'] = 'HARD';
+		ajax2(data);
         }
     });
 
@@ -316,26 +341,27 @@ function inputRead(y){
     //if (!val.length) {					//tu moża utworzyć wstepną walidacje
     //input.placeholder = 'Empty field';
     //} else {
-    ajax(val,y);
+    		//ajax(val,y);
 
     //	input.value = '';
     //}
+
+	return (val);
 }
 
-function ajax(x,y){
 
-    var data = {};
-    data[y] = x;
+function ajax2(data){
 	$.ajax({
 		type:"POST",
 		url:"/",
         dataType: 'json',
 		data: data,
 		success: function(response){
-			alert(response);
+			var json=JSON.stringify(response);
+			alert(json);
 		},
 		error: function(){
-		alert('Error Ajax');
+		alert('Error Ajax:'+data);
 		}
 		});
 }
