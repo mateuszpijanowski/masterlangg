@@ -237,8 +237,11 @@ a:hover {
 {	margin-top:5%;
 	height:300px;
 	line-height:140% !important;
+	padding:10px;
 }
-	
+#langButton{
+	background-color:#202227;
+}	
 .fadeIn2{
 	animation-play-state:running; 
 	position:absolute;
