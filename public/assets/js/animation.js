@@ -4,8 +4,15 @@ let LastFromTheList = 2;
 let currentOnTheList = 1;
 let currentOnTheChange = 1;
 let clickAnimation = true;
+let langClicki ;
+let dificultyClick;
+let json;
+let time;
 
 $(document).ready(function(){
+	langList();
+	sesion();
+
     $( ".start" ).click(function() {
         if(clickAnimation==true){
             clickStop();
@@ -13,7 +20,9 @@ $(document).ready(function(){
     		data['login'] = inputRead("#login");
    		data['password'] = inputRead("#password");
 	    ajax2(data);
-            login();			//przy logowaniu mui zostać wywołana ta fukcja a tu musi byc usunieta
+	    setTimeout(function(){
+			loadnig();
+	    }, 1000);
         }
     });
     $( "#startRegister" ).click(function() {
@@ -52,21 +61,20 @@ $(document).ready(function(){
     });
     $( "#startGame" ).click(function() {
         if(clickAnimation==true){
-		var data = {};
-	   	    data['user_text'] = inputRead("#quotation");
-		ajax2(data);
+		game();
+
         }
     });
     $( "#ok" ).click(function() {
         if(clickAnimation==true){
 		var data = {};
-	   	    data['sel_lang'] = 'jp';/////////tu do zrobienia jezyk
-		    data['time'] = '100';
-		    data['difficulty'] = 'EASY';
+	   	    data['sel_lang'] = langClicki;
+		    data['time'] = 180;//////jppppppppp
+		    data['difficulty'] = dificultyClick; 
 		ajax2(data);
         }
     });
-    $( ".accountButtonLogOut" ).click(function() { //uwaga usunąć ten wywoływacz
+    $( ".accountButtonLogOut" ).click(function() { 
         if(clickAnimation==true){
             clickStop();
 		var data = {};
@@ -136,8 +144,10 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty_update'] = 'EASY';
+	   	    data['difficulty'] = 'EASY';
 		ajax2(data);
+			dificultyClick='EASY'
+			$(".difficultyDisplays").html(dificultyClick);
         }
     });
     $("#NORMAL").click(function() {
@@ -145,8 +155,10 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty_update'] = 'NORMAL';
+	   	    data['difficulty'] = 'NORMAL';
 		ajax2(data);
+			dificultyClick='NORMAL'
+			$(".difficultyDisplays").html(dificultyClick);
         }
     });
     $("#HARD").click(function() {
@@ -154,8 +166,10 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty_update'] = 'HARD';
+	   	    data['difficulty'] = 'HARD';
 		ajax2(data);
+			dificultyClick='Hard'
+			$(".difficultyDisplays").html(dificultyClick);
         }
     });
 
@@ -348,8 +362,70 @@ function inputRead(y){
 
 	return (val);
 }
+function langList(){
+	$( "#az" ).click(function() {   $("#langClick").html("az");  langClicki='az';  });
+	$( "#sq" ).click(function() {   $("#langClick").html("sq");langClicki='sq';    });
+	$( "#am" ).click(function() {   $("#langClick").html("am");langClicki='am';    });
+	$( "#en" ).click(function() {   $("#langClick").html("en");langClicki='en';    });
+	$( "#ar" ).click(function() {   $("#langClick").html("ar");langClicki='az';    });
 
+	$( "#hy" ).click(function() {   $("#langClick").html("hy");langClicki='hy';    });
+	$( "#af" ).click(function() {   $("#langClick").html("af");langClicki='af';    });
+	$( "#eu" ).click(function() {   $("#langClick").html("eu");langClicki='eu';    });
+	$( "#ba" ).click(function() {   $("#langClick").html("ba");langClicki='ba';    });
+	$( "#be" ).click(function() {   $("#langClick").html("be");langClicki='be';    });
 
+	$( "#bn" ).click(function() {   $("#langClick").html("bn");langClicki='bn';    });
+	$( "#my" ).click(function() {   $("#langClick").html("my");langClicki='my';    });
+	$( "#bg" ).click(function() {   $("#langClick").html("bg");langClicki='bg';    });
+	$( "#bs" ).click(function() {   $("#langClick").html("bs");langClicki='bs';    });
+	$( "#cy" ).click(function() {   $("#langClick").html("cy");langClicki='cy';    });
+
+	$( "#hu" ).click(function() {   $("#langClick").html("hu");langClicki='hu';    });
+	$( "#vi" ).click(function() {   $("#langClick").html("vi");langClicki='vi';    });
+	$( "#ht" ).click(function() {   $("#langClick").html("ht");langClicki='ht';    });
+	$( "#gl" ).click(function() {   $("#langClick").html("gl");langClicki='gl';    });
+	$( "#nl" ).click(function() {   $("#langClick").html("nl");langClicki='nl';    });
+
+	$( "#mrj" ).click(function() {   $("#langClick").html("mrj");langClicki='mrj';    });
+	$( "#el" ).click(function() {   $("#langClick").html("el");langClicki='el';    });
+	$( "#ka" ).click(function() {   $("#langClick").html("ka");langClicki='ka';    });
+	$( "#gu" ).click(function() {   $("#langClick").html("gu");langClicki='gu';    });
+	$( "#da" ).click(function() {   $("#langClick").html("da");langClicki='da';    });
+}
+function loadnig()
+{
+			$("#nick").html("Nick: "+json.login);
+			$("#score").html("score: "+json.score);
+			$("#score2").html(json.score);
+			time=json.time;
+			dificultyClick=json.difficulty
+			$(".difficultyDisplays").html(dificultyClick);
+			
+
+			login();
+}
+function sesion()
+{
+	var data = {};
+	   data['session'] = true;
+	   ajax2(data);
+	setTimeout(function(){
+	    if(json.id_user>0){
+			loadnig();
+	    }
+	}, 1000);
+}
+function game(){
+		var data = {};
+	   	    data['user_text'] = inputRead("#quotation");
+		ajax2(data);
+			setTimeout(function(){
+				//$("#TRANSTEXT").html(json.score);
+				//$("#DETECTLANG").html(json.score);
+			}, 1000);
+	
+}
 function ajax2(data){
 	$.ajax({
 		type:"POST",
@@ -357,8 +433,9 @@ function ajax2(data){
         dataType: 'json',
 		data: data,
 		success: function(response){
-			var json=JSON.stringify(response);
-			alert(json);
+			json=response;
+			alert(JSON.stringify(response));
+			
 		},
 		error: function(){
 		alert('Error Ajax:'+data);
