@@ -12,6 +12,7 @@ class Translation extends AbstractController
 
     public function translation($text)
     {
+        $text=str_replace(" ","%20", $text);
         $responseDetect = file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20181024T152959Z.102541e69e4b1ef4.7e3297d1e21110feb6f7ffe1672fcb702bc30b57&text='.$text);
         $responseDetect = json_decode($responseDetect);
         $responseDetect = $responseDetect->lang;

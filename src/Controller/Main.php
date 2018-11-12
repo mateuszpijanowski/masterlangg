@@ -110,22 +110,6 @@ class Main extends AbstractController
 
         }
 
-      /*
-      if(isset($_POST['#login']))
-        {
-            $login=$_POST['#login'];
-
-            $response=$this->forward('App\Controller\Ranking::ranking', array(
-                'login' => $login,
-            ));
-
-            $response=$response->getContent();
-            $response=json_decode($response, true);
-
-            return new JsonResponse($response);
-        }
-      */
-
         // EDIT ACCOUNT
 
         /*

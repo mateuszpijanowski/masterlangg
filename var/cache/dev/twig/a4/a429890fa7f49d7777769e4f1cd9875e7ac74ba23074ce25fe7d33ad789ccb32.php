@@ -84,9 +84,9 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t</div>
 
 \t\t<div class=\"account-pageContent1\">
-\t\t\t<div class=\"account\">NICK: zdzisia</div>
+\t\t\t<div class=\"account\" id=\"nick\">NICK: zdzisia</div>
 \t\t\t<div class=\"account accountButton rankingPosition\">RANKING POSITION: 1564</div>
-\t\t\t<div class=\"account\">SCORE: 534jp3</div>
+\t\t\t<div class=\"account\" id=\"score\">SCORE: 534jp3</div>
 \t\t\t<input class=\"accountButtonLogOut account\"type=\"submit\" value=\"LOGOUT\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent0\">
@@ -148,7 +148,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<div class=\"col-sm-6\">
 \t\t\t\t<div class=\"topDiv\">
 \t\t\t\t\t<p class=\"score\">SCORE</p>
-\t\t\t\t\t9608
+\t\t\t\t\t<p id=\"score2\">9608</p>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-sm-3\">
@@ -157,7 +157,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"offset-xl-2 col-xl-1 offset-md-2 col-md-2\">
-\t\t\t\t<div class=\"window\">12
+\t\t\t\t<div class=\"window\" id=\"DETECTLANG\">
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-5 col-md-3\">
@@ -177,18 +177,47 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t</div>
 
 \t\t\t<div class=\"offset-xl-2 col-xl-1 offset-md-2 col-md-2\">
-\t\t\t\t<div class=\"window\">12
+\t\t\t\t<div class=\"window\" id=\"langClick\">
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-6 col-md-4\">
-\t\t\t\t<div class=\"window\">jp
+\t\t\t\t<div class=\"window\" id=\"TRANSTEXT\">
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-1  col-md-2 \">
 \t\t\t\t<button class=\"startGame\" id=\"ok\">OK</button>
 \t\t\t</div>
 \t\t\t<div class=\"offset-md-2 col-md-8 offsset-md-2\">
-\t\t\t\t<div class=\"window langList\">jp
+\t\t\t\t<div class=\"window langList\">
+\t\t\t\t\t<button id=\"az\" class=\"langButton\">Azerbaijan</button>
+\t\t\t\t\t<button id=\"sq\" class=\"langButton\">Albanian</button>
+\t\t\t\t\t<button id=\"am\" class=\"langButton\">Amharic</button>
+\t\t\t\t\t<button id=\"en\" class=\"langButton\">English</button>
+\t\t\t\t\t<button id=\"ar\" class=\"langButton\">Arabic</button>
+
+\t\t\t\t\t<button id=\"hy\" class=\"langButton\">Armenian</button>
+\t\t\t\t\t<button id=\"af\" class=\"langButton\">Afrikaans</button>
+\t\t\t\t\t<button id=\"eu\" class=\"langButton\">Basque</button>
+\t\t\t\t\t<button id=\"ba\" class=\"langButton\">Bashkir</button>
+\t\t\t\t\t<button id=\"be\" class=\"langButton\">Belarusian</button>
+
+\t\t\t\t\t<button id=\"bn\" class=\"langButton\">Bengali</button>
+\t\t\t\t\t<button id=\"my\" class=\"langButton\">Burmese</button>
+\t\t\t\t\t<button id=\"bg\" class=\"langButton\">Bulgarian</button>
+\t\t\t\t\t<button id=\"bs\" class=\"langButton\">Bosnian</button>
+\t\t\t\t\t<button id=\"cy\" class=\"langButton\">Welsh</button>
+
+\t\t\t\t\t<button id=\"hu\" class=\"langButton\">Hungarian</button>
+\t\t\t\t\t<button id=\"vi\" class=\"langButton\">Vietnamese</button>
+\t\t\t\t\t<button id=\"ht\" class=\"langButton\">Haitian (Creole)</button>
+\t\t\t\t\t<button id=\"gl\" class=\"langButton\">Galician</button>
+\t\t\t\t\t<button id=\"nl\" class=\"langButton\">Dutch</button>
+
+\t\t\t\t\t<button id=\"mrj\" class=\"langButton\">Hill Mari</button>
+\t\t\t\t\t<button id=\"el\" class=\"langButton\">Greek</button>
+\t\t\t\t\t<button id=\"ka\" class=\"langButton\">Georgian</button>
+\t\t\t\t\t<button id=\"gu\" class=\"langButton\">Gujarati</button>
+\t\t\t\t\t<button id=\"da\" class=\"langButton\">Danish</button>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
@@ -276,9 +305,9 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t</div>
 
 \t\t<div class=\"account-pageContent1\">
-\t\t\t<div class=\"account\">NICK: zdzisia</div>
+\t\t\t<div class=\"account\" id=\"nick\">NICK: zdzisia</div>
 \t\t\t<div class=\"account accountButton rankingPosition\">RANKING POSITION: 1564</div>
-\t\t\t<div class=\"account\">SCORE: 534jp3</div>
+\t\t\t<div class=\"account\" id=\"score\">SCORE: 534jp3</div>
 \t\t\t<input class=\"accountButtonLogOut account\"type=\"submit\" value=\"LOGOUT\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent0\">
@@ -340,7 +369,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<div class=\"col-sm-6\">
 \t\t\t\t<div class=\"topDiv\">
 \t\t\t\t\t<p class=\"score\">SCORE</p>
-\t\t\t\t\t9608
+\t\t\t\t\t<p id=\"score2\">9608</p>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-sm-3\">
@@ -349,7 +378,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"offset-xl-2 col-xl-1 offset-md-2 col-md-2\">
-\t\t\t\t<div class=\"window\">12
+\t\t\t\t<div class=\"window\" id=\"DETECTLANG\">
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-5 col-md-3\">
@@ -369,18 +398,47 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t</div>
 
 \t\t\t<div class=\"offset-xl-2 col-xl-1 offset-md-2 col-md-2\">
-\t\t\t\t<div class=\"window\">12
+\t\t\t\t<div class=\"window\" id=\"langClick\">
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-6 col-md-4\">
-\t\t\t\t<div class=\"window\">jp
+\t\t\t\t<div class=\"window\" id=\"TRANSTEXT\">
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-1  col-md-2 \">
 \t\t\t\t<button class=\"startGame\" id=\"ok\">OK</button>
 \t\t\t</div>
 \t\t\t<div class=\"offset-md-2 col-md-8 offsset-md-2\">
-\t\t\t\t<div class=\"window langList\">jp
+\t\t\t\t<div class=\"window langList\">
+\t\t\t\t\t<button id=\"az\" class=\"langButton\">Azerbaijan</button>
+\t\t\t\t\t<button id=\"sq\" class=\"langButton\">Albanian</button>
+\t\t\t\t\t<button id=\"am\" class=\"langButton\">Amharic</button>
+\t\t\t\t\t<button id=\"en\" class=\"langButton\">English</button>
+\t\t\t\t\t<button id=\"ar\" class=\"langButton\">Arabic</button>
+
+\t\t\t\t\t<button id=\"hy\" class=\"langButton\">Armenian</button>
+\t\t\t\t\t<button id=\"af\" class=\"langButton\">Afrikaans</button>
+\t\t\t\t\t<button id=\"eu\" class=\"langButton\">Basque</button>
+\t\t\t\t\t<button id=\"ba\" class=\"langButton\">Bashkir</button>
+\t\t\t\t\t<button id=\"be\" class=\"langButton\">Belarusian</button>
+
+\t\t\t\t\t<button id=\"bn\" class=\"langButton\">Bengali</button>
+\t\t\t\t\t<button id=\"my\" class=\"langButton\">Burmese</button>
+\t\t\t\t\t<button id=\"bg\" class=\"langButton\">Bulgarian</button>
+\t\t\t\t\t<button id=\"bs\" class=\"langButton\">Bosnian</button>
+\t\t\t\t\t<button id=\"cy\" class=\"langButton\">Welsh</button>
+
+\t\t\t\t\t<button id=\"hu\" class=\"langButton\">Hungarian</button>
+\t\t\t\t\t<button id=\"vi\" class=\"langButton\">Vietnamese</button>
+\t\t\t\t\t<button id=\"ht\" class=\"langButton\">Haitian (Creole)</button>
+\t\t\t\t\t<button id=\"gl\" class=\"langButton\">Galician</button>
+\t\t\t\t\t<button id=\"nl\" class=\"langButton\">Dutch</button>
+
+\t\t\t\t\t<button id=\"mrj\" class=\"langButton\">Hill Mari</button>
+\t\t\t\t\t<button id=\"el\" class=\"langButton\">Greek</button>
+\t\t\t\t\t<button id=\"ka\" class=\"langButton\">Georgian</button>
+\t\t\t\t\t<button id=\"gu\" class=\"langButton\">Gujarati</button>
+\t\t\t\t\t<button id=\"da\" class=\"langButton\">Danish</button>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>

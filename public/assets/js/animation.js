@@ -70,7 +70,7 @@ $(document).ready(function(){
 		var data = {};
 	   	    data['sel_lang'] = langClicki;
 		    data['time'] = 180;//////jppppppppp
-		    data['difficulty'] = dificultyClick; 
+		    data['difficulty'] = dificultyClick;
 		ajax2(data);
         }
     });
@@ -144,7 +144,7 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty'] = 'EASY';
+	   	    data['difficulty_update'] = 'EASY';
 		ajax2(data);
 			dificultyClick='EASY'
 			$(".difficultyDisplays").html(dificultyClick);
@@ -155,7 +155,7 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty'] = 'NORMAL';
+	   	    data['difficulty_update'] = 'NORMAL';
 		ajax2(data);
 			dificultyClick='NORMAL'
 			$(".difficultyDisplays").html(dificultyClick);
@@ -166,7 +166,7 @@ $(document).ready(function(){
             clickStop();
             PageMenuHide(".options-page");
             	var data = {};
-	   	    data['difficulty'] = 'HARD';
+	   	    data['difficulty_update'] = 'HARD';
 		ajax2(data);
 			dificultyClick='Hard'
 			$(".difficultyDisplays").html(dificultyClick);

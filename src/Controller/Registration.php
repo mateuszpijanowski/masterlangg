@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\UserCache;
 use App\Entity\UserData;
+use App\Entity\UserRanking;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -61,6 +62,7 @@ class Registration extends AbstractController
             $reg_cache->setTime(180);
 
             $entityManager->persist($reg_cache);
+
             $entityManager->flush();
 
             return new JsonResponse("OK");
