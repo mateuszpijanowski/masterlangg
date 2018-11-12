@@ -419,13 +419,6 @@
         <argument type="service" id=".service_locator.ychIlgF.App\Controller\NewPass"/>
       </call>
     </service>
-    <service id="App\Controller\Ranking" class="App\Controller\Ranking" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.ychIlgF.App\Controller\Ranking"/>
-      </call>
-    </service>
     <service id="App\Controller\Registration" class="App\Controller\Registration" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -1951,14 +1944,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -4216,9 +4201,6 @@
     <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Ranking" class="App\Controller\Ranking" public="false" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Ranking" class="App\Controller\Ranking" public="false" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Ranking" class="App\Controller\Ranking" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4381,19 +4363,11 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.gGr0Wzu" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="connection" type="service" id="doctrine.dbal.default_connection"/>
-      </argument>
-    </service>
-    <service id=".service_locator.Cmub4ix" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.OieSNJ8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Main::main" type="service" id=".service_locator.XMePXeM"/>
-        <argument key="App\Controller\Ranking::ranking" type="service" id=".service_locator.gGr0Wzu"/>
         <argument key="App\Controller\Main:main" type="service" id=".service_locator.XMePXeM"/>
-        <argument key="App\Controller\Ranking:ranking" type="service" id=".service_locator.gGr0Wzu"/>
       </argument>
     </service>
     <service id=".service_locator.yQVjGlt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4630,7 +4604,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.Cmub4ix"/>
+      <argument type="service" id=".service_locator.OieSNJ8"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -4678,11 +4652,6 @@
     </service>
     <service id=".service_locator.ychIlgF.App\Controller\NewPass" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>App\Controller\NewPass</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.ychIlgF" method="withContext"/>
-    </service>
-    <service id=".service_locator.ychIlgF.App\Controller\Ranking" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <argument>App\Controller\Ranking</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.ychIlgF" method="withContext"/>
     </service>
@@ -5078,7 +5047,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.Cmub4ix"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.OieSNJ8"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~lqGrC8_" public="false"/>

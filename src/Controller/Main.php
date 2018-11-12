@@ -52,6 +52,22 @@ class Main extends AbstractController
             $login=$_POST['login'];
             $pass=$_POST['password'];
 
+            // VALIDATION //
+            htmlentities($login); // REMOVE HTML SIGN
+            $login=str_replace(" ","", $login); // REMOVE SPACE
+            $pass=str_replace(" ","", $pass); // REMOVE SPACE
+            if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $login)) // DETECT INCORRECT SIGN
+            {
+                return new JsonResponse("Login have incorrect sign");
+                exit;
+            }
+
+            if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $pass)) // DETECT INCORRECT SIGN
+            {
+                return new JsonResponse("Pass have incorrect sign");
+                exit;
+            }
+
             $response=$this->forward('App\Controller\LoginTest::login', array(
                 'login' => $login,
                 'pass' => $pass,
@@ -96,18 +112,49 @@ class Main extends AbstractController
             $pass_reg2 = $_POST['password2'];
             $email_reg = $_POST['emailRegister'];
 
-            if ($pass_reg1 == $pass_reg2) {
-                $response = $this->forward('App\Controller\Registration::registration', array(
-                    'login_reg' => $login_reg,
-                    'pass_reg' => $pass_reg1,
-                    'email_reg' => $email_reg,
-                ));
-
-                return new JsonResponse($response->getContent());
-            } else {
-                return new JsonResponse("Bad password");
+            // VALIDATION //
+            htmlentities($login_reg); // REMOVE HTML SIGN
+            htmlentities($email_reg); // REMOVE HTML SIGN
+            $login_reg=str_replace(" ","", $login_reg); // REMOVE SPACE
+            $pass_reg1=str_replace(" ","", $pass_reg1); // REMOVE SPACE
+            $pass_reg2=str_replace(" ","", $pass_reg2); // REMOVE SPACE
+            $email_reg=str_replace(" ","", $email_reg); // REMOVE SPACE
+            if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $login_reg)) // DETECT INCORRECT SIGN
+            {
+                return new JsonResponse("Login have incorrect sign");
+                exit;
             }
 
+            if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $pass_reg1)) // DETECT INCORRECT SIGN
+            {
+                return new JsonResponse("Pass have incorrect sign");
+                exit;
+            }
+
+            if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $email_reg)) // DETECT INCORRECT SIGN
+            {
+                return new JsonResponse("Email have incorrect sign");
+                exit;
+            }
+
+            if (preg_match("/[@]/", $email_reg)) // EMAIL MUST HAVE '@'
+            {
+                if ($pass_reg1 == $pass_reg2) {
+                    $response = $this->forward('App\Controller\Registration::registration', array(
+                        'login_reg' => $login_reg,
+                        'pass_reg' => $pass_reg1,
+                        'email_reg' => $email_reg,
+                    ));
+
+                    return new JsonResponse($response->getContent());
+                } else {
+                    return new JsonResponse("Bad password");
+                }
+            }
+
+            else {
+                return new JsonResponse("Email must have @");
+            }
         }
 
         // EDIT ACCOUNT
@@ -119,6 +166,15 @@ class Main extends AbstractController
         if(isset($_POST['ChangeLOGIN']))
         {
             $new_login=$_POST['ChangeLOGIN'];
+
+            // VALIDATION //
+            htmlentities($new_login); // REMOVE HTML SIGN
+            $new_login=str_replace(" ","", $new_login); // REMOVE SPACE
+            if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $new_login)) // DETECT INCORRECT SIGN
+            {
+                return new JsonResponse("New login have incorrect sign");
+                exit;
+            }
 
             $response=$this->forward('App\Controller\NewLogin::newlogin', array(
                 'newlogin' => $new_login,
@@ -145,6 +201,15 @@ class Main extends AbstractController
             $new_pass1=$_POST['ChangePASSWORD1'];
             $new_pass2=$_POST['ChangePASSWORD2'];
 
+            // VALIDATION //
+            $new_pass1=str_replace(" ","", $new_pass1); // REMOVE SPACE
+            $new_pass2=str_replace(" ","", $new_pass2); // REMOVE SPACE
+            if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $new_pass1)) // DETECT INCORRECT SIGN
+            {
+                return new JsonResponse("New pass have incorrect sign");
+                exit;
+            }
+
             if($new_pass1==$new_pass2)
             {
                 $response=$this->forward('App\Controller\NewPass::newpass', array(
@@ -165,6 +230,15 @@ class Main extends AbstractController
         if(isset($_POST['ChangeMAIL']))
         {
             $new_email = $_POST['ChangeMAIL'];
+
+            // VALIDATION //
+            htmlentities($new_email); // REMOVE HTML SIGN
+            $new_email=str_replace(" ","", $new_email); // REMOVE SPACE
+            if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $new_email)) // DETECT INCORRECT SIGN
+            {
+                return new JsonResponse("New email have incorrect sign");
+                exit;
+            }
 
             $response=$this->forward('App\Controller\NewEmail::newemail', array(
                 'newemail' => $new_email,
@@ -211,6 +285,19 @@ class Main extends AbstractController
         if(isset($_POST['user_text']))
         {
             $user_text=$_POST['user_text'];
+
+            // VALIDATION //
+            if (preg_match('/[\'^0-9£$%&*()}{@#~?><>,|=_+¬-]/', $user_text)) // DETECT SPECIAL SIGN
+            {
+                return new JsonResponse("Your text have incorrect sign!");
+                exit;
+            }
+
+            if (strlen($user_text)>50) // MAX 50 LETTERS
+            {
+                return new JsonResponse("Your text is too long (max 50 lettesrs!)");
+                exit;
+            }
 
             $response=$this->forward('App\Controller\Translation::translation', array(
                 'text' => $user_text,
