@@ -20,7 +20,7 @@ class Reset extends AbstractController
         if(!$user)
         {
             return new JsonResponse("ERROR");
-            exit();
+            exit;
         }
 
         $score=$user->getScore();

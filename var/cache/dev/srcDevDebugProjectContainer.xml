@@ -426,6 +426,13 @@
         <argument type="service" id=".service_locator.ychIlgF.App\Controller\NewPass"/>
       </call>
     </service>
+    <service id="App\Controller\PassRecovery" class="App\Controller\PassRecovery" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\PassRecovery"/>
+      </call>
+    </service>
     <service id="App\Controller\Registration" class="App\Controller\Registration" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4211,6 +4218,9 @@
     <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\NewPass" class="App\Controller\NewPass" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\PassRecovery" class="App\Controller\PassRecovery" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PassRecovery" class="App\Controller\PassRecovery" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PassRecovery" class="App\Controller\PassRecovery" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Registration" class="App\Controller\Registration" public="false" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4667,6 +4677,11 @@
     </service>
     <service id=".service_locator.ychIlgF.App\Controller\NewPass" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>App\Controller\NewPass</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\PassRecovery" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\PassRecovery</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.ychIlgF" method="withContext"/>
     </service>

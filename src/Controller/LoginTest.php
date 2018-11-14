@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\UserCache;
 use App\Entity\UserData;
-use App\Entity\UserRanking;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,9 +19,10 @@ class LoginTest extends AbstractController
             'pass' => $pass,
         ]);
 
-        if($user->getActive()=="1")
+        if ($user)
         {
-            if ($user)
+
+            if($user->getActive()=="1")
             {
                 $id_user = $user->getIdUser();
                 $email = $user->getEmail();
@@ -47,11 +47,11 @@ class LoginTest extends AbstractController
                 return new JsonResponse($response);
             }
             else {
-                return new JsonResponse("Bad login or password!");
+                return new JsonResponse("This account isn't active!");
             }
         }
         else {
-            return new JsonResponse("This account isn't active!");
+            return new JsonResponse("Bad login or password!");
         }
     }
 }

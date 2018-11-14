@@ -59,7 +59,9 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<input type=\"text\" id=\"login\" placeholder=\"username\"/>
 \t\t\t<input type=\"password\" id=\"password\" placeholder=\"password\"/>
 \t\t\t<button class=\"start\" >login</button>
+\t\t\t<p class=\"error\" id=\"errorLogin\"><p>
 \t\t\t<p class=\"message\">Not registered? <a href=\"#\" id=\"registerAnimation\">Create an account</a></p>
+\t\t\t<p class=\"message\"><a href=\"#\" id=\"memorablePasswordAnimation\">Memorable Password</a></p>
 \t\t\t<p class=\"copy\" >&copy; by Mateusz Pijanowski and Michał Kubiak</p>
 \t\t</div>
 \t</div>
@@ -72,7 +74,16 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t<input type=\"password\" placeholder=\"password\" id=\"password2\"/>
 \t\t<input type=\"text\" placeholder=\"email address\" id=\"emailRegister\"/>
 \t\t<button id=\"startRegister\">create</button>
-\t\t<p class=\"message\">Already registered? <a href=\"#\" id=\"loginAnimation\">Sign In</a></p>
+\t\t<p class=\"error\" id=\"errorRegister\"><p>
+\t\t<p class=\"message\">Already registered? <a href=\"#\" class=\"loginAnimation\">Sign In</a></p>
+\t</div>
+</div>
+<div class=\"memorablePassword-page\">
+\t<div class=\"form\">
+\t\t<input type=\"text\" placeholder=\"email address\" id=\"emailMemorablePassword\"/>
+\t\t<button id=\"startMemorablePassword\">create</button>
+\t\t<p class=\"error\" id=\"errorMemorablePassword\"><p>
+\t\t<p class=\"message\">Already registered? <a href=\"#\" class=\"loginAnimation\">Sign In</a></p>
 \t</div>
 </div>
 <div class=\"account-page\">
@@ -106,6 +117,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t<div class=\"form formChange\">
 \t\t\t<form class=\"formCHANGELOGIN\">
 \t\t\t\t<input type=\"text\" class=\"ChangeLOGIN\"  placeholder=\"New Login\"/>
+\t\t\t\t<p class=\"error\" id=\"error0\"><p>
 \t\t\t\t<button id=\"ChangeLOGIN\" >Change</button>
 \t\t\t</form>
 \t\t</div>
@@ -116,6 +128,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<form class=\"formCHANGEPASSWORD\">
 \t\t\t\t<input type=\"password\" class=\"ChangePASSWORD1\" placeholder=\"New Password\"/>
 \t\t\t\t<input type=\"password\" class=\"ChangePASSWORD2\" placeholder=\"Repeat New Password\"/>
+\t\t\t\t<p class=\"error\" id=\"error1\"><p>
 \t\t\t\t<button id=\"ChangePASSWORD\" >Change</button>
 \t\t\t</form>
 \t\t</div>
@@ -125,6 +138,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t<div class=\"form formChange\">
 \t\t\t<form class=\"formCHANGEE-MAIL\">
 \t\t\t\t<input type=\"text\" class=\"ChangeMAIL\"  placeholder=\"New E-Mail\"/>
+\t\t\t\t<p class=\"error\" id=\"error2\"><p>
 \t\t\t\t<button id=\"ChangeMAIL\" >Change</button>
 \t\t\t</form>
 \t\t</div>
@@ -169,7 +183,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-1 col-md-2\">
-\t\t\t\t<div class=\"window\">12
+\t\t\t\t<div class=\"window\" id=\"timer\">
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-12\">
@@ -280,7 +294,9 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<input type=\"text\" id=\"login\" placeholder=\"username\"/>
 \t\t\t<input type=\"password\" id=\"password\" placeholder=\"password\"/>
 \t\t\t<button class=\"start\" >login</button>
+\t\t\t<p class=\"error\" id=\"errorLogin\"><p>
 \t\t\t<p class=\"message\">Not registered? <a href=\"#\" id=\"registerAnimation\">Create an account</a></p>
+\t\t\t<p class=\"message\"><a href=\"#\" id=\"memorablePasswordAnimation\">Memorable Password</a></p>
 \t\t\t<p class=\"copy\" >&copy; by Mateusz Pijanowski and Michał Kubiak</p>
 \t\t</div>
 \t</div>
@@ -293,7 +309,16 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t<input type=\"password\" placeholder=\"password\" id=\"password2\"/>
 \t\t<input type=\"text\" placeholder=\"email address\" id=\"emailRegister\"/>
 \t\t<button id=\"startRegister\">create</button>
-\t\t<p class=\"message\">Already registered? <a href=\"#\" id=\"loginAnimation\">Sign In</a></p>
+\t\t<p class=\"error\" id=\"errorRegister\"><p>
+\t\t<p class=\"message\">Already registered? <a href=\"#\" class=\"loginAnimation\">Sign In</a></p>
+\t</div>
+</div>
+<div class=\"memorablePassword-page\">
+\t<div class=\"form\">
+\t\t<input type=\"text\" placeholder=\"email address\" id=\"emailMemorablePassword\"/>
+\t\t<button id=\"startMemorablePassword\">create</button>
+\t\t<p class=\"error\" id=\"errorMemorablePassword\"><p>
+\t\t<p class=\"message\">Already registered? <a href=\"#\" class=\"loginAnimation\">Sign In</a></p>
 \t</div>
 </div>
 <div class=\"account-page\">
@@ -327,6 +352,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t<div class=\"form formChange\">
 \t\t\t<form class=\"formCHANGELOGIN\">
 \t\t\t\t<input type=\"text\" class=\"ChangeLOGIN\"  placeholder=\"New Login\"/>
+\t\t\t\t<p class=\"error\" id=\"error0\"><p>
 \t\t\t\t<button id=\"ChangeLOGIN\" >Change</button>
 \t\t\t</form>
 \t\t</div>
@@ -337,6 +363,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<form class=\"formCHANGEPASSWORD\">
 \t\t\t\t<input type=\"password\" class=\"ChangePASSWORD1\" placeholder=\"New Password\"/>
 \t\t\t\t<input type=\"password\" class=\"ChangePASSWORD2\" placeholder=\"Repeat New Password\"/>
+\t\t\t\t<p class=\"error\" id=\"error1\"><p>
 \t\t\t\t<button id=\"ChangePASSWORD\" >Change</button>
 \t\t\t</form>
 \t\t</div>
@@ -346,6 +373,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t<div class=\"form formChange\">
 \t\t\t<form class=\"formCHANGEE-MAIL\">
 \t\t\t\t<input type=\"text\" class=\"ChangeMAIL\"  placeholder=\"New E-Mail\"/>
+\t\t\t\t<p class=\"error\" id=\"error2\"><p>
 \t\t\t\t<button id=\"ChangeMAIL\" >Change</button>
 \t\t\t</form>
 \t\t</div>
@@ -390,7 +418,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-1 col-md-2\">
-\t\t\t\t<div class=\"window\">12
+\t\t\t\t<div class=\"window\" id=\"timer\">
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"col-xl-12\">

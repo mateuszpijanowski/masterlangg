@@ -69,13 +69,11 @@ class Main extends AbstractController
                 exit;
             }
 
-            // REQUEST
             $response=$this->forward('App\Controller\LoginTest::login', array(
                 'login' => $login,
                 'pass' => $pass,
             ));
 
-            // RESPONSE
             $response=$response->getContent();
             $response=json_decode($response, true);
 
@@ -165,6 +163,7 @@ class Main extends AbstractController
                     ));
 
                     return new JsonResponse($response->getContent());
+
                 } else {
                     return new JsonResponse("Bad password");
                 }
@@ -380,7 +379,7 @@ class Main extends AbstractController
             if($response=="Difficulty ERROR!")
             {
                 return new JsonResponse($response);
-                exit();
+                exit;
             }
 
             $score=$response['score'];
@@ -425,6 +424,34 @@ class Main extends AbstractController
             return new JsonResponse($response->getContent());
         }
 
+        // PASSWORD RECOVERY //
+
+        /*
+         * RETURN:
+         * +VERFY CODE HAS BEEN SENT TO YOUR E-MAIL
+         * OR
+         * +EMAIL MUST HAVE '@' /
+         * +E-MAIL WAS NOT FOUND /
+         * +EMAIL SEND ERROR
+         */
+        if(isset($_POST['emailMemorablePassword']))
+        {
+            $email=$_POST['emailMemorablePassword'];
+
+            if (preg_match("/[@]/", $email)) // EMAIL MUST HAVE '@'
+            {
+                $response=$this->forward('App\Controller\PassRecovery::recovery', array(
+                    'email' => $email,
+                ));
+
+                return new JsonResponse($response->getContent());
+            }
+
+            else {
+                return new JsonResponse("Email must have '@'");
+            }
+        }
+
         // GET REQUEST //
         if(isset($_GET['status']) && isset($_GET['code']))
         {
@@ -434,7 +461,6 @@ class Main extends AbstractController
             if ($status=="1") // ACTIVE ACCOUNT
             {
                 $access=$this->forward('App\Controller\AccessAcount::access', array(
-                    'status' => $status,
                     'code' => $code,
                 ));
 
@@ -452,7 +478,9 @@ class Main extends AbstractController
 
             elseif ($status=="2") // CHENGE PASSWORD
             {
-                exit;
+                $this->forward('App\Controller\PassRecovery::chenge_pass', array(
+                    'code' => $code,
+                ));
             }
 
             else {
