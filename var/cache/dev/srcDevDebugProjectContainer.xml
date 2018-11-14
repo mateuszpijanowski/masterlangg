@@ -377,6 +377,13 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>/var/www/html/masterlangg/var/log/dev.log</argument>
     </service>
+    <service id="App\Controller\AccessAcount" class="App\Controller\AccessAcount" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ychIlgF.App\Controller\AccessAcount"/>
+      </call>
+    </service>
     <service id="App\Controller\Difficulty" class="App\Controller\Difficulty" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4183,6 +4190,9 @@
         <argument>server:log</argument>
       </call>
     </service>
+    <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\AccessAcount" class="App\Controller\AccessAcount" public="false" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AccessAcount" class="App\Controller\AccessAcount" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AccessAcount" class="App\Controller\AccessAcount" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\DependencyInjection\ServiceSubscriberInterface.0.App\Controller\Difficulty" class="App\Controller\Difficulty" public="false" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Difficulty" class="App\Controller\Difficulty" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Difficulty" class="App\Controller\Difficulty" public="false" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4624,6 +4634,11 @@
         <argument key="session" type="service" id="session" on-invalid="ignore"/>
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.ychIlgF.App\Controller\AccessAcount" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <argument>App\Controller\AccessAcount</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ychIlgF" method="withContext"/>
     </service>
     <service id=".service_locator.ychIlgF.App\Controller\Difficulty" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>App\Controller\Difficulty</argument>

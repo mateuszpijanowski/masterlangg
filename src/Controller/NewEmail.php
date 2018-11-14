@@ -26,6 +26,6 @@ class NewEmail extends AbstractController
         $update->setEmail($newemail);
         $entityManager->flush();
 
-        return new JsonResponse("OK");
+        return new JsonResponse("E-mail has been chenged");
     }
 }

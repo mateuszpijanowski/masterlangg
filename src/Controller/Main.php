@@ -15,15 +15,15 @@ class Main extends AbstractController
      * @Route("/")
      */
 
-    public function main(SessionInterface $session)
+    public function main(SessionInterface $session) // IMPORT SESSION
     {
 
-        // SESSION START
+        // SESSION START //
         $session=new Session();
 
         /// AJAX RESPONSE ///
 
-        // SESSION RESPONSE
+        // SESSION RESPONSE //
 
         /*
          * RETURN
@@ -34,7 +34,7 @@ class Main extends AbstractController
             return new JsonResponse($session->all());
         }
 
-        // LOG IN
+        // LOG IN //
 
         /*
          * RETURN:
@@ -45,7 +45,8 @@ class Main extends AbstractController
          * +DIFFICULTY
          * +TIME
          * OR
-         * +BAD LOGIN OR PASSWORD
+         * +BAD LOGIN OR PASSWORD /
+         * +THIS ACCOUNT ISN'T ACTIVE
          */
         if(isset($_POST['login']) && isset($_POST['password']))
         {
@@ -68,11 +69,13 @@ class Main extends AbstractController
                 exit;
             }
 
+            // REQUEST
             $response=$this->forward('App\Controller\LoginTest::login', array(
                 'login' => $login,
                 'pass' => $pass,
             ));
 
+            // RESPONSE
             $response=$response->getContent();
             $response=json_decode($response, true);
 
@@ -82,29 +85,44 @@ class Main extends AbstractController
                 exit();
             }
 
-            $id_user=$response['id_user'];
-            $login=$response['login'];
-            $email=$response['email'];
-            $score=$response['score'];
-            $difficulty=$response['difficulty'];
-            $time=$response['time'];
+            elseif($response=="This account isn't active!")
+            {
+                return new JsonResponse($response);
+                exit();
+            }
 
-            // MAIN SESSION CREATE
-            $session->set('id_user', $id_user);
-            $session->set('login', $login);
-            $session->set('email', $email);
-            $session->set('score', $score);
-            $session->set('difficulty', $difficulty);
-            $session->set('time', $time);
+            else {
+                $id_user=$response['id_user'];
+                $login=$response['login'];
+                $email=$response['email'];
+                $score=$response['score'];
+                $difficulty=$response['difficulty'];
+                $time=$response['time'];
 
-            return new JsonResponse($response);
+                // MAIN SESSION CREATE
+                $session->set('id_user', $id_user);
+                $session->set('login', $login);
+                $session->set('email', $email);
+                $session->set('score', $score);
+                $session->set('difficulty', $difficulty);
+                $session->set('time', $time);
+
+                return new JsonResponse($response);
+            }
         }
 
-        // REGISTRATION
+        // REGISTRATION //
 
         /*
          * RETURN:
-         * +OK/BAD NICK/BAD EMAIL
+         * +ACCOUNT HAS BEEN CREATED
+         * OR
+         * +BAD NICK /
+         * +BAD EMAIL /
+         * +EMAIL HAVE INCORRECT SIGN /
+         * +BAD PASSWORD /
+         * +EMAIL MUST HAVE '@' /
+         * +E-MAIL SEND ERROR
          */
         if(isset($_POST['loginRegister']) && isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['emailRegister'])) {
             $login_reg = $_POST['loginRegister'];
@@ -153,15 +171,18 @@ class Main extends AbstractController
             }
 
             else {
-                return new JsonResponse("Email must have @");
+                return new JsonResponse("Email must have '@'");
             }
         }
 
-        // EDIT ACCOUNT
+        // EDIT ACCOUNT //
 
         /*
          * RETURN:
-         * +OK/ERROR
+         * +NICK HAS BEEN CHENGED
+         * OR
+         * +ERROR /
+         * +NEW LOGIN HAVE INCORRECT SIGN
          */
         if(isset($_POST['ChangeLOGIN']))
         {
@@ -194,7 +215,11 @@ class Main extends AbstractController
 
         /*
          * RETURN:
-         * +OK/ERROR/BAD PASSWORD
+         * +PASSWORD HAS BEEN CHENGED
+         * OR
+         * +ERROR /
+         * +BAD PASSWORD /
+         * +NEW PASS HAVE INCORRECT SIGN
          */
         if(isset($_POST['ChangePASSWORD1']) && isset($_POST['ChangePASSWORD2']))
         {
@@ -225,7 +250,10 @@ class Main extends AbstractController
 
         /*
          * RETURN:
-         * +OK/ERROR
+         * +E-MAIL HAS BEEN CHENGED
+         * OR
+         * +ERROR /
+         * +NEW EMAIL HAVE INCORRECT SIGN
          */
         if(isset($_POST['ChangeMAIL']))
         {
@@ -256,11 +284,13 @@ class Main extends AbstractController
             return new JsonResponse($response);
         }
 
-        // DIFFICULTY
+        // DIFFICULTY //
 
         /*
          * RETURN:
-         * +OK/ERROR
+         * +TIME
+         * OR
+         * +DB ERROR
          */
         if(isset($_POST['difficulty_update']))
         {
@@ -274,13 +304,16 @@ class Main extends AbstractController
             return new JsonResponse($response->getContent());
         }
 
-        // TRANSLATION
+        // TRANSLATION TEXT //
 
         /*
          * RETURN:
          * +DETECTLANG
          * +RANDOMLANG
          * +TRANSTEXT
+         * OR
+         * +YOUR TEXT HAVE INCCORECT SIGN /
+         * +TOUR TEXT IS TOO LONG
          */
         if(isset($_POST['user_text']))
         {
@@ -315,7 +348,7 @@ class Main extends AbstractController
             return new JsonResponse($response);
         }
 
-        // TRANSLATION TEST
+        // TRANSLATION TEST //
 
         /*
          * RETURN:
@@ -323,8 +356,6 @@ class Main extends AbstractController
          * +SCORE
          * OR
          * +DIFFICULTY ERROR
-         * OR
-         * +ERROR!
          */
         if(isset($_POST['sel_lang']) && isset($_POST['time']) && isset($_POST['difficulty']))
         {
@@ -371,10 +402,9 @@ class Main extends AbstractController
             else {
                 return new JsonResponse($score_update);
             }
-
         }
 
-        // RESTART
+        // RESTART //
 
         /*
          * RETURN:
@@ -395,7 +425,42 @@ class Main extends AbstractController
             return new JsonResponse($response->getContent());
         }
 
-        // LOG OUT
+        // GET REQUEST //
+        if(isset($_GET['status']) && isset($_GET['code']))
+        {
+            $status=$_GET['status'];
+            $code=$_GET['code'];
+
+            if ($status=="1") // ACTIVE ACCOUNT
+            {
+                $access=$this->forward('App\Controller\AccessAcount::access', array(
+                    'status' => $status,
+                    'code' => $code,
+                ));
+
+                $access=$access->getContent();
+
+                if ($access=="OK")
+                {
+                    return $this->render('base.html.twig');
+                }
+
+                else {
+                    return new JsonResponse($access);
+                }
+            }
+
+            elseif ($status=="2") // CHENGE PASSWORD
+            {
+                exit;
+            }
+
+            else {
+                return new JsonResponse("Bad status");
+            }
+        }
+
+        // LOG OUT //
         if(isset($_POST['logout']))
         {
             $session->clear(); // CLEAR ALL SESSION
@@ -403,7 +468,7 @@ class Main extends AbstractController
             return new JsonResponse(true);
         }
 
-        // HTML RENDER
+        // HTML RENDER //
         return $this->render('base.html.twig'); // NO TOUCH THIS!
     }
 }

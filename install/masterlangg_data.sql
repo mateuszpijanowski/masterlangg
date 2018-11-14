@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2018 at 05:39 PM
+-- Generation Time: Nov 14, 2018 at 08:16 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.11-4+0~20181106031630.10+stretch~1.gbp789850
 
@@ -150,7 +150,7 @@ CREATE TABLE `user_cache` (
 --
 
 INSERT INTO `user_cache` (`id_cache`, `id_user`, `difficulty`, `time`, `score`) VALUES
-(1, 1, 'NORMAL', 120, 0),
+(1, 1, 'EASY', 180, 0),
 (2, 2, 'EASY', 180, 0),
 (3, 3, 'easy', 180, 0),
 (4, 4, 'easy', 180, 0),
@@ -166,43 +166,21 @@ CREATE TABLE `user_data` (
   `id_user` int(11) NOT NULL,
   `nick` varchar(255) NOT NULL,
   `pass` text NOT NULL,
-  `email` text NOT NULL
+  `email` text NOT NULL,
+  `access_code` text,
+  `active` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_data`
 --
 
-INSERT INTO `user_data` (`id_user`, `nick`, `pass`, `email`) VALUES
-(1, 'admin', '1111', '1234'),
-(2, 'tester1', '1234', '1234'),
-(3, 'tester2', '1234', '1234'),
-(4, 'tester3', '1234', '1234'),
-(5, 'adam', '1234', '1234');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_ranking`
---
-
-CREATE TABLE `user_ranking` (
-  `id_ranking` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `nick` varchar(255) NOT NULL,
-  `score` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user_ranking`
---
-
-INSERT INTO `user_ranking` (`id_ranking`, `id_user`, `nick`, `score`) VALUES
-(1, 1, 'admin', 0),
-(2, 2, 'tester1', 0),
-(3, 3, 'tester2', 0),
-(4, 4, 'tester3', 0),
-(5, 5, 'adam', 0);
+INSERT INTO `user_data` (`id_user`, `nick`, `pass`, `email`, `access_code`, `active`) VALUES
+(1, 'admin', '1111', '1234', NULL, 1),
+(2, 'tester1', '1234', '1234', NULL, 1),
+(3, 'tester2', '1234', '1234', NULL, 1),
+(4, 'tester3', '1234', '1234', NULL, 1),
+(5, 'adam', '1234', '1234', NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -230,15 +208,6 @@ ALTER TABLE `user_data`
 ALTER TABLE `user_data` ADD FULLTEXT KEY `nick` (`nick`);
 
 --
--- Indexes for table `user_ranking`
---
-ALTER TABLE `user_ranking`
-  ADD PRIMARY KEY (`id_ranking`),
-  ADD UNIQUE KEY `id_user` (`id_user`),
-  ADD UNIQUE KEY `nick_2` (`nick`);
-ALTER TABLE `user_ranking` ADD FULLTEXT KEY `nick` (`nick`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -257,22 +226,6 @@ ALTER TABLE `user_cache`
 --
 ALTER TABLE `user_data`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `user_ranking`
---
-ALTER TABLE `user_ranking`
-  MODIFY `id_ranking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `user_ranking`
---
-ALTER TABLE `user_ranking`
-  ADD CONSTRAINT `user_ranking_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user_data` (`id_user`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_ranking_ibfk_3` FOREIGN KEY (`nick`) REFERENCES `user_data` (`nick`) ON UPDATE CASCADE;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -26,6 +26,6 @@ class NewLogin extends AbstractController
         $update->setNick($newlogin);
         $entityManager->flush();
 
-        return new JsonResponse("OK");
+        return new JsonResponse("Nick has been chenged");
     }
 }

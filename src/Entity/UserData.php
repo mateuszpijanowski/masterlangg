@@ -42,6 +42,20 @@ class UserData
      */
     private $email;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="access_code", type="text", length=65535, nullable=true)
+     */
+    private $accessCode;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="active", type="integer", nullable=false)
+     */
+    private $active = '0';
+
     public function getIdUser(): ?int
     {
         return $this->idUser;
@@ -79,6 +93,30 @@ class UserData
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getAccessCode(): ?string
+    {
+        return $this->accessCode;
+    }
+
+    public function setAccessCode(?string $accessCode): self
+    {
+        $this->accessCode = $accessCode;
+
+        return $this;
+    }
+
+    public function getActive(): ?int
+    {
+        return $this->active;
+    }
+
+    public function setActive(int $active): self
+    {
+        $this->active = $active;
 
         return $this;
     }

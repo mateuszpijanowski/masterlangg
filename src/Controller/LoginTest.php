@@ -20,34 +20,38 @@ class LoginTest extends AbstractController
             'pass' => $pass,
         ]);
 
-        if($user)
+        if($user->getActive()=="1")
         {
-            $id_user=$user->getIdUser();
-            $email=$user->getEmail();
-            $repositoryCache=$this->getDoctrine()->getRepository(UserCache::class);
-            $userCache=$repositoryCache->findOneby([
-                'idUser' => $id_user,
-            ]);
+            if ($user)
+            {
+                $id_user = $user->getIdUser();
+                $email = $user->getEmail();
+                $repositoryCache = $this->getDoctrine()->getRepository(UserCache::class);
+                $userCache = $repositoryCache->findOneby([
+                    'idUser' => $id_user,
+                ]);
 
-            $score=$userCache->getScore();
-            $difficulty=$userCache->getDifficulty();
-            $time=$userCache->getTime();
+                $score = $userCache->getScore();
+                $difficulty = $userCache->getDifficulty();
+                $time = $userCache->getTime();
 
-            $response=array(
-                "id_user"=>$id_user,
-                "login"=>$login,
-                "email"=>$email,
-                "score"=>$score,
-                "difficulty"=>$difficulty,
-                "time"=>$time,
-            );
+                $response = array(
+                    "id_user" => $id_user,
+                    "login" => $login,
+                    "email" => $email,
+                    "score" => $score,
+                    "difficulty" => $difficulty,
+                    "time" => $time,
+                );
 
-            return new JsonResponse($response);
+                return new JsonResponse($response);
+            }
+            else {
+                return new JsonResponse("Bad login or password!");
+            }
         }
-
-        else
-        {
-            return new JsonResponse("Bad login or password!");
+        else {
+            return new JsonResponse("This account isn't active!");
         }
     }
 }

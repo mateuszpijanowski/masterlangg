@@ -26,6 +26,6 @@ class NewPass extends AbstractController
         $update->setPass($newpass);
         $entityManager->flush();
 
-        return new JsonResponse("OK");
+        return new JsonResponse("Password has been chenged");
     }
 }

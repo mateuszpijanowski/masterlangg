@@ -19,7 +19,7 @@ class Difficulty extends AbstractController
 
         if(!$update)
         {
-            return new JsonResponse("Error!");
+            return new JsonResponse("DB Error!");
             exit;
         }
 
