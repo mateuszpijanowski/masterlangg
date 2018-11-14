@@ -19,7 +19,7 @@ class ScoreUpdate extends AbstractController
 
         if(!$update_cache)
         {
-            return new JsonResponse("Error!");
+            return new JsonResponse("Score error!");
             exit();
         }
 

@@ -354,7 +354,8 @@ class Main extends AbstractController
          * +STATUS [TRUE/FLASE]
          * +SCORE
          * OR
-         * +DIFFICULTY ERROR
+         * +DIFFICULTY ERROR /
+         * +SCORE ERROR
          */
         if(isset($_POST['sel_lang']) && isset($_POST['time']) && isset($_POST['difficulty']))
         {
@@ -392,10 +393,11 @@ class Main extends AbstractController
             ));
 
             $score_update=$score_update->getContent();
+            $score_update=json_decode($score_update);
 
             if($score_update=="OK")
             {
-                return new JsonResponse($response);
+                return new JsonResponse($score);
             }
 
             else {

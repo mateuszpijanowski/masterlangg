@@ -80,6 +80,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 </div>
 <div class=\"memorablePassword-page\">
 \t<div class=\"form\">
+\t\t<p class=\"stringRegister\" >Memorable Password</p>
 \t\t<input type=\"text\" placeholder=\"email address\" id=\"emailMemorablePassword\"/>
 \t\t<button id=\"startMemorablePassword\">create</button>
 \t\t<p class=\"error\" id=\"errorMemorablePassword\"><p>
@@ -95,14 +96,15 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t</div>
 
 \t\t<div class=\"account-pageContent1\">
-\t\t\t<div class=\"account\" id=\"nick\">NICK: zdzisia</div>
-\t\t\t<div class=\"account accountButton rankingPosition\">RANKING POSITION: 1564</div>
-\t\t\t<div class=\"account\" id=\"score\">SCORE: 534jp3</div>
+\t\t\t<div class=\"account\" id=\"nick\">NICK: </div>
+\t\t\t<div class=\"account accountButton rankingPosition\">RANKING POSITION: </div>
+\t\t\t<div class=\"account\" id=\"score\">SCORE: </div>
+\t\t\t<div class=\"account accountButton abaut\">abaut</div>
 \t\t\t<input class=\"accountButtonLogOut account\"type=\"submit\" value=\"LOGOUT\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent0\">
-\t\t\t<div class=\"account infoAccount\"><p>NICK: root</p>
-\t\t\t\tE-MAIL: root@wp.pl
+\t\t\t<div class=\"account infoAccount\"><p class=\"nick\">NICK: </p>
+\t\t\t\t\t\t\t <p class=\"email\">E-MAIL: </p>
 \t\t\t</div>
 \t\t\t<input class=\"accountButton account CHANGELOGIN\"type=\"submit\" value=\"Change LOGIN\"/>
 \t\t\t<input class=\"accountButton account CHANGEPASSWORD\"type=\"submit\" value=\"CHANGE PASSWORD\"/>
@@ -110,6 +112,14 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t</div>
 \t\t<div class=\"account-pageContent2\">
 \t\t\ttu se jest ranking
+\t\t</div>
+\t</div>\t
+\t<div class=\"abaut-page\">
+\t\t<input class=\"Back account\"type=\"submit\" value=\"Back\"/>
+\t\t<div class=\"form formChange\">
+\t\t\t<form class=\"formCHANGEE-MAIL\">
+\t\t\t\tDawno dawno temu za jp i hwdp zyli sobie dwaj jp kturzy wpadli na jp pomysł. mianowicie chcieli stworzyc jp o jp.
+\t\t\t</form>
 \t\t</div>
 \t</div>
 \t<div class=\"CHANGELOGIN-page\">
@@ -315,6 +325,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 </div>
 <div class=\"memorablePassword-page\">
 \t<div class=\"form\">
+\t\t<p class=\"stringRegister\" >Memorable Password</p>
 \t\t<input type=\"text\" placeholder=\"email address\" id=\"emailMemorablePassword\"/>
 \t\t<button id=\"startMemorablePassword\">create</button>
 \t\t<p class=\"error\" id=\"errorMemorablePassword\"><p>
@@ -330,14 +341,15 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t</div>
 
 \t\t<div class=\"account-pageContent1\">
-\t\t\t<div class=\"account\" id=\"nick\">NICK: zdzisia</div>
-\t\t\t<div class=\"account accountButton rankingPosition\">RANKING POSITION: 1564</div>
-\t\t\t<div class=\"account\" id=\"score\">SCORE: 534jp3</div>
+\t\t\t<div class=\"account\" id=\"nick\">NICK: </div>
+\t\t\t<div class=\"account accountButton rankingPosition\">RANKING POSITION: </div>
+\t\t\t<div class=\"account\" id=\"score\">SCORE: </div>
+\t\t\t<div class=\"account accountButton abaut\">abaut</div>
 \t\t\t<input class=\"accountButtonLogOut account\"type=\"submit\" value=\"LOGOUT\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent0\">
-\t\t\t<div class=\"account infoAccount\"><p>NICK: root</p>
-\t\t\t\tE-MAIL: root@wp.pl
+\t\t\t<div class=\"account infoAccount\"><p class=\"nick\">NICK: </p>
+\t\t\t\t\t\t\t <p class=\"email\">E-MAIL: </p>
 \t\t\t</div>
 \t\t\t<input class=\"accountButton account CHANGELOGIN\"type=\"submit\" value=\"Change LOGIN\"/>
 \t\t\t<input class=\"accountButton account CHANGEPASSWORD\"type=\"submit\" value=\"CHANGE PASSWORD\"/>
@@ -345,6 +357,14 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t</div>
 \t\t<div class=\"account-pageContent2\">
 \t\t\ttu se jest ranking
+\t\t</div>
+\t</div>\t
+\t<div class=\"abaut-page\">
+\t\t<input class=\"Back account\"type=\"submit\" value=\"Back\"/>
+\t\t<div class=\"form formChange\">
+\t\t\t<form class=\"formCHANGEE-MAIL\">
+\t\t\t\tDawno dawno temu za jp i hwdp zyli sobie dwaj jp kturzy wpadli na jp pomysł. mianowicie chcieli stworzyc jp o jp.
+\t\t\t</form>
 \t\t</div>
 \t</div>
 \t<div class=\"CHANGELOGIN-page\">

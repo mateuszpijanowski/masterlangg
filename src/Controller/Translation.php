@@ -63,23 +63,36 @@ class Translation extends AbstractController
             exit();
         }
 
-        $points=$difficulty_add*$time;
-
-        if($sel_lang==$random_lang)
-        {
-            $status=true;
-
-            $score=$score+$points;
-        }
-
-        else {
+        if($time==0) {
             $status=false;
 
-            $score=$score-$points;
+            $score=(int)$score-(int)$difficulty_add;
 
             if($score<0)
             {
                 $score=0;
+            }
+        }
+
+        else {
+            $points=$difficulty_add*$time;
+
+            if($sel_lang==$random_lang)
+            {
+                $status=true;
+
+                $score=$score+$points;
+            }
+
+            else {
+                $status=false;
+
+                $score=$score-$points;
+
+                if($score<0)
+                {
+                    $score=0;
+                }
             }
         }
 
