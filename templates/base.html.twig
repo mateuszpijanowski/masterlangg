@@ -31,7 +31,9 @@
 			<input type="text" id="login" placeholder="username"/>
 			<input type="password" id="password" placeholder="password"/>
 			<button class="start" >login</button>
+			<p class="error" id="errorLogin"><p>
 			<p class="message">Not registered? <a href="#" id="registerAnimation">Create an account</a></p>
+			<p class="message"><a href="#" id="memorablePasswordAnimation">Memorable Password</a></p>
 			<p class="copy" >&copy; by Mateusz Pijanowski and Michał Kubiak</p>
 		</div>
 	</div>
@@ -44,7 +46,16 @@
 		<input type="password" placeholder="password" id="password2"/>
 		<input type="text" placeholder="email address" id="emailRegister"/>
 		<button id="startRegister">create</button>
-		<p class="message">Already registered? <a href="#" id="loginAnimation">Sign In</a></p>
+		<p class="error" id="errorRegister"><p>
+		<p class="message">Already registered? <a href="#" class="loginAnimation">Sign In</a></p>
+	</div>
+</div>
+<div class="memorablePassword-page">
+	<div class="form">
+		<input type="text" placeholder="email address" id="emailMemorablePassword"/>
+		<button id="startMemorablePassword">create</button>
+		<p class="error" id="errorMemorablePassword"><p>
+		<p class="message">Already registered? <a href="#" class="loginAnimation">Sign In</a></p>
 	</div>
 </div>
 <div class="account-page">
@@ -78,6 +89,7 @@
 		<div class="form formChange">
 			<form class="formCHANGELOGIN">
 				<input type="text" class="ChangeLOGIN"  placeholder="New Login"/>
+				<p class="error" id="error0"><p>
 				<button id="ChangeLOGIN" >Change</button>
 			</form>
 		</div>
@@ -88,6 +100,7 @@
 			<form class="formCHANGEPASSWORD">
 				<input type="password" class="ChangePASSWORD1" placeholder="New Password"/>
 				<input type="password" class="ChangePASSWORD2" placeholder="Repeat New Password"/>
+				<p class="error" id="error1"><p>
 				<button id="ChangePASSWORD" >Change</button>
 			</form>
 		</div>
@@ -97,6 +110,7 @@
 		<div class="form formChange">
 			<form class="formCHANGEE-MAIL">
 				<input type="text" class="ChangeMAIL"  placeholder="New E-Mail"/>
+				<p class="error" id="error2"><p>
 				<button id="ChangeMAIL" >Change</button>
 			</form>
 		</div>
@@ -141,7 +155,7 @@
 
 			</div>
 			<div class="col-xl-1 col-md-2">
-				<div class="window">12
+				<div class="window" id="timer">
 				</div>
 			</div>
 			<div class="col-xl-12">
