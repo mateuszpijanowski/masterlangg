@@ -546,7 +546,6 @@ function okClick(){
 	ajax2(data);
 	refresh();
 	setTimeout(function(){
-		score=100;
 		$("#score2").html(json.score);
 		if(score<json.score)
 		{
