@@ -397,7 +397,7 @@ class Main extends AbstractController
 
             if($score_update=="OK")
             {
-                return new JsonResponse($score);
+                return new JsonResponse($response);
             }
 
             else {

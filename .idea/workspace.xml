@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3ec400-2f0a-40f3-bcfd-70ee18dfb2fa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ScoreUpdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ScoreUpdate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Translation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Translation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/2/Y/eis+XXe6jmiPbRBlxA94" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/2/Y/eis+XXe6jmiPbRBlxA94" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/9/0VkFqQO779r1q--dXb6z" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/9/0VkFqQO779r1q--dXb6z" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/V/H/PqW8VvDVBjs8gMT+dBVG" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/V/H/PqW8VvDVBjs8gMT+dBVG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/a4/a429890fa7f49d7777769e4f1cd9875e7ac74ba23074ce25fe7d33ad789ccb32.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/a4/a429890fa7f49d7777769e4f1cd9875e7ac74ba23074ce25fe7d33ad789ccb32.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +43,7 @@
           <entry key="css" value="11" />
           <entry key="env" value="26" />
           <entry key="js" value="427" />
-          <entry key="php" value="14363" />
+          <entry key="php" value="14366" />
           <entry key="twig" value="439" />
           <entry key="yaml" value="15" />
         </counts>
@@ -65,7 +54,7 @@
           <entry key="CSS" value="11" />
           <entry key="HTML" value="10" />
           <entry key="JavaScript" value="427" />
-          <entry key="PHP" value="14342" />
+          <entry key="PHP" value="14345" />
           <entry key="SQL" value="11" />
           <entry key="Twig" value="439" />
           <entry key="YAML" value="15" />
@@ -109,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="361" column="41" lean-forward="true" selection-start-line="361" selection-start-column="41" selection-end-line="361" selection-end-column="41" />
+            <state relative-caret-position="615">
+              <caret line="399" column="49" selection-start-line="399" selection-start-column="49" selection-end-line="399" selection-end-column="49" />
               <folding>
                 <element signature="e#34#84#0#PHP" expanded="true" />
               </folding>
@@ -122,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/ScoreUpdate.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding>
                 <element signature="e#34#59#0#PHP" expanded="true" />
               </folding>
@@ -305,7 +294,7 @@
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="27" />
     <option name="width" value="960" />
     <option name="height" value="1020" />
@@ -467,12 +456,12 @@
       <workItem from="1542006345608" duration="3598000" />
       <workItem from="1542093862355" duration="3256000" />
       <workItem from="1542176354945" duration="7779000" />
-      <workItem from="1542191159000" duration="1297000" />
+      <workItem from="1542191159000" duration="1374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104056000" />
+    <option name="totallyTimeSpent" value="104133000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -740,7 +729,7 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/ScoreUpdate.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
           <folding>
             <element signature="e#34#59#0#PHP" expanded="true" />
           </folding>
@@ -749,8 +738,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="361" column="41" lean-forward="true" selection-start-line="361" selection-start-column="41" selection-end-line="361" selection-end-column="41" />
+        <state relative-caret-position="615">
+          <caret line="399" column="49" selection-start-line="399" selection-start-column="49" selection-end-line="399" selection-end-column="49" />
           <folding>
             <element signature="e#34#84#0#PHP" expanded="true" />
           </folding>
