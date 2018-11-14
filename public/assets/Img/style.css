@@ -4,7 +4,7 @@ body{
 	font-size:30px;
 	
 	}
-@media only screen and (max-width: 1140px) {
+@media only screen and (max-width: 1140px) {	
 	.account-page{
 	width:80% !important;
 	left:10% !important;
@@ -124,6 +124,7 @@ a:hover {
 	font-size:11px;
 	margin-bottom:0px;
 }
+.abaut-page,
 .CHANGELOGIN-page,
 .CHANGEPASSWORD-page,
 .CHANGEE-MAIL-page{
@@ -238,7 +239,7 @@ a:hover {
 }
 .langList
 {	margin-top:5%;
-	height:300px;
+	height:auto;
 	line-height:140% !important;
 	padding:10px;
 }
@@ -694,4 +695,21 @@ a:hover {
 }
 #ok{
 	font-size:100%;
+}
+.error{
+opacity:1;
+font-size:12px;
+color:#fff;
+}
+.langButton{
+	border:3px solid #cf324e;
+	color:#cf324e;
+	border-radius:5px;
+	background-color:#202227;
+	margin:2px;
+}
+.langButton:hover,.langButton:active,.langButton:focus {
+  background: #101217;
+  color:#cf324e;
+  cursor:pointer;
 }

@@ -147,6 +147,12 @@ $(document).ready(function(){
             accountPageOut(2);
         }
     });
+    $(".abaut" ).click(function() {
+        if(clickAnimation==true){
+            clickStop();
+            abautPageOut(2);
+        }
+    });
 
     $(".Back").click(function() {
         if(clickAnimation==true){
@@ -167,7 +173,9 @@ $(document).ready(function(){
 	   	    data['difficulty_update'] = 'EASY';
 		ajax2(data);
 			time=json.time;
-				setTimeout(function(){$("#timer").html(time);}, 1000);
+				setTimeout(function(){
+					time=json.time;					
+					$("#timer").html(time);}, 1000);
 			dificultyClick='EASY'
 			$(".difficultyDisplays").html(dificultyClick);
         }
@@ -179,8 +187,9 @@ $(document).ready(function(){
             	var data = {};
 	   	    data['difficulty_update'] = 'NORMAL';
 		ajax2(data);
-			time=json.time;
-				setTimeout(function(){$("#timer").html(time);}, 1000);
+				setTimeout(function(){
+					time=json.time;
+					$("#timer").html(time);}, 1000);
 			dificultyClick='NORMAL'
 			$(".difficultyDisplays").html(dificultyClick);
         }
@@ -192,8 +201,10 @@ $(document).ready(function(){
             	var data = {};
 	   	    data['difficulty_update'] = 'HARD';
 		ajax2(data);
-			time=json.time;
-				setTimeout(function(){$("#timer").html(time);}, 1000);
+			
+				setTimeout(function(){
+					time=json.time;
+					$("#timer").html(time);}, 1000);
 			dificultyClick='Hard'
 			$(".difficultyDisplays").html(dificultyClick);
         }
@@ -371,6 +382,22 @@ function accountPageOut(x){
     }, 500);
 
 }
+function abautPageOut(x){
+    currentOnTheChange = ".abaut-page";
+    $('.account-page-content').addClass('animated fadeOut');
+    setTimeout(function(){
+        $('.account-page-content').css('display', 'none');
+        $('.account-page-content').removeClass('animated fadeOut');
+
+
+        $(".abaut-page").css('display', 'block');
+        $(".abaut-page").addClass('animated fadeIn');
+        setTimeout(function(){
+            $(tabChange[x]).removeClass('animated fadeIn');
+        }, 500);
+    }, 500);
+
+}
 function accountPageIn(){
     $(currentOnTheChange).addClass('animated fadeOut');
     setTimeout(function(){
@@ -435,7 +462,9 @@ function langList(){
 }
 function loadnig()
 {		if(json.id_user>0){
-			$("#nick").html("Nick: "+json.login);
+			$(".nick").html("Nick: "+json.login);
+			$("#nick").html("Nick: "+json.login);			
+			$(".email").html("E-MAIL: "+json.email);			
 			$("#score").html("score: "+json.score);
 			$("#score2").html(json.score);
 			time=json.time;
