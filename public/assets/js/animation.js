@@ -8,7 +8,7 @@ let langClicki ;
 let dificultyClick;
 let json;
 let time;
-
+let stopTime=true;
 $(document).ready(function(){
 	langList();
 	sesion();
@@ -21,6 +21,7 @@ $(document).ready(function(){
    		data['password'] = inputRead("#password");
 	    ajax2(data);
 	    setTimeout(function(){
+			$("#errorLogin").html(json);
 			loadnig();
 	    }, 1000);
         }
@@ -33,6 +34,15 @@ $(document).ready(function(){
 		    data['password2'] = inputRead("#password2");
 	   	    data['emailRegister'] = inputRead("#emailRegister");
 		ajax2(data);
+			//setTimeout(function(){$("#errorRegister").html(json);}, 1000);//linika do od kometowania
+        }
+    });
+    $( "#startMemorablePassword" ).click(function() {
+        if(clickAnimation==true){
+		var data = {};
+	   	    data['emailMemorablePassword'] = inputRead("#emailMemorablePassword");
+		ajax2(data);
+			//setTimeout(function(){$("#errorMemorablePassword").html(json);}, 1000);//linika do od kometowania
         }
     });
     $( "#ChangeLOGIN" ).click(function() {
@@ -41,6 +51,7 @@ $(document).ready(function(){
 		var data = {};
 	   	    data['ChangeLOGIN'] = inputRead(".ChangeLOGIN");
 		ajax2(data);
+		setTimeout(function(){$("#error0").html(json);}, 1000);
         }
     });
     $( "#ChangePASSWORD" ).click(function() {
@@ -49,6 +60,7 @@ $(document).ready(function(){
 		    data['ChangePASSWORD1'] = inputRead(".ChangePASSWORD1");
 	   	    data['ChangePASSWORD2'] = inputRead(".ChangePASSWORD2");
 		ajax2(data);
+		setTimeout(function(){$("#error1").html(json);}, 1000);
         }
     });
     $( "#ChangeMAIL" ).click(function() {
@@ -57,6 +69,7 @@ $(document).ready(function(){
 		var data = {};
 	   	    data['ChangeMAIL'] = inputRead(".ChangeMAIL");
 		ajax2(data);
+		setTimeout(function(){$("#error2").html(json);}, 1000);
         }
     });
     $( "#startGame" ).click(function() {
@@ -69,7 +82,8 @@ $(document).ready(function(){
         if(clickAnimation==true){
 		var data = {};
 	   	    data['sel_lang'] = langClicki;
-		    data['time'] = 180;//////jppppppppp
+		    data['time'] = time;
+			$("#timer").html(time);
 		    data['difficulty'] = dificultyClick;
 		ajax2(data);
         }
@@ -95,7 +109,7 @@ $(document).ready(function(){
             PageMenuShow(".options-page");
         }
     });
-    $( "#loginAnimation" ).click(function() {
+    $( ".loginAnimation" ).click(function() {
         if(clickAnimation==true){
             clickStop();
             loginAnimation();
@@ -105,6 +119,12 @@ $(document).ready(function(){
         if(clickAnimation==true){
             clickStop();
             registerAnimation();
+        }
+    });
+    $("#memorablePasswordAnimation" ).click(function() {
+        if(clickAnimation==true){
+            clickStop();
+            memorablePasswordAnimation();
         }
     });
 
@@ -146,6 +166,8 @@ $(document).ready(function(){
             	var data = {};
 	   	    data['difficulty_update'] = 'EASY';
 		ajax2(data);
+			time=json.time;
+				setTimeout(function(){$("#timer").html(time);}, 1000);
 			dificultyClick='EASY'
 			$(".difficultyDisplays").html(dificultyClick);
         }
@@ -157,6 +179,8 @@ $(document).ready(function(){
             	var data = {};
 	   	    data['difficulty_update'] = 'NORMAL';
 		ajax2(data);
+			time=json.time;
+				setTimeout(function(){$("#timer").html(time);}, 1000);
 			dificultyClick='NORMAL'
 			$(".difficultyDisplays").html(dificultyClick);
         }
@@ -168,6 +192,8 @@ $(document).ready(function(){
             	var data = {};
 	   	    data['difficulty_update'] = 'HARD';
 		ajax2(data);
+			time=json.time;
+				setTimeout(function(){$("#timer").html(time);}, 1000);
 			dificultyClick='Hard'
 			$(".difficultyDisplays").html(dificultyClick);
         }
@@ -232,10 +258,24 @@ function registerAnimation(){
         }
     });
 }
+function memorablePasswordAnimation(){
+    dimnesShow();
+    $('.memorablePassword-page').css('display', 'block');
+    $('.memorablePassword-page').removeClass('animated bounceOutUp');
+    $('.memorablePassword-page').addClass('animated bounceInDown');
+    $('.login-page').addClass('animated bounceOutLeft');
+    $(".dimness" ).click(function() {
+        if(clickAnimation==true){
+            loginAnimation();
+        }
+    });
+}
 function loginAnimation(){
     dimnesHide();
     $('.register-page').removeClass('animated bounceInDown');
     $('.register-page').addClass('animated bounceOutUp');
+    $('.memorablePassword-page').removeClass('animated bounceInDown');
+    $('.memorablePassword-page').addClass('animated bounceOutUp');
     setTimeout(function(){
         $('.login-page').removeClass('animated bounceOutLeft');
         $('.login-page').addClass('animated bounceInLeft');}, 250);
@@ -345,8 +385,8 @@ function accountPageIn(){
 
 }
 function clickStop(){
-    clickAnimation=false;
-    setTimeout(function(){clickAnimation=true;}, 1100);
+    clickAnimationclickAnimation=false;
+    setTimeout(function(){clickAnimationclickAnimation=true;}, 1000);
 }
 function inputRead(y){
 
@@ -394,16 +434,29 @@ function langList(){
 	$( "#da" ).click(function() {   $("#langClick").html("da");langClicki='da';    });
 }
 function loadnig()
-{
+{		if(json.id_user>0){
 			$("#nick").html("Nick: "+json.login);
 			$("#score").html("score: "+json.score);
 			$("#score2").html(json.score);
 			time=json.time;
+			$("#timer").html(time);
 			dificultyClick=json.difficulty
 			$(".difficultyDisplays").html(dificultyClick);
 			
-
+			//json.user_lang
+			//json.user_text
 			login();
+			if(json.transtext!=null){
+				$("#TRANSTEXT").html(json.transtext);
+				$("#DETECTLANG").html(json.detectlang);
+				timee();}
+		}
+}
+function timee(){
+	if(time>1 && stopTime==false){
+	setTimeout(function(){time=time-1;
+	$("#timer").html(time);
+	timee()}, 1000);}
 }
 function sesion()
 {
@@ -417,15 +470,19 @@ function sesion()
 	}, 1000);
 }
 function game(){
+		stopTime=true;
 		var data = {};
 	   	    data['user_text'] = inputRead("#quotation");
 		ajax2(data);
 			setTimeout(function(){
-				//$("#TRANSTEXT").html(json.score);
-				//$("#DETECTLANG").html(json.score);
-			}, 1000);
+				$("#TRANSTEXT").html(json.transtext);
+				$("#DETECTLANG").html(json.detectlang);
+				stopTime=false
+				timee();
+			}, 2000);
 	
 }
+
 function ajax2(data){
 	$.ajax({
 		type:"POST",

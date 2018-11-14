@@ -10,6 +10,7 @@ body{
 	left:10% !important;
 
 }
+.memorablePassword-page,
 .register-page{
 	left:25% !important;
 	width:50% !important;
@@ -30,6 +31,7 @@ body{
 	width:70% !important;
 	left:15% !important;
 }
+.memorablePassword-page,
 .register-page{
 	left:15% !important;
 	width:70% !important;
@@ -54,7 +56,7 @@ body{
 .animationMenu1In{
     animation: animation16 0.5s normal forwards !important;
 }
-
+.memorablePassword-page,
 .register-page{
 	left:5% !important;
 	width:90% !important;
@@ -202,6 +204,7 @@ a:hover {
 {
 	padding:0px;
 }
+.memorablePassword-page,
 .register-page{
   position:absolute;
   top:20%;
