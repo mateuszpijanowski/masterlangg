@@ -8,7 +8,10 @@ let langClicki ;
 let dificultyClick;
 let json;
 let time;
+let timegame
 let stopTime=true;
+let okLock=true;
+let score;
 $(document).ready(function(){
 	langList();
 	sesion();
@@ -34,7 +37,7 @@ $(document).ready(function(){
 		    data['password2'] = inputRead("#password2");
 	   	    data['emailRegister'] = inputRead("#emailRegister");
 		ajax2(data);
-			//setTimeout(function(){$("#errorRegister").html(json);}, 1000);//linika do od kometowania
+			setTimeout(function(){$("#errorRegister").html(json);}, 1000);
         }
     });
     $( "#startMemorablePassword" ).click(function() {
@@ -42,12 +45,12 @@ $(document).ready(function(){
 		var data = {};
 	   	    data['emailMemorablePassword'] = inputRead("#emailMemorablePassword");
 		ajax2(data);
-			//setTimeout(function(){$("#errorMemorablePassword").html(json);}, 1000);//linika do od kometowania
+			setTimeout(function(){$("#errorMemorablePassword").html(json);}, 1000);
         }
     });
     $( "#ChangeLOGIN" ).click(function() {
         if(clickAnimation==true){
-            
+
 		var data = {};
 	   	    data['ChangeLOGIN'] = inputRead(".ChangeLOGIN");
 		ajax2(data);
@@ -65,7 +68,7 @@ $(document).ready(function(){
     });
     $( "#ChangeMAIL" ).click(function() {
         if(clickAnimation==true){
-            
+
 		var data = {};
 	   	    data['ChangeMAIL'] = inputRead(".ChangeMAIL");
 		ajax2(data);
@@ -74,21 +77,17 @@ $(document).ready(function(){
     });
     $( "#startGame" ).click(function() {
         if(clickAnimation==true){
+		clickStop();
 		game();
 
         }
     });
     $( "#ok" ).click(function() {
-        if(clickAnimation==true){
-		var data = {};
-	   	    data['sel_lang'] = langClicki;
-		    data['time'] = time;
-			$("#timer").html(time);
-		    data['difficulty'] = dificultyClick;
-		ajax2(data);
-        }
+		if(okLock==false){
+			okClick();
+		}
     });
-    $( ".accountButtonLogOut" ).click(function() { 
+    $( ".accountButtonLogOut" ).click(function() {
         if(clickAnimation==true){
             clickStop();
 		var data = {};
@@ -99,12 +98,14 @@ $(document).ready(function(){
     });
     $( "#account" ).click(function() {
         if(clickAnimation==true){
+			refresh();
             clickStop();
             PageMenuShow(".account-page");
         }
     });
     $( "#options" ).click(function() {
         if(clickAnimation==true){
+			refresh();
             clickStop();
             PageMenuShow(".options-page");
         }
@@ -147,10 +148,10 @@ $(document).ready(function(){
             accountPageOut(2);
         }
     });
-    $(".abaut" ).click(function() {
+    $(".about" ).click(function() {
         if(clickAnimation==true){
             clickStop();
-            abautPageOut(2);
+            aboutPageOut(2);
         }
     });
 
@@ -172,9 +173,9 @@ $(document).ready(function(){
             	var data = {};
 	   	    data['difficulty_update'] = 'EASY';
 		ajax2(data);
-			time=json.time;
 				setTimeout(function(){
-					time=json.time;					
+					time=json;
+					timegame=time;
 					$("#timer").html(time);}, 1000);
 			dificultyClick='EASY'
 			$(".difficultyDisplays").html(dificultyClick);
@@ -188,7 +189,8 @@ $(document).ready(function(){
 	   	    data['difficulty_update'] = 'NORMAL';
 		ajax2(data);
 				setTimeout(function(){
-					time=json.time;
+					time=json
+					timegame=time;
 					$("#timer").html(time);}, 1000);
 			dificultyClick='NORMAL'
 			$(".difficultyDisplays").html(dificultyClick);
@@ -201,11 +203,12 @@ $(document).ready(function(){
             	var data = {};
 	   	    data['difficulty_update'] = 'HARD';
 		ajax2(data);
-			
+
 				setTimeout(function(){
-					time=json.time;
+					time=json;
+					timegame=time;
 					$("#timer").html(time);}, 1000);
-			dificultyClick='Hard'
+			dificultyClick='HARD'
 			$(".difficultyDisplays").html(dificultyClick);
         }
     });
@@ -382,16 +385,16 @@ function accountPageOut(x){
     }, 500);
 
 }
-function abautPageOut(x){
-    currentOnTheChange = ".abaut-page";
+function aboutPageOut(x){
+    currentOnTheChange = ".about-page";
     $('.account-page-content').addClass('animated fadeOut');
     setTimeout(function(){
         $('.account-page-content').css('display', 'none');
         $('.account-page-content').removeClass('animated fadeOut');
 
 
-        $(".abaut-page").css('display', 'block');
-        $(".abaut-page").addClass('animated fadeIn');
+        $(".about-page").css('display', 'block');
+        $(".about-page").addClass('animated fadeIn');
         setTimeout(function(){
             $(tabChange[x]).removeClass('animated fadeIn');
         }, 500);
@@ -412,8 +415,8 @@ function accountPageIn(){
 
 }
 function clickStop(){
-    clickAnimationclickAnimation=false;
-    setTimeout(function(){clickAnimationclickAnimation=true;}, 1000);
+    clickAnimation=false;
+    setTimeout(function(){clickAnimation=true;}, 1000);
 }
 function inputRead(y){
 
@@ -463,15 +466,17 @@ function langList(){
 function loadnig()
 {		if(json.id_user>0){
 			$(".nick").html("Nick: "+json.login);
-			$("#nick").html("Nick: "+json.login);			
-			$(".email").html("E-MAIL: "+json.email);			
+			$("#nick").html("Nick: "+json.login);
+			$(".email").html("E-MAIL: "+json.email);
 			$("#score").html("score: "+json.score);
 			$("#score2").html(json.score);
+			score=json.score;
 			time=json.time;
+			timegame=time;
 			$("#timer").html(time);
 			dificultyClick=json.difficulty
 			$(".difficultyDisplays").html(dificultyClick);
-			
+
 			//json.user_lang
 			//json.user_text
 			login();
@@ -499,19 +504,75 @@ function sesion()
 	}, 1000);
 }
 function game(){
+		refresh();
 		stopTime=true;
 		var data = {};
-	   	    data['user_text'] = inputRead("#quotation");
+	   	data['user_text'] = inputRead("#quotation");
+		if(data.user_text.length>0){
+		$("#ok").css('background-color', '#4CAF50');
+		okLock=false;
 		ajax2(data);
 			setTimeout(function(){
 				$("#TRANSTEXT").html(json.transtext);
 				$("#DETECTLANG").html(json.detectlang);
 				stopTime=false
 				timee();
-			}, 2000);
-	
-}
+			}, 1000);
+		}
+		else{
 
+		}
+}
+function refresh(){
+
+	stopTime=true;
+	time=timegame;
+	$("#timer").html(time);
+	$("#TRANSTEXT").html('');
+	$("#DETECTLANG").html('');
+	//$("#quotation").html();
+	$("#langClick").html('');
+	okLock=true;
+	$("#ok").css('background-color', '#696969');
+
+}
+function okClick(){
+	if(clickAnimation==true){
+	var data = {};
+		data['sel_lang'] = langClicki;
+		data['time'] = time;
+		$("#timer").html(time);
+		data['difficulty'] = dificultyClick;
+	ajax2(data);
+	refresh();
+	setTimeout(function(){
+		score=100;
+		$("#score2").html(json.score);
+		if(score<json.score)
+		{
+			$('#score2').addClass('animated colorGreen1');
+			setTimeout(function(){
+				$('#score2').removeClass('animated colorGreen1');
+				$('#score2').addClass('animated colorGreen2');
+				setTimeout(function(){
+					$('#score2').removeClass('animated colorGreen2');
+				}, 200);
+			}, 800);
+		}
+		else if (json.score<score) {
+			$('#score2').addClass('animated colorRed1');
+			setTimeout(function(){
+				$('#score2').removeClass('animated colorRed1');
+				$('#score2').addClass('animated colorRed2');
+				setTimeout(function(){
+					$('#score2').removeClass('animated colorRed2');
+				}, 200);
+			}, 800);
+		}
+		score=json.score;
+	}, 1000);
+	}
+}
 function ajax2(data){
 	$.ajax({
 		type:"POST",
@@ -520,8 +581,8 @@ function ajax2(data){
 		data: data,
 		success: function(response){
 			json=response;
-			alert(JSON.stringify(response));
-			
+			//alert(JSON.stringify(response));
+
 		},
 		error: function(){
 		alert('Error Ajax:'+data);
