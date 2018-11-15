@@ -171,6 +171,60 @@ class Main extends AbstractController
             }
         }
 
+        // RANKING & POSITION //
+
+        /*
+         * RETURN:
+         * +RANKING [ARRAY]
+         * OR
+         * +POSITION
+         * OR
+         * +BAD RANKING REQUIRE
+         */
+        if(isset($_POST['ranking']))
+        {
+            $ranking=$_POST['ranking'];
+
+            if($ranking=="ranking")
+            {
+                $response=$this->forward('App\Controller\Ranking::ranking');
+                $ranking=$response->getContent();
+
+                return new JsonResponse($ranking); // RANKING ARRAY RESPONSE
+            }
+
+            elseif ($ranking=="position")
+            {
+                $response=$this->forward('App\Controller\Ranking::ranking');
+                $ranking=$response->getContent();
+
+                $nick=$session->get('login');
+
+                $ranking=json_decode($ranking, true);
+
+                $i=-1;
+                foreach ($ranking as $item)
+                {
+                    $i++;
+                }
+
+                for($a=0; $i>=$a; $a++)
+                {
+                    if($ranking[$a]['Nick']==$nick)
+                    {
+                        $position=$a+1;
+                        break;
+                    }
+                }
+
+                return new JsonResponse($position); // POSITION RESPONSE
+            }
+
+            else {
+                return new JsonResponse("Bad ranking require");
+            }
+        }
+
         // EDIT ACCOUNT //
 
         /*

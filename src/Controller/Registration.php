@@ -112,7 +112,7 @@ class Registration extends AbstractController
                 $reg_cache->setIdUser($id_user);
                 $reg_cache->setScore(0);
                 $reg_cache->setDifficulty('EASY');
-                $reg_cache->setTime(180);
+                $reg_cache->setTime(60);
 
                 $entityManager->persist($reg_cache);
                 $entityManager->flush();
