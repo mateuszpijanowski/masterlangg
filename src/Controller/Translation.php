@@ -45,17 +45,17 @@ class Translation extends AbstractController
 
         if($difficulty=="EASY")
         {
-            $difficulty_add=100;
+            $difficulty_add=10;
         }
 
         elseif($difficulty=="NORMAL")
         {
-            $difficulty_add=250;
+            $difficulty_add=25;
         }
 
         elseif($difficulty=="HARD")
         {
-            $difficulty_add=500;
+            $difficulty_add=50;
         }
 
         else {
@@ -66,7 +66,7 @@ class Translation extends AbstractController
         if($time==0) {
             $status=false;
 
-            $score=(int)$score-(int)$difficulty_add;
+            $score=$score-$difficulty_add;
 
             if($score<0)
             {

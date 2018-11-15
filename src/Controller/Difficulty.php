@@ -27,17 +27,17 @@ class Difficulty extends AbstractController
 
         if($difficulty=="EASY")
         {
-            $time=180;
+            $time=60;
         }
 
         if($difficulty=="NORMAL")
         {
-            $time=120;
+            $time=30;
         }
 
         if($difficulty=="HARD")
         {
-            $time=90;
+            $time=15;
         }
 
         $update->setTime($time);

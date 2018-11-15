@@ -45,7 +45,10 @@ class Main extends AbstractController
          * +DIFFICULTY
          * +TIME
          * OR
-         * +BAD LOGIN OR PASSWORD /
+         * +LOGIN HAVE INCORRECT SIGN /
+         * +PASS HAVE INCORRECT SIGN /
+         * +BAD LOGIN /
+         * +BAD PASSWORD /
          * +THIS ACCOUNT ISN'T ACTIVE
          */
         if(isset($_POST['login']) && isset($_POST['password']))
@@ -77,19 +80,8 @@ class Main extends AbstractController
             $response=$response->getContent();
             $response=json_decode($response, true);
 
-            if($response=="Bad login or password!")
+            if(isset($response['id_user']))
             {
-                return new JsonResponse($response);
-                exit();
-            }
-
-            elseif($response=="This account isn't active!")
-            {
-                return new JsonResponse($response);
-                exit();
-            }
-
-            else {
                 $id_user=$response['id_user'];
                 $login=$response['login'];
                 $email=$response['email'];
@@ -106,6 +98,11 @@ class Main extends AbstractController
                 $session->set('time', $time);
 
                 return new JsonResponse($response);
+            }
+
+            else {
+                return new JsonResponse($response);
+                exit;
             }
         }
 
@@ -362,7 +359,7 @@ class Main extends AbstractController
             $sel_lang=$_POST['sel_lang'];
             $time=$_POST['time'];
             $difficulty=$_POST['difficulty'];
-            $score=$session->get('session');
+            $score=$session->get('score');
             $random_lang=$session->get('random_lang');
             $id_user=$session->get('id_user');
 
@@ -384,7 +381,6 @@ class Main extends AbstractController
             }
 
             $score=$response['score'];
-
             $session->set('score', $score);
 
             $score_update=$this->forward('App\Controller\ScoreUpdate::score_update', array(

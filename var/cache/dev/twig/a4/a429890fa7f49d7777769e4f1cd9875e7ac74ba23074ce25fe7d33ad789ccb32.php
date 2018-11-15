@@ -60,8 +60,8 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<input type=\"password\" id=\"password\" placeholder=\"password\"/>
 \t\t\t<button class=\"start\" >login</button>
 \t\t\t<p class=\"error\" id=\"errorLogin\"><p>
-\t\t\t<p class=\"message\">Not registered? <a href=\"#\" id=\"registerAnimation\">Create an account</a></p>
-\t\t\t<p class=\"message\"><a href=\"#\" id=\"memorablePasswordAnimation\">Memorable Password</a></p>
+\t\t\t<p class=\"message\">Not registered? <a href=\"#\" id=\"registerAnimation\">Create an account.</a>
+\t\t\t\t\t\tHave you forgotten your password? <a href=\"#\" id=\"memorablePasswordAnimation\">Remind Password.</a></p>
 \t\t\t<p class=\"copy\" >&copy; by Mateusz Pijanowski and Michał Kubiak</p>
 \t\t</div>
 \t</div>
@@ -80,9 +80,9 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 </div>
 <div class=\"memorablePassword-page\">
 \t<div class=\"form\">
-\t\t<p class=\"stringRegister\" >Memorable Password</p>
+\t\t<p class=\"stringRegister\" >Remind Password</p>
 \t\t<input type=\"text\" placeholder=\"email address\" id=\"emailMemorablePassword\"/>
-\t\t<button id=\"startMemorablePassword\">create</button>
+\t\t<button id=\"startMemorablePassword\">SEND</button>
 \t\t<p class=\"error\" id=\"errorMemorablePassword\"><p>
 \t\t<p class=\"message\">Already registered? <a href=\"#\" class=\"loginAnimation\">Sign In</a></p>
 \t</div>
@@ -97,29 +97,28 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
 \t\t<div class=\"account-pageContent1\">
 \t\t\t<div class=\"account\" id=\"nick\">NICK: </div>
-\t\t\t<div class=\"account accountButton rankingPosition\">RANKING POSITION: </div>
-\t\t\t<div class=\"account\" id=\"score\">SCORE: </div>
-\t\t\t<div class=\"account accountButton abaut\">abaut</div>
+\t\t\t<div class=\"account accountButton rankingPosition\">Ranking position: </div>
+\t\t\t<div class=\"account\" id=\"score\">Score: </div>
+\t\t\t<div class=\"account accountButton about\">About MasterLangg</div>
 \t\t\t<input class=\"accountButtonLogOut account\"type=\"submit\" value=\"LOGOUT\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent0\">
-\t\t\t<div class=\"account infoAccount\"><p class=\"nick\">NICK: </p>
-\t\t\t\t\t\t\t <p class=\"email\">E-MAIL: </p>
+\t\t\t<div class=\"account infoAccount\"><p class=\"nick\">Nick: </p>
+\t\t\t\t\t\t\t <p class=\"email\">E-mail: </p>
 \t\t\t</div>
 \t\t\t<input class=\"accountButton account CHANGELOGIN\"type=\"submit\" value=\"Change LOGIN\"/>
-\t\t\t<input class=\"accountButton account CHANGEPASSWORD\"type=\"submit\" value=\"CHANGE PASSWORD\"/>
-\t\t\t<input class=\"accountButton account CHANGEE-MAIL\"type=\"submit\" value=\"CHANGE E-MAIL\"/>
+\t\t\t<input class=\"accountButton account CHANGEPASSWORD\"type=\"submit\" value=\"Change PASSWORD\"/>
+\t\t\t<input class=\"accountButton account CHANGEE-MAIL\"type=\"submit\" value=\"Change E-MAIL\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent2\">
 \t\t\ttu se jest ranking
 \t\t</div>
-\t</div>\t
-\t<div class=\"abaut-page\">
+\t</div>
+\t<div class=\"about-page\">
 \t\t<input class=\"Back account\"type=\"submit\" value=\"Back\"/>
 \t\t<div class=\"form formChange\">
 \t\t\t<form class=\"formCHANGEE-MAIL\">
-\t\t\t\tDawno dawno temu za jp i hwdp zyli sobie dwaj jp kturzy wpadli na jp pomysł. mianowicie chcieli stworzyc jp o jp.
-\t\t\t</form>
+Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV \t\t\t</form>
 \t\t</div>
 \t</div>
 \t<div class=\"CHANGELOGIN-page\">
@@ -305,8 +304,8 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<input type=\"password\" id=\"password\" placeholder=\"password\"/>
 \t\t\t<button class=\"start\" >login</button>
 \t\t\t<p class=\"error\" id=\"errorLogin\"><p>
-\t\t\t<p class=\"message\">Not registered? <a href=\"#\" id=\"registerAnimation\">Create an account</a></p>
-\t\t\t<p class=\"message\"><a href=\"#\" id=\"memorablePasswordAnimation\">Memorable Password</a></p>
+\t\t\t<p class=\"message\">Not registered? <a href=\"#\" id=\"registerAnimation\">Create an account.</a>
+\t\t\t\t\t\tHave you forgotten your password? <a href=\"#\" id=\"memorablePasswordAnimation\">Remind Password.</a></p>
 \t\t\t<p class=\"copy\" >&copy; by Mateusz Pijanowski and Michał Kubiak</p>
 \t\t</div>
 \t</div>
@@ -325,9 +324,9 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 </div>
 <div class=\"memorablePassword-page\">
 \t<div class=\"form\">
-\t\t<p class=\"stringRegister\" >Memorable Password</p>
+\t\t<p class=\"stringRegister\" >Remind Password</p>
 \t\t<input type=\"text\" placeholder=\"email address\" id=\"emailMemorablePassword\"/>
-\t\t<button id=\"startMemorablePassword\">create</button>
+\t\t<button id=\"startMemorablePassword\">SEND</button>
 \t\t<p class=\"error\" id=\"errorMemorablePassword\"><p>
 \t\t<p class=\"message\">Already registered? <a href=\"#\" class=\"loginAnimation\">Sign In</a></p>
 \t</div>
@@ -342,29 +341,28 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
 \t\t<div class=\"account-pageContent1\">
 \t\t\t<div class=\"account\" id=\"nick\">NICK: </div>
-\t\t\t<div class=\"account accountButton rankingPosition\">RANKING POSITION: </div>
-\t\t\t<div class=\"account\" id=\"score\">SCORE: </div>
-\t\t\t<div class=\"account accountButton abaut\">abaut</div>
+\t\t\t<div class=\"account accountButton rankingPosition\">Ranking position: </div>
+\t\t\t<div class=\"account\" id=\"score\">Score: </div>
+\t\t\t<div class=\"account accountButton about\">About MasterLangg</div>
 \t\t\t<input class=\"accountButtonLogOut account\"type=\"submit\" value=\"LOGOUT\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent0\">
-\t\t\t<div class=\"account infoAccount\"><p class=\"nick\">NICK: </p>
-\t\t\t\t\t\t\t <p class=\"email\">E-MAIL: </p>
+\t\t\t<div class=\"account infoAccount\"><p class=\"nick\">Nick: </p>
+\t\t\t\t\t\t\t <p class=\"email\">E-mail: </p>
 \t\t\t</div>
 \t\t\t<input class=\"accountButton account CHANGELOGIN\"type=\"submit\" value=\"Change LOGIN\"/>
-\t\t\t<input class=\"accountButton account CHANGEPASSWORD\"type=\"submit\" value=\"CHANGE PASSWORD\"/>
-\t\t\t<input class=\"accountButton account CHANGEE-MAIL\"type=\"submit\" value=\"CHANGE E-MAIL\"/>
+\t\t\t<input class=\"accountButton account CHANGEPASSWORD\"type=\"submit\" value=\"Change PASSWORD\"/>
+\t\t\t<input class=\"accountButton account CHANGEE-MAIL\"type=\"submit\" value=\"Change E-MAIL\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent2\">
 \t\t\ttu se jest ranking
 \t\t</div>
-\t</div>\t
-\t<div class=\"abaut-page\">
+\t</div>
+\t<div class=\"about-page\">
 \t\t<input class=\"Back account\"type=\"submit\" value=\"Back\"/>
 \t\t<div class=\"form formChange\">
 \t\t\t<form class=\"formCHANGEE-MAIL\">
-\t\t\t\tDawno dawno temu za jp i hwdp zyli sobie dwaj jp kturzy wpadli na jp pomysł. mianowicie chcieli stworzyc jp o jp.
-\t\t\t</form>
+Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV \t\t\t</form>
 \t\t</div>
 \t</div>
 \t<div class=\"CHANGELOGIN-page\">

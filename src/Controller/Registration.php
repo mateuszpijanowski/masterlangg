@@ -55,7 +55,8 @@ class Registration extends AbstractController
             $headers .= 'Content-type: text/html; charset=iso-8859-2' . "\r\n";
             $headers .= 'From: MasterLangg <StrongBot@webstrong.com>' . "\r\n";
 
-            return mail($to, $subject, $message, $headers);
+            //return mail($to, $subject, $message, $headers);
+            return true;
         }
 
         $repository=$this->getDoctrine()->getRepository(UserData::class);
@@ -88,9 +89,11 @@ class Registration extends AbstractController
             {
                 $entityManager=$this->getDoctrine()->getManager();
 
+                $pass_reg_hash=password_hash($pass_reg, PASSWORD_DEFAULT);
+
                 $reg_data=new UserData();
                 $reg_data->setNick($login_reg);
-                $reg_data->setPass($pass_reg);
+                $reg_data->setPass($pass_reg_hash);
                 $reg_data->setEmail($email_reg);
                 $reg_data->setAccessCode($random_code);
                 $reg_data->setActive(0);
