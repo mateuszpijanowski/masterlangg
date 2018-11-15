@@ -11,6 +11,7 @@ let time;
 let timegame
 let stopTime=true;
 let okLock=true;
+let okLock2=true;
 let score;
 $(document).ready(function(){
 	langList();
@@ -22,6 +23,8 @@ $(document).ready(function(){
 	    var data = {};
     		data['login'] = inputRead("#login");
    		data['password'] = inputRead("#password");
+		$("#login").value = null;
+		$("#password").value = null;
 	    ajax2(data);
 	    setTimeout(function(){
 			$("#errorLogin").html(json);
@@ -35,6 +38,8 @@ $(document).ready(function(){
 		    data['loginRegister'] = inputRead("#loginRegister");
 	   	    data['password1'] = inputRead("#password1");
 		    data['password2'] = inputRead("#password2");
+			$("#password1").value = null;
+			$("#password2").value = null;
 	   	    data['emailRegister'] = inputRead("#emailRegister");
 		ajax2(data);
 			setTimeout(function(){$("#errorRegister").html(json);}, 1000);
@@ -83,7 +88,7 @@ $(document).ready(function(){
         }
     });
     $( "#ok" ).click(function() {
-		if(okLock==false){
+		if(okLock2==false){
 			okClick();
 		}
     });
@@ -433,6 +438,17 @@ function inputRead(y){
 	return (val);
 }
 function langList(){
+
+
+	$( ".langButton" ).click(function() {
+		if(okLock==false){
+			$("#ok").css('background-color', '#4CAF50');
+			okLock2=false;
+		}
+	});
+
+
+
 	$( "#az" ).click(function() {   $("#langClick").html("az");  langClicki='az';  });
 	$( "#sq" ).click(function() {   $("#langClick").html("sq");langClicki='sq';    });
 	$( "#am" ).click(function() {   $("#langClick").html("am");langClicki='am';    });
@@ -457,18 +473,101 @@ function langList(){
 	$( "#gl" ).click(function() {   $("#langClick").html("gl");langClicki='gl';    });
 	$( "#nl" ).click(function() {   $("#langClick").html("nl");langClicki='nl';    });
 
-	$( "#mrj" ).click(function() {   $("#langClick").html("mrj");langClicki='mrj';    });
+	$( "#mrj" ).click(function() {   $("#langClick").html("mrj");langClicki='mrj'; });
 	$( "#el" ).click(function() {   $("#langClick").html("el");langClicki='el';    });
 	$( "#ka" ).click(function() {   $("#langClick").html("ka");langClicki='ka';    });
 	$( "#gu" ).click(function() {   $("#langClick").html("gu");langClicki='gu';    });
 	$( "#da" ).click(function() {   $("#langClick").html("da");langClicki='da';    });
+
+	$( "#is" ).click(function() {   $("#langClick").html("is");  langClicki='is';  });
+	$( "#es" ).click(function() {   $("#langClick").html("es");langClicki='es';    });
+	$( "#kk" ).click(function() {   $("#langClick").html("kk");langClicki='kk';    });
+	$( "#kn" ).click(function() {   $("#langClick").html("kn");langClicki='kn';    });
+	$( "#ca" ).click(function() {   $("#langClick").html("ca");langClicki='ca';    });
+
+	$( "#ky" ).click(function() {   $("#langClick").html("ky");langClicki='ky';    });
+	$( "#ko" ).click(function() {   $("#langClick").html("ko");langClicki='ko';    });
+	$( "#xh" ).click(function() {   $("#langClick").html("xh");langClicki='xh';    });
+	$( "#km" ).click(function() {   $("#langClick").html("km");langClicki='km';    });
+	$( "#lo" ).click(function() {   $("#langClick").html("lo");langClicki='lo';    });
+
+	$( "#la" ).click(function() {   $("#langClick").html("la");langClicki='la';    });
+	$( "#lv" ).click(function() {   $("#langClick").html("lv");langClicki='lv';    });
+	$( "#zh" ).click(function() {   $("#langClick").html("zh");langClicki='zh';    });
+	$( "#lt" ).click(function() {   $("#langClick").html("lt");langClicki='lt';    });
+	$( "#lb" ).click(function() {   $("#langClick").html("lb");langClicki='lb';    });
+
+	$( "#mg" ).click(function() {   $("#langClick").html("mg");langClicki='mg';    });
+	$( "#ms" ).click(function() {   $("#langClick").html("ms");langClicki='ms';    });
+	$( "#ml" ).click(function() {   $("#langClick").html("ml");langClicki='ml';    });
+	$( "#mt" ).click(function() {   $("#langClick").html("mt");langClicki='mt';    });
+	$( "#mk" ).click(function() {   $("#langClick").html("mk");langClicki='mk';    });
+
+	$( "#he" ).click(function() {   $("#langClick").html("he");langClicki='he'; });
+	$( "#yi" ).click(function() {   $("#langClick").html("yi");langClicki='yi';    });
+	$( "#id" ).click(function() {   $("#langClick").html("id");langClicki='id';    });
+	$( "#ga" ).click(function() {   $("#langClick").html("ga");langClicki='ga';    });
+	$( "#it" ).click(function() {   $("#langClick").html("it");langClicki='it';    });
+
+	$( "#mi" ).click(function() {   $("#langClick").html("mi");  langClicki='mi';  });
+	$( "#mr" ).click(function() {   $("#langClick").html("mr");langClicki='mr';    });
+	$( "#mhr" ).click(function() {   $("#langClick").html("mhr");langClicki='mhr';    });
+	$( "#mn" ).click(function() {   $("#langClick").html("mn");langClicki='mn';    });
+	$( "#de" ).click(function() {   $("#langClick").html("de");langClicki='de';    });
+
+	$( "#ne" ).click(function() {   $("#langClick").html("ne");langClicki='ne';    });
+	$( "#no" ).click(function() {   $("#langClick").html("no");langClicki='no';    });
+	$( "#pa" ).click(function() {   $("#langClick").html("pa");langClicki='pa';    });
+	$( "#pap" ).click(function() {   $("#langClick").html("pap");langClicki='pap';    });
+	$( "#fa" ).click(function() {   $("#langClick").html("fa");langClicki='fa';    });
+
+	$( "#pl" ).click(function() {   $("#langClick").html("pl");langClicki='pl';    });
+	$( "#pt" ).click(function() {   $("#langClick").html("pt");langClicki='pt';    });
+	$( "#ro" ).click(function() {   $("#langClick").html("ro");langClicki='ro';    });
+	$( "#ru" ).click(function() {   $("#langClick").html("ru");langClicki='ru';    });
+	$( "#ceb" ).click(function() {   $("#langClick").html("ceb");langClicki='ceb';    });
+
+	$( "#sr" ).click(function() {   $("#langClick").html("sr");langClicki='sr';    });
+	$( "#si" ).click(function() {   $("#langClick").html("si");langClicki='si';    });
+	$( "#sk" ).click(function() {   $("#langClick").html("sk");langClicki='sk';    });
+	$( "#sl" ).click(function() {   $("#langClick").html("sl");langClicki='sl';    });
+	$( "#sw" ).click(function() {   $("#langClick").html("sw");langClicki='sw';    });
+
+	$( "#su" ).click(function() {   $("#langClick").html("su");langClicki='su'; });
+	$( "#tg" ).click(function() {   $("#langClick").html("tg");langClicki='tg';    });
+	$( "#th" ).click(function() {   $("#langClick").html("th");langClicki='th';    });
+	$( "#tl" ).click(function() {   $("#langClick").html("tl");langClicki='tl';    });
+	$( "#ta" ).click(function() {   $("#langClick").html("ta");langClicki='ta';    });
+
+	$( "#ta" ).click(function() {   $("#langClick").html("ta");  langClicki='ta';  });
+	$( "#te" ).click(function() {   $("#langClick").html("te");langClicki='te';    });
+	$( "#tr" ).click(function() {   $("#langClick").html("tr");langClicki='tr';    });
+	$( "#udm" ).click(function() {   $("#langClick").html("udm");langClicki='udm';    });
+	$( "#uz" ).click(function() {   $("#langClick").html("uz");langClicki='uz';    });
+
+	$( "#uk" ).click(function() {   $("#langClick").html("uk");langClicki='uk';    });
+	$( "#ur" ).click(function() {   $("#langClick").html("ur");langClicki='ur';    });
+	$( "#fi" ).click(function() {   $("#langClick").html("fi");langClicki='fi';    });
+	$( "#fr" ).click(function() {   $("#langClick").html("fr");langClicki='fr';    });
+	$( "#hi" ).click(function() {   $("#langClick").html("hi");langClicki='hi';    });
+
+	$( "#hr" ).click(function() {   $("#langClick").html("hr");langClicki='hr';    });
+	$( "#cs" ).click(function() {   $("#langClick").html("cs");langClicki='cs';    });
+	$( "#sv" ).click(function() {   $("#langClick").html("sv");langClicki='sv';    });
+	$( "#gd" ).click(function() {   $("#langClick").html("gd");langClicki='gd';    });
+	$( "#et" ).click(function() {   $("#langClick").html("et");langClicki='et';    });
+
+	$( "#eo" ).click(function() {   $("#langClick").html("eo");langClicki='eo';    });
+	$( "#jv" ).click(function() {   $("#langClick").html("jv");langClicki='jv';    });
+	$( "#ja" ).click(function() {   $("#langClick").html("ja");langClicki='ja';    });
+
 }
 function loadnig()
 {		if(json.id_user>0){
 			$(".nick").html("Nick: "+json.login);
 			$("#nick").html("Nick: "+json.login);
 			$(".email").html("E-MAIL: "+json.email);
-			$("#score").html("score: "+json.score);
+			$("#score").html("Score: "+json.score);
 			$("#score2").html(json.score);
 			score=json.score;
 			time=json.time;
@@ -509,7 +608,6 @@ function game(){
 		var data = {};
 	   	data['user_text'] = inputRead("#quotation");
 		if(data.user_text.length>0){
-		$("#ok").css('background-color', '#4CAF50');
 		okLock=false;
 		ajax2(data);
 			setTimeout(function(){
@@ -533,6 +631,7 @@ function refresh(){
 	//$("#quotation").html();
 	$("#langClick").html('');
 	okLock=true;
+	okLock2=true;
 	$("#ok").css('background-color', '#696969');
 
 }
@@ -546,6 +645,7 @@ function okClick(){
 	ajax2(data);
 	refresh();
 	setTimeout(function(){
+		$("#score").html("Score: "+json.score);
 		$("#score2").html(json.score);
 		if(score<json.score)
 		{
