@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3ec400-2f0a-40f3-bcfd-70ee18dfb2fa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NewPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewPass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PassRecovery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PassRecovery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/basepassword.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/basepassword.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/+/E/3Eh3XqtsYNMIuTA-nXns" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/+/E/3Eh3XqtsYNMIuTA-nXns" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/3/7/HKysOP-WniY9kfl3i-PD" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/3/7/HKysOP-WniY9kfl3i-PD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/H/D/vEU6kYYKS7OkYfTQ26Cr" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/H/D/vEU6kYYKS7OkYfTQ26Cr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/W/D/0GNwgqWK3V829knHE7ck" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/W/D/0GNwgqWK3V829knHE7ck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/X/3/aRr6eO134vgyzT1K10SV" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/X/3/aRr6eO134vgyzT1K10SV" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/a4/a429890fa7f49d7777769e4f1cd9875e7ac74ba23074ce25fe7d33ad789ccb32.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/a4/a429890fa7f49d7777769e4f1cd9875e7ac74ba23074ce25fe7d33ad789ccb32.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +48,7 @@
           <entry key="css" value="22" />
           <entry key="env" value="26" />
           <entry key="js" value="427" />
-          <entry key="php" value="16413" />
+          <entry key="php" value="16607" />
           <entry key="twig" value="530" />
           <entry key="yaml" value="15" />
         </counts>
@@ -71,7 +59,7 @@
           <entry key="CSS" value="22" />
           <entry key="HTML" value="10" />
           <entry key="JavaScript" value="427" />
-          <entry key="PHP" value="16392" />
+          <entry key="PHP" value="16586" />
           <entry key="SQL" value="11" />
           <entry key="Twig" value="530" />
           <entry key="YAML" value="15" />
@@ -115,8 +103,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="375" lean-forward="true" selection-start-line="375" selection-end-line="375" />
+            <state relative-caret-position="478">
+              <caret line="583" column="30" lean-forward="true" selection-start-line="583" selection-start-column="30" selection-end-line="583" selection-end-column="30" />
               <folding>
                 <element signature="e#34#84#0#PHP" expanded="true" />
               </folding>
@@ -504,12 +492,12 @@
       <workItem from="1542209934145" duration="1649000" />
       <workItem from="1542267030093" duration="4846000" />
       <workItem from="1542277386774" duration="8347000" />
-      <workItem from="1542349344784" duration="2246000" />
+      <workItem from="1542349344784" duration="3883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121383000" />
+    <option name="totallyTimeSpent" value="123020000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,8 +784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="375" lean-forward="true" selection-start-line="375" selection-end-line="375" />
+        <state relative-caret-position="478">
+          <caret line="583" column="30" lean-forward="true" selection-start-line="583" selection-start-column="30" selection-end-line="583" selection-end-column="30" />
           <folding>
             <element signature="e#34#84#0#PHP" expanded="true" />
           </folding>

@@ -7317,3 +7317,8 @@
 [2018-11-16 08:05:23] doctrine.DEBUG: "START TRANSACTION" [] []
 [2018-11-16 08:05:23] doctrine.DEBUG: UPDATE user_cache SET score = ? WHERE id_cache = ? [999950,7] []
 [2018-11-16 08:05:23] doctrine.DEBUG: "COMMIT" [] []
+[2018-11-16 08:16:29] request.INFO: Matched route "app_main_main". {"route":"app_main_main","route_parameters":{"_route":"app_main_main","_controller":"App\\Controller\\Main::main"},"request_uri":"http://localhost:8000/","method":"GET"} []
+[2018-11-16 08:16:29] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2018-11-16 08:16:29] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_route":"_wdt","_controller":"web_profiler.controller.profiler::toolbarAction","token":"2a3fce"},"request_uri":"http://localhost:8000/_wdt/2a3fce","method":"GET"} []
+[2018-11-16 08:16:29] request.INFO: Matched route "app_main_main". {"route":"app_main_main","route_parameters":{"_route":"app_main_main","_controller":"App\\Controller\\Main::main"},"request_uri":"http://localhost:8000/","method":"POST"} []
+[2018-11-16 08:16:29] security.INFO: Populated the TokenStorage with an anonymous Token. [] []

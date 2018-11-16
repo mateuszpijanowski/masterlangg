@@ -23,7 +23,7 @@ class Main extends AbstractController
 
         /// AJAX RESPONSE ///
 
-        // SESSION RESPONSE //
+        // SESSION RESPONSE // [#01]
 
         /*
          * RETURN
@@ -34,7 +34,7 @@ class Main extends AbstractController
             return new JsonResponse($session->all());
         }
 
-        // LOG IN //
+        // LOG IN // [#02]
 
         /*
          * RETURN:
@@ -106,7 +106,7 @@ class Main extends AbstractController
             }
         }
 
-        // REGISTRATION //
+        // REGISTRATION // [#03]
 
         /*
          * RETURN:
@@ -171,7 +171,7 @@ class Main extends AbstractController
             }
         }
 
-        // RANKING & POSITION //
+        // RANKING & POSITION // [#04]
 
         /*
          * RETURN:
@@ -185,6 +185,7 @@ class Main extends AbstractController
         {
             $ranking=$_POST['ranking'];
 
+            // [&04.1]
             if($ranking=="ranking")
             {
                 $response=$this->forward('App\Controller\Ranking::ranking');
@@ -193,6 +194,7 @@ class Main extends AbstractController
                 return new JsonResponse($ranking); // RANKING ARRAY RESPONSE
             }
 
+            // [&04.2]
             elseif ($ranking=="position")
             {
                 $response=$this->forward('App\Controller\Ranking::ranking');
@@ -225,10 +227,10 @@ class Main extends AbstractController
             }
         }
 
-        // EDIT ACCOUNT //
+        // EDIT ACCOUNT // [#05]
 
         /*
-         * RETURN:
+         * RETURN: [&05.1]
          * +NICK HAS BEEN CHENGED
          * OR
          * +ERROR /
@@ -264,7 +266,7 @@ class Main extends AbstractController
         }
 
         /*
-         * RETURN:
+         * RETURN: [&05.2]
          * +PASSWORD HAS BEEN CHENGED
          * OR
          * +ERROR /
@@ -287,6 +289,7 @@ class Main extends AbstractController
 
             if($new_pass1==$new_pass2)
             {
+                // [@05.2.1]
                 if(isset($_POST['id_user']))
                 {
                     $id_user=$_POST['id_user'];
@@ -299,6 +302,7 @@ class Main extends AbstractController
                     return new JsonResponse($response->getContent());
                 }
 
+                // [@05.2.2]
                 else {
                     $response=$this->forward('App\Controller\NewPass::newpass', array(
                         'newpass' => $new_pass1,
@@ -315,7 +319,7 @@ class Main extends AbstractController
         }
 
         /*
-         * RETURN:
+         * RETURN: [&05.3]
          * +E-MAIL HAS BEEN CHENGED
          * OR
          * +ERROR /
@@ -350,7 +354,7 @@ class Main extends AbstractController
             return new JsonResponse($response);
         }
 
-        // DIFFICULTY //
+        // DIFFICULTY // [#06]
 
         /*
          * RETURN:
@@ -382,7 +386,7 @@ class Main extends AbstractController
 
         }
 
-        // TRANSLATION TEXT //
+        // TRANSLATION TEXT // [#07]
 
         /*
          * RETURN:
@@ -426,7 +430,7 @@ class Main extends AbstractController
             return new JsonResponse($response);
         }
 
-        // TRANSLATION TEST //
+        // TRANSLATION TEST // [#08]
 
         /*
          * RETURN:
@@ -483,7 +487,7 @@ class Main extends AbstractController
             }
         }
 
-        // RESTART //
+        // RESTART // [#09]
 
         /*
          * RETURN:
@@ -504,7 +508,7 @@ class Main extends AbstractController
             return new JsonResponse($response->getContent());
         }
 
-        // PASSWORD RECOVERY //
+        // PASSWORD RECOVERY // [#10]
 
         /*
          * RETURN:
@@ -532,12 +536,13 @@ class Main extends AbstractController
             }
         }
 
-        // GET REQUEST //
+        // GET REQUEST // [#11]
         if(isset($_GET['status']) && isset($_GET['code']))
         {
             $status=$_GET['status'];
             $code=$_GET['code'];
 
+            // [&11.1]
             if ($status=="1") // ACTIVE ACCOUNT
             {
                 $access=$this->forward('App\Controller\AccessAcount::access', array(
@@ -556,6 +561,7 @@ class Main extends AbstractController
                 }
             }
 
+            // [&11.2]
             elseif ($status=="2") // CHENGE PASSWORD
             {
                 $response=$this->forward('App\Controller\PassRecovery::chenge_pass', array(
@@ -579,7 +585,7 @@ class Main extends AbstractController
             }
         }
 
-        // LOG OUT //
+        // LOG OUT // [#12]
         if(isset($_POST['logout']))
         {
             $session->clear(); // CLEAR ALL SESSIONs
@@ -587,7 +593,7 @@ class Main extends AbstractController
             return new JsonResponse(true);
         }
 
-        // HTML RENDER //
+        // HTML RENDER // [#99]
         return $this->render('base.html.twig'); // NO TOUCH THIS!
     }
 }
