@@ -13,6 +13,9 @@ let stopTime=true;
 let okLock=true;
 let okLock2=true;
 let score;
+let quotationLock=true;
+
+
 $(document).ready(function(){
 	langList();
 	sesion();
@@ -32,6 +35,9 @@ $(document).ready(function(){
 	    }, 1000);
         }
     });
+	$( "#quotation" ).click(function() {
+		inputWalidation();
+	});
     $( "#startRegister" ).click(function() {
         if(clickAnimation==true){
 		var data = {};
@@ -81,7 +87,7 @@ $(document).ready(function(){
         }
     });
     $( "#startGame" ).click(function() {
-        if(clickAnimation==true){
+        if(clickAnimation==true && quotationLock==false){
 		clickStop();
 		game();
 
@@ -224,6 +230,9 @@ $(document).ready(function(){
             clickStop();
             accountPageContentOut(2,currentOnTheList);
             registerAnimationMenu(1, 2, 0, 1, 2);
+			var data = {};
+			data['ranking'] = 'ranking';
+	   		ajax2(data);
         }
     });
 
@@ -621,11 +630,32 @@ function game(){
 
 		}
 }
+function inputWalidation(){
+	if(okLock==false){
+
+	}
+	else if(inputRead("#quotation").length>0){
+		quotationLock=false;
+		setTimeout(function(){inputWalidation();}, 100);
+		$(".startGame").css('background-color', '#4CAF50');
+		$("#ok").css('background-color', '#696969');
+	}
+	else if (quotationLock==true) {
+		setTimeout(function(){inputWalidation();}, 100);
+	}
+	else  {
+		setTimeout(function(){inputWalidation();}, 100);
+		quotationLock=true;
+		$(".startGame").css('background-color', '#696969');
+	}
+}
 function refresh(){
 
 	stopTime=true;
-	time=timegame;
-	$("#timer").html(time);
+	setTimeout(function(){
+		time=timegame;
+		$("#timer").html(time);
+	}, 1000);
 	$("#TRANSTEXT").html('');
 	$("#DETECTLANG").html('');
 	//$("#quotation").html();
@@ -645,6 +675,7 @@ function okClick(){
 	ajax2(data);
 	refresh();
 	setTimeout(function(){
+
 		$("#score").html("Score: "+json.score);
 		$("#score2").html(json.score);
 		if(score<json.score)
@@ -658,7 +689,7 @@ function okClick(){
 				}, 200);
 			}, 800);
 		}
-		else if (json.score<score) {
+		else if (json.score<score ) {
 			$('#score2').addClass('animated colorRed1');
 			setTimeout(function(){
 				$('#score2').removeClass('animated colorRed1');
@@ -680,7 +711,7 @@ function ajax2(data){
 		data: data,
 		success: function(response){
 			json=response;
-			//alert(JSON.stringify(response));
+			alert(JSON.stringify(response));
 
 		},
 		error: function(){

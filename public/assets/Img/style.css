@@ -240,9 +240,10 @@ a:hover {
 }
 .langList
 {	margin-top:5%;
-	height:auto;
+	height:300px;
 	line-height:140% !important;
 	padding:10px;
+	overflow-y: scroll;
 }
 #langButton{
 	background-color:#202227;
@@ -627,7 +628,7 @@ a:hover {
 @keyframes colorGreen2
 {
   from {
-	  color:#A52A2A;
+	  color:#008000;
   }
 
   to {
@@ -681,7 +682,7 @@ a:hover {
 cursor: pointer;
 background-color: #bf223e;
 }
-.startGame:hover,.startGame:active,.startGame:focus,
+
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
@@ -742,7 +743,7 @@ background-color: #bf223e;
 	width:100%;
 	padding:0px;
 	font-size: 70%;
-
+	background: #696969;
 }
 #ok{
 	font-size:100%;
