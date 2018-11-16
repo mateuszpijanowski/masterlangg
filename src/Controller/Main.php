@@ -1,5 +1,35 @@
 <?php
 
+/*
+ * by Mateusz Pijanowski [Symfony 4.1] Main.php
+ * Powered by WebStrong.pl
+ *
+ * // SEARCH SYSTEM //
+ *
+ * [#01] - SESSION RESPONSE
+ * [#02] - LOG IN
+ * [#03] - REGISTRATION
+ * [#04] - RANKING & POSITION
+ *      [&04.1] - RANKING
+ *      [&04.2] - POSITION
+ * [#05] - EDIT ACCOUNT
+ *      [&05.1] - CHANGE LOG IN
+ *      [&05.2] - CHANGE PASSWORD
+ *          [@05.2.1] - WITH POST ID
+ *          [@05.2.2] - WITH SESSION ID
+ *      [&05.3] - CHANGE E-MAIL
+ * [#06] - DIFFICULTY
+ * [#07] - TRANSLATION TEXT
+ * [#08] - TRANSLATION TEST
+ * [#09] - RESTART
+ * [#10] - PASSWORD RECOVERY
+ * [#11] - GET
+ *      [&11.1] - ACTIVE ACCOUNT
+ *      [&11.2] - CHENGE PASSWORD
+ * [#12] - LOG OUT
+ * [#99] - HTML RENDER
+ */
+
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -190,6 +220,7 @@ class Main extends AbstractController
             {
                 $response=$this->forward('App\Controller\Ranking::ranking');
                 $ranking=$response->getContent();
+                $ranking=json_decode($ranking, true);
 
                 return new JsonResponse($ranking); // RANKING ARRAY RESPONSE
             }
