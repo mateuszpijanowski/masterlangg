@@ -213,83 +213,10 @@ Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle p
 \t\t\t</div>
 \t\t\t<div class=\"offset-md-2 col-md-8 offsset-md-2\">
 \t\t\t\t<div class=\"window langList\">
-
-\t\t\t\t\t// EASY
-\t\t\t\t\t1<button id=\"zh\" class=\"langButton\">Chinese</button>
-\t\t\t\t\t2<button id=\"es\" class=\"langButton\">Spanish</button>
-\t\t\t\t\t3<button id=\"en\" class=\"langButton\">English</button>
-\t\t\t\t\t4<button id=\"hi\" class=\"langButton\">Hindi</button>
-\t\t\t\t\t5<button id=\"ar\" class=\"langButton\">Arabic</button>
-\t\t\t\t\t6<button id=\"pt\" class=\"langButton\">Portuguese</button>
-\t\t\t\t\t7<button id=\"bn\" class=\"langButton\">Bengali</button>
-\t\t\t\t\t8<button id=\"ru\" class=\"langButton\">Russian</button>
-\t\t\t\t\t9<button id=\"ja\" class=\"langButton\">Japanese </button>
-\t\t\t\t\t10<button id=\"pa\" class=\"langButton\">Punjabi</button>
-\t\t\t\t\t11<button id=\"de\" class=\"langButton\">German</button>
-\t\t\t\t\t12<button id=\"jv\" class=\"langButton\">Javanese</button>
-\t\t\t\t\t13<button id=\"ms\" class=\"langButton\">Malay</button>
-\t\t\t\t\t14<button id=\"te\" class=\"langButton\">Telugu</button>
-\t\t\t\t\t15<button id=\"vi\" class=\"langButton\">Vietnamese</button>
-\t\t\t\t\t16<button id=\"ko\" class=\"langButton\">Korean</button>
-\t\t\t\t\t17<button id=\"fr\" class=\"langButton\">French</button>
-\t\t\t\t\t18<button id=\"mr\" class=\"langButton\">Marathi</button>
-\t\t\t\t\t19<button id=\"ta\" class=\"langButton\">Tamil</button>
-\t\t\t\t\t20<button id=\"ur\" class=\"langButton\">Urdu</button>
-
-
-\t\t\t\t\t// NORMAL
-\t\t\t\t\t1<button id=\"zh\" class=\"langButton\">Chinese</button>
-\t\t\t\t\t2<button id=\"es\" class=\"langButton\">Spanish</button>
-\t\t\t\t\t3<button id=\"en\" class=\"langButton\">English</button>
-\t\t\t\t\t4<button id=\"hi\" class=\"langButton\">Hindi</button>
-\t\t\t\t\t5<button id=\"ar\" class=\"langButton\">Arabic</button>
-\t\t\t\t\t6<button id=\"pt\" class=\"langButton\">Portuguese</button>
-\t\t\t\t\t7<button id=\"bn\" class=\"langButton\">Bengali</button>
-\t\t\t\t\t8<button id=\"ru\" class=\"langButton\">Russian</button>
-\t\t\t\t\t9<button id=\"ja\" class=\"langButton\">Japanese </button>
-\t\t\t\t\t10<button id=\"pa\" class=\"langButton\">Punjabi</button>
-\t\t\t\t\t11<button id=\"de\" class=\"langButton\">German</button>
-\t\t\t\t\t12<button id=\"jv\" class=\"langButton\">Javanese</button>
-\t\t\t\t\t13<button id=\"ms\" class=\"langButton\">Malay</button>
-\t\t\t\t\t14<button id=\"te\" class=\"langButton\">Telugu</button>
-\t\t\t\t\t15<button id=\"vi\" class=\"langButton\">Vietnamese</button>
-\t\t\t\t\t16<button id=\"ko\" class=\"langButton\">Korean</button>
-\t\t\t\t\t17<button id=\"fr\" class=\"langButton\">French</button>
-\t\t\t\t\t18<button id=\"mr\" class=\"langButton\">Marathi</button>
-\t\t\t\t\t19<button id=\"ta\" class=\"langButton\">Tamil</button>
-\t\t\t\t\t20<button id=\"ur\" class=\"langButton\">Urdu</button>
-\t\t\t\t\t21<button id=\"tr\" class=\"langButton\">Turkish</button>
-\t\t\t\t\t22<button id=\"it\" class=\"langButton\">Italian</button>
-\t\t\t\t\t23<button id=\"th\" class=\"langButton\">Thai</button>
-\t\t\t\t\t24<button id=\"gu\" class=\"langButton\">Gujarati</button>
-\t\t\t\t\t25<button id=\"fa\" class=\"langButton\">Persian</button>
-\t\t\t\t\t26<button id=\"pl\" class=\"langButton\">Polish</button>
-\t\t\t\t\t27<button id=\"kn\" class=\"langButton\">Kannada</button>
-\t\t\t\t\t28<button id=\"ml\" class=\"langButton\">Malayalam</button>
-\t\t\t\t\t29<button id=\"su\" class=\"langButton\">Sundanese</button>
-\t\t\t\t\t30<button id=\"my\" class=\"langButton\">Burmese</button>
-\t\t\t\t\t31<button id=\"uk\" class=\"langButton\">Ukrainian</button>
-\t\t\t\t\t32<button id=\"tl\" class=\"langButton\">Tagalog</button>
-\t\t\t\t\t33<button id=\"la\" class=\"langButton\">Latin</button>
-\t\t\t\t\t34<button id=\"uz\" class=\"langButton\">Uzbek</button>
-\t\t\t\t\t35<button id=\"si\" class=\"langButton\">Sinhala</button>
-\t\t\t\t\t36<button id=\"am\" class=\"langButton\">Amharic</button>
-\t\t\t\t\t37<button id=\"ro\" class=\"langButton\">Romanian</button>
-\t\t\t\t\t38<button id=\"az\" class=\"langButton\">Azerbaijan</button>
-\t\t\t\t\t39<button id=\"ceb\" class=\"langButton\">Cebuano</button>
-\t\t\t\t\t40<button id=\"nl\" class=\"langButton\">Dutch</button>
-\t\t\t\t\t41<button id=\"sr\" class=\"langButton\">Serbian</button>
-\t\t\t\t\t42<button id=\"mg\" class=\"langButton\">Malagasy</button>
-\t\t\t\t\t43<button id=\"ne\" class=\"langButton\">Nepali</button>
-\t\t\t\t\t44<button id=\"km\" class=\"langButton\">Khmer</button>
-\t\t\t\t\t45<button id=\"el\" class=\"langButton\">Greek</button>
-
-
-\t\t\t\t\t//HARD
-\t\t\t\t\t1<button id=\"zh\" class=\"langButton\">Chinese</button>
-\t\t\t\t\t2<button id=\"es\" class=\"langButton\">Spanish</button>
-\t\t\t\t\t3<button id=\"en\" class=\"langButton\">English</button>
-\t\t\t\t\t4<button id=\"hi\" class=\"langButton\">Hindi</button>
+\t\t\t\t\t<button id=\"zh\" class=\"langButton\">Chinese</button>
+\t\t\t\t\t<button id=\"es\" class=\"langButton\">Spanish</button>
+\t\t\t\t\t<button id=\"en\" class=\"langButton\">English</button>
+\t\t\t\t\t<button id=\"hi\" class=\"langButton\">Hindi</button>
 \t\t\t\t\t5<button id=\"ar\" class=\"langButton\">Arabic</button>
 \t\t\t\t\t6<button id=\"pt\" class=\"langButton\">Portuguese</button>
 \t\t\t\t\t7<button id=\"bn\" class=\"langButton\">Bengali</button>
@@ -594,83 +521,10 @@ Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle p
 \t\t\t</div>
 \t\t\t<div class=\"offset-md-2 col-md-8 offsset-md-2\">
 \t\t\t\t<div class=\"window langList\">
-
-\t\t\t\t\t// EASY
-\t\t\t\t\t1<button id=\"zh\" class=\"langButton\">Chinese</button>
-\t\t\t\t\t2<button id=\"es\" class=\"langButton\">Spanish</button>
-\t\t\t\t\t3<button id=\"en\" class=\"langButton\">English</button>
-\t\t\t\t\t4<button id=\"hi\" class=\"langButton\">Hindi</button>
-\t\t\t\t\t5<button id=\"ar\" class=\"langButton\">Arabic</button>
-\t\t\t\t\t6<button id=\"pt\" class=\"langButton\">Portuguese</button>
-\t\t\t\t\t7<button id=\"bn\" class=\"langButton\">Bengali</button>
-\t\t\t\t\t8<button id=\"ru\" class=\"langButton\">Russian</button>
-\t\t\t\t\t9<button id=\"ja\" class=\"langButton\">Japanese </button>
-\t\t\t\t\t10<button id=\"pa\" class=\"langButton\">Punjabi</button>
-\t\t\t\t\t11<button id=\"de\" class=\"langButton\">German</button>
-\t\t\t\t\t12<button id=\"jv\" class=\"langButton\">Javanese</button>
-\t\t\t\t\t13<button id=\"ms\" class=\"langButton\">Malay</button>
-\t\t\t\t\t14<button id=\"te\" class=\"langButton\">Telugu</button>
-\t\t\t\t\t15<button id=\"vi\" class=\"langButton\">Vietnamese</button>
-\t\t\t\t\t16<button id=\"ko\" class=\"langButton\">Korean</button>
-\t\t\t\t\t17<button id=\"fr\" class=\"langButton\">French</button>
-\t\t\t\t\t18<button id=\"mr\" class=\"langButton\">Marathi</button>
-\t\t\t\t\t19<button id=\"ta\" class=\"langButton\">Tamil</button>
-\t\t\t\t\t20<button id=\"ur\" class=\"langButton\">Urdu</button>
-
-
-\t\t\t\t\t// NORMAL
-\t\t\t\t\t1<button id=\"zh\" class=\"langButton\">Chinese</button>
-\t\t\t\t\t2<button id=\"es\" class=\"langButton\">Spanish</button>
-\t\t\t\t\t3<button id=\"en\" class=\"langButton\">English</button>
-\t\t\t\t\t4<button id=\"hi\" class=\"langButton\">Hindi</button>
-\t\t\t\t\t5<button id=\"ar\" class=\"langButton\">Arabic</button>
-\t\t\t\t\t6<button id=\"pt\" class=\"langButton\">Portuguese</button>
-\t\t\t\t\t7<button id=\"bn\" class=\"langButton\">Bengali</button>
-\t\t\t\t\t8<button id=\"ru\" class=\"langButton\">Russian</button>
-\t\t\t\t\t9<button id=\"ja\" class=\"langButton\">Japanese </button>
-\t\t\t\t\t10<button id=\"pa\" class=\"langButton\">Punjabi</button>
-\t\t\t\t\t11<button id=\"de\" class=\"langButton\">German</button>
-\t\t\t\t\t12<button id=\"jv\" class=\"langButton\">Javanese</button>
-\t\t\t\t\t13<button id=\"ms\" class=\"langButton\">Malay</button>
-\t\t\t\t\t14<button id=\"te\" class=\"langButton\">Telugu</button>
-\t\t\t\t\t15<button id=\"vi\" class=\"langButton\">Vietnamese</button>
-\t\t\t\t\t16<button id=\"ko\" class=\"langButton\">Korean</button>
-\t\t\t\t\t17<button id=\"fr\" class=\"langButton\">French</button>
-\t\t\t\t\t18<button id=\"mr\" class=\"langButton\">Marathi</button>
-\t\t\t\t\t19<button id=\"ta\" class=\"langButton\">Tamil</button>
-\t\t\t\t\t20<button id=\"ur\" class=\"langButton\">Urdu</button>
-\t\t\t\t\t21<button id=\"tr\" class=\"langButton\">Turkish</button>
-\t\t\t\t\t22<button id=\"it\" class=\"langButton\">Italian</button>
-\t\t\t\t\t23<button id=\"th\" class=\"langButton\">Thai</button>
-\t\t\t\t\t24<button id=\"gu\" class=\"langButton\">Gujarati</button>
-\t\t\t\t\t25<button id=\"fa\" class=\"langButton\">Persian</button>
-\t\t\t\t\t26<button id=\"pl\" class=\"langButton\">Polish</button>
-\t\t\t\t\t27<button id=\"kn\" class=\"langButton\">Kannada</button>
-\t\t\t\t\t28<button id=\"ml\" class=\"langButton\">Malayalam</button>
-\t\t\t\t\t29<button id=\"su\" class=\"langButton\">Sundanese</button>
-\t\t\t\t\t30<button id=\"my\" class=\"langButton\">Burmese</button>
-\t\t\t\t\t31<button id=\"uk\" class=\"langButton\">Ukrainian</button>
-\t\t\t\t\t32<button id=\"tl\" class=\"langButton\">Tagalog</button>
-\t\t\t\t\t33<button id=\"la\" class=\"langButton\">Latin</button>
-\t\t\t\t\t34<button id=\"uz\" class=\"langButton\">Uzbek</button>
-\t\t\t\t\t35<button id=\"si\" class=\"langButton\">Sinhala</button>
-\t\t\t\t\t36<button id=\"am\" class=\"langButton\">Amharic</button>
-\t\t\t\t\t37<button id=\"ro\" class=\"langButton\">Romanian</button>
-\t\t\t\t\t38<button id=\"az\" class=\"langButton\">Azerbaijan</button>
-\t\t\t\t\t39<button id=\"ceb\" class=\"langButton\">Cebuano</button>
-\t\t\t\t\t40<button id=\"nl\" class=\"langButton\">Dutch</button>
-\t\t\t\t\t41<button id=\"sr\" class=\"langButton\">Serbian</button>
-\t\t\t\t\t42<button id=\"mg\" class=\"langButton\">Malagasy</button>
-\t\t\t\t\t43<button id=\"ne\" class=\"langButton\">Nepali</button>
-\t\t\t\t\t44<button id=\"km\" class=\"langButton\">Khmer</button>
-\t\t\t\t\t45<button id=\"el\" class=\"langButton\">Greek</button>
-
-
-\t\t\t\t\t//HARD
-\t\t\t\t\t1<button id=\"zh\" class=\"langButton\">Chinese</button>
-\t\t\t\t\t2<button id=\"es\" class=\"langButton\">Spanish</button>
-\t\t\t\t\t3<button id=\"en\" class=\"langButton\">English</button>
-\t\t\t\t\t4<button id=\"hi\" class=\"langButton\">Hindi</button>
+\t\t\t\t\t<button id=\"zh\" class=\"langButton\">Chinese</button>
+\t\t\t\t\t<button id=\"es\" class=\"langButton\">Spanish</button>
+\t\t\t\t\t<button id=\"en\" class=\"langButton\">English</button>
+\t\t\t\t\t<button id=\"hi\" class=\"langButton\">Hindi</button>
 \t\t\t\t\t5<button id=\"ar\" class=\"langButton\">Arabic</button>
 \t\t\t\t\t6<button id=\"pt\" class=\"langButton\">Portuguese</button>
 \t\t\t\t\t7<button id=\"bn\" class=\"langButton\">Bengali</button>

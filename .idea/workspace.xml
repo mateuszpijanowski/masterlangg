@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/templates/base.html.twig" line="207" />
+    <bookmark url="file://$PROJECT_DIR$/templates/base.html.twig" line="205" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d3ec400-2f0a-40f3-bcfd-70ee18dfb2fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Translation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Translation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/2/Y/eis+XXe6jmiPbRBlxA94" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/2/Y/eis+XXe6jmiPbRBlxA94" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/9/0VkFqQO779r1q--dXb6z" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/9/0VkFqQO779r1q--dXb6z" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/V/H/PqW8VvDVBjs8gMT+dBVG" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/V/H/PqW8VvDVBjs8gMT+dBVG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/a4/a429890fa7f49d7777769e4f1cd9875e7ac74ba23074ce25fe7d33ad789ccb32.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/a4/a429890fa7f49d7777769e4f1cd9875e7ac74ba23074ce25fe7d33ad789ccb32.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
@@ -52,7 +60,7 @@
           <entry key="css" value="22" />
           <entry key="env" value="26" />
           <entry key="js" value="427" />
-          <entry key="php" value="17342" />
+          <entry key="php" value="17417" />
           <entry key="twig" value="1018" />
           <entry key="yaml" value="15" />
         </counts>
@@ -63,7 +71,7 @@
           <entry key="CSS" value="22" />
           <entry key="HTML" value="10" />
           <entry key="JavaScript" value="427" />
-          <entry key="PHP" value="17321" />
+          <entry key="PHP" value="17396" />
           <entry key="SQL" value="11" />
           <entry key="Twig" value="1018" />
           <entry key="YAML" value="15" />
@@ -77,8 +85,8 @@
           <entry key="html" value="1" />
           <entry key="js" value="14" />
           <entry key="json" value="1" />
-          <entry key="php" value="194" />
-          <entry key="twig" value="9" />
+          <entry key="php" value="196" />
+          <entry key="twig" value="10" />
           <entry key="yaml" value="13" />
         </counts>
       </usages-collector>
@@ -89,9 +97,9 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="14" />
-          <entry key="PHP" value="194" />
+          <entry key="PHP" value="196" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Twig" value="9" />
+          <entry key="Twig" value="10" />
           <entry key="YAML" value="13" />
         </counts>
       </usages-collector>
@@ -104,11 +112,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="616" column="36" selection-start-line="616" selection-start-column="36" selection-end-line="616" selection-end-column="36" />
+            <state relative-caret-position="219">
+              <caret line="356" column="43" selection-start-line="356" selection-start-column="43" selection-end-line="356" selection-end-column="43" />
               <folding>
                 <element signature="e#7#680#0#PHP" expanded="true" />
               </folding>
@@ -116,11 +124,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Translation.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/NewEmail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="56" column="43" lean-forward="true" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+            <state relative-caret-position="420">
+              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="56" />
+              <folding>
+                <element signature="e#34#58#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/NewLogin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="28" column="54" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="183" column="39" selection-start-line="183" selection-start-column="39" selection-end-line="183" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -136,9 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SCORE</find>
-      <find>start</find>
-      <find>background-ima</find>
       <find>ranking</find>
       <find>x</find>
       <find>login</find>
@@ -166,6 +192,9 @@
       <find>udm</find>
       <find>Esperanto&lt;/b</find>
       <find>#07</find>
+      <find>&amp;05.1</find>
+      <find>#03</find>
+      <find>&amp;05.3</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -203,9 +232,9 @@
         <option value="$PROJECT_DIR$/templates/basepassword.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/PassRecovery.php" />
         <option value="$PROJECT_DIR$/src/Controller/NewPass.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Translation.php" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/Main.php" />
-        <option value="$PROJECT_DIR$/src/Controller/Translation.php" />
       </list>
     </option>
   </component>
@@ -314,7 +343,7 @@
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="27" />
     <option name="width" value="960" />
     <option name="height" value="1020" />
@@ -473,12 +502,12 @@
       <workItem from="1542209934145" duration="1649000" />
       <workItem from="1542267030093" duration="4846000" />
       <workItem from="1542277386774" duration="8347000" />
-      <workItem from="1542349344784" duration="19368000" />
+      <workItem from="1542349344784" duration="20982000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138505000" />
+    <option name="totallyTimeSpent" value="140119000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -657,23 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/NewLogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/NewEmail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="11" lean-forward="true" selection-end-line="31" />
-          <folding>
-            <element signature="e#34#58#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Ranking.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -725,13 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1558">
-          <caret line="359" column="7" selection-start-line="359" selection-start-column="7" selection-end-line="359" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Difficulty.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -756,20 +761,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Translation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="616" column="36" selection-start-line="616" selection-start-column="36" selection-end-line="616" selection-end-column="36" />
+        <state relative-caret-position="375">
+          <caret line="73" column="35" lean-forward="true" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="183" column="39" selection-start-line="183" selection-start-column="39" selection-end-line="183" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/NewLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="28" column="54" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/NewEmail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="56" />
           <folding>
-            <element signature="e#7#680#0#PHP" expanded="true" />
+            <element signature="e#34#58#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Translation.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="56" column="43" lean-forward="true" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+        <state relative-caret-position="219">
+          <caret line="356" column="43" selection-start-line="356" selection-start-column="43" selection-end-line="356" selection-end-column="43" />
+          <folding>
+            <element signature="e#7#680#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

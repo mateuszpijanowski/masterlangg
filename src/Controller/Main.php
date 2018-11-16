@@ -288,7 +288,7 @@ class Main extends AbstractController
             $response=$response->getContent();
             $response=json_decode($response);
 
-            if($response=="OK")
+            if($response=="Nick has been chenged")
             {
                 $session->set('login', $new_login);
             }
@@ -354,7 +354,8 @@ class Main extends AbstractController
          * +E-MAIL HAS BEEN CHENGED
          * OR
          * +ERROR /
-         * +NEW EMAIL HAVE INCORRECT SIGN
+         * +NEW EMAIL HAVE INCORRECT SIGN /
+         * +EMAIL MUST HAVE @
          */
         if(isset($_POST['ChangeMAIL']))
         {
@@ -369,20 +370,27 @@ class Main extends AbstractController
                 exit;
             }
 
-            $response=$this->forward('App\Controller\NewEmail::newemail', array(
-                'newemail' => $new_email,
-                'id_user' => $session->get('id_user'),
-            ));
-
-            $response=$response->getContent();
-            $response=json_decode($response);
-
-            if($response=="OK")
+            if (preg_match("/[@]/", $new_email)) // EMAIL MUST HAVE '@'
             {
-                $session->set('login', $new_email);
+                $response=$this->forward('App\Controller\NewEmail::newemail', array(
+                    'newemail' => $new_email,
+                    'id_user' => $session->get('id_user'),
+                ));
+
+                $response=$response->getContent();
+                $response=json_decode($response);
+
+                if($response=="E-mail has been chenged")
+                {
+                    $session->set('email', $new_email);
+                }
+
+                return new JsonResponse($response);
             }
 
-            return new JsonResponse($response);
+            else {
+                return new JsonResponse("E-mail must have '@'");
+            }
         }
 
         // DIFFICULTY // [#06]

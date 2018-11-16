@@ -73,7 +73,7 @@ class Translation extends AbstractController
 
         elseif($difficulty=="HARD")
         {
-            $difficulty_add=150;
+            $difficulty_add=250;
         }
 
         else {
