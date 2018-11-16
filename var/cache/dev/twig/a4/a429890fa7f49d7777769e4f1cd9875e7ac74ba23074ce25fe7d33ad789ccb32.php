@@ -111,7 +111,8 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t<input class=\"accountButton account CHANGEE-MAIL\"type=\"submit\" value=\"Change E-MAIL\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent2\">
-\t\t\ttu se jest ranking
+\t\t\t<table id=\"rankingg\">
+\t\t\t</table>
 \t\t</div>
 \t</div>
 \t<div class=\"about-page\">
@@ -491,7 +492,8 @@ Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle p
 \t\t\t<input class=\"accountButton account CHANGEE-MAIL\"type=\"submit\" value=\"Change E-MAIL\"/>
 \t\t</div>
 \t\t<div class=\"account-pageContent2\">
-\t\t\ttu se jest ranking
+\t\t\t<table id=\"rankingg\">
+\t\t\t</table>
 \t\t</div>
 \t</div>
 \t<div class=\"about-page\">
