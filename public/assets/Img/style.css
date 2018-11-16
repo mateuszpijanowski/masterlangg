@@ -477,8 +477,11 @@ a:hover {
 	display:none;
 }
 
+.account-pageContent2{
+max-height: 600px;
+overflow-y: scroll;
 
-
+}
 @keyframes animation17
 {
   from {
@@ -765,4 +768,10 @@ color:#fff;
   background: #101217;
   color:#cf324e;
   cursor:pointer;
+}
+#rankingg{
+width: 100%;
+}
+tr{
+	border-bottom: 2px solid #cf324e;
 }

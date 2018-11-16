@@ -1,5 +1,5 @@
-let tabMenu = ["EDIT ACCOUNT", "USER ACCOUNT", "RANKING"];
-let tabChange = [".CHANGELOGIN-page", ".CHANGEPASSWORD-page", ".CHANGEE-MAIL-page"];
+const tabMenu = ["EDIT ACCOUNT", "USER ACCOUNT", "RANKING"];
+const tabChange = [".CHANGELOGIN-page", ".CHANGEPASSWORD-page", ".CHANGEE-MAIL-page"];
 let LastFromTheList = 2;
 let currentOnTheList = 1;
 let currentOnTheChange = 1;
@@ -23,15 +23,16 @@ $(document).ready(function(){
     $( ".start" ).click(function() {
         if(clickAnimation==true){
             clickStop();
-	    var data = {};
+	    let data = {};
     		data['login'] = inputRead("#login");
    		data['password'] = inputRead("#password");
-		$("#login").value = null;
-		$("#password").value = null;
+
 	    ajax2(data);
 	    setTimeout(function(){
 			$("#errorLogin").html(json);
 			loadnig();
+			$("#login").val('');
+			$("#password").val('');
 	    }, 1000);
         }
     });
@@ -40,7 +41,7 @@ $(document).ready(function(){
 	});
     $( "#startRegister" ).click(function() {
         if(clickAnimation==true){
-		var data = {};
+		let data = {};
 		    data['loginRegister'] = inputRead("#loginRegister");
 	   	    data['password1'] = inputRead("#password1");
 		    data['password2'] = inputRead("#password2");
@@ -53,7 +54,7 @@ $(document).ready(function(){
     });
     $( "#startMemorablePassword" ).click(function() {
         if(clickAnimation==true){
-		var data = {};
+		let data = {};
 	   	    data['emailMemorablePassword'] = inputRead("#emailMemorablePassword");
 		ajax2(data);
 			setTimeout(function(){$("#errorMemorablePassword").html(json);}, 1000);
@@ -62,7 +63,7 @@ $(document).ready(function(){
     $( "#ChangeLOGIN" ).click(function() {
         if(clickAnimation==true){
 
-		var data = {};
+		let data = {};
 	   	    data['ChangeLOGIN'] = inputRead(".ChangeLOGIN");
 		ajax2(data);
 		setTimeout(function(){$("#error0").html(json);}, 1000);
@@ -70,7 +71,7 @@ $(document).ready(function(){
     });
     $( "#ChangePASSWORD" ).click(function() {
         if(clickAnimation==true){
-		var data = {};
+		let data = {};
 		    data['ChangePASSWORD1'] = inputRead(".ChangePASSWORD1");
 	   	    data['ChangePASSWORD2'] = inputRead(".ChangePASSWORD2");
 		ajax2(data);
@@ -80,7 +81,7 @@ $(document).ready(function(){
     $( "#ChangeMAIL" ).click(function() {
         if(clickAnimation==true){
 
-		var data = {};
+		let data = {};
 	   	    data['ChangeMAIL'] = inputRead(".ChangeMAIL");
 		ajax2(data);
 		setTimeout(function(){$("#error2").html(json);}, 1000);
@@ -101,7 +102,7 @@ $(document).ready(function(){
     $( ".accountButtonLogOut" ).click(function() {
         if(clickAnimation==true){
             clickStop();
-		var data = {};
+		let data = {};
 	   	    data['logout'] = 'logout';
 		ajax2(data);
             logOut();									  //przy logowaniu mui zostać wywołana ta fukcja
@@ -112,6 +113,12 @@ $(document).ready(function(){
 			refresh();
             clickStop();
             PageMenuShow(".account-page");
+			let data = {};
+			data['ranking'] = 'position';
+			ajax2(data);
+			setTimeout(function(){
+				$(".rankingPosition").html("Ranking position: "+json);
+			}, 750);
         }
     });
     $( "#options" ).click(function() {
@@ -181,46 +188,52 @@ $(document).ready(function(){
         if(clickAnimation==true){
             clickStop();
             PageMenuHide(".options-page");
-            	var data = {};
+            	let data = {};
 	   	    data['difficulty_update'] = 'EASY';
 		ajax2(data);
 				setTimeout(function(){
 					time=json;
 					timegame=time;
-					$("#timer").html(time);}, 1000);
+					$("#timer").html(time);
+					langList1();}, 1000);
 			dificultyClick='EASY'
 			$(".difficultyDisplays").html(dificultyClick);
+
         }
     });
     $("#NORMAL").click(function() {
         if(clickAnimation==true){
             clickStop();
             PageMenuHide(".options-page");
-            	var data = {};
+            	let data = {};
 	   	    data['difficulty_update'] = 'NORMAL';
 		ajax2(data);
 				setTimeout(function(){
 					time=json
 					timegame=time;
-					$("#timer").html(time);}, 1000);
+					$("#timer").html(time);
+					langList2();}, 1000);
 			dificultyClick='NORMAL'
 			$(".difficultyDisplays").html(dificultyClick);
+
         }
     });
     $("#HARD").click(function() {
         if(clickAnimation==true){
             clickStop();
             PageMenuHide(".options-page");
-            	var data = {};
+            	let data = {};
 	   	    data['difficulty_update'] = 'HARD';
 		ajax2(data);
 
 				setTimeout(function(){
 					time=json;
 					timegame=time;
-					$("#timer").html(time);}, 1000);
+					$("#timer").html(time);
+					langList3();}, 1000);
 			dificultyClick='HARD'
 			$(".difficultyDisplays").html(dificultyClick);
+
         }
     });
 
@@ -230,9 +243,15 @@ $(document).ready(function(){
             clickStop();
             accountPageContentOut(2,currentOnTheList);
             registerAnimationMenu(1, 2, 0, 1, 2);
-			var data = {};
-			data['ranking'] = 'ranking';
-	   		ajax2(data);
+			ranking();
+			setTimeout(function(){
+				let data = {};
+				data['ranking'] = 'position';
+				ajax2(data);
+				setTimeout(function(){
+					scroll_to2('#id'+json);
+				}, 750);
+			}, 750);
         }
     });
 
@@ -254,6 +273,7 @@ $(document).ready(function(){
     $('.account-pageMenu').on("click",".registerAnimationMenu2", function () {
         if(clickAnimation==true){
             clickStop();
+			ranking();
             accountPageContentOut(2,currentOnTheList);
             registerAnimationMenu(1, 2, 0, 1, 2);
         }
@@ -584,7 +604,9 @@ function loadnig()
 			$("#timer").html(time);
 			dificultyClick=json.difficulty
 			$(".difficultyDisplays").html(dificultyClick);
-
+			if(dificultyClick=="EASY"){langList1();}
+			else if(dificultyClick=="NORMAL"){langList2();}
+			else if(dificultyClick=="HARD"){langList3();}
 			//json.user_lang
 			//json.user_text
 			login();
@@ -602,7 +624,7 @@ function timee(){
 }
 function sesion()
 {
-	var data = {};
+	let data = {};
 	   data['session'] = true;
 	   ajax2(data);
 	setTimeout(function(){
@@ -614,7 +636,7 @@ function sesion()
 function game(){
 		refresh();
 		stopTime=true;
-		var data = {};
+		let data = {};
 	   	data['user_text'] = inputRead("#quotation");
 		if(data.user_text.length>0){
 		okLock=false;
@@ -667,7 +689,7 @@ function refresh(){
 }
 function okClick(){
 	if(clickAnimation==true){
-	var data = {};
+	let data = {};
 		data['sel_lang'] = langClicki;
 		data['time'] = time;
 		$("#timer").html(time);
@@ -703,6 +725,17 @@ function okClick(){
 	}, 1000);
 	}
 }
+function ranking(){
+	let data = {};
+	data['ranking'] = 'ranking';
+	ajax2(data);
+	setTimeout(function(){
+		$("#rankingg").html('');
+		for(let i=0;i<=json.length;i++){
+			$("#rankingg").append("<tr id='id"+json[i].Position+"'><td> "+json[i].Position+" </td><td> "+json[i].Nick+" </td><td> "+json[i].Score+" </td></tr>");
+		}
+	}, 800);
+}
 function ajax2(data){
 	$.ajax({
 		type:"POST",
@@ -711,11 +744,24 @@ function ajax2(data){
 		data: data,
 		success: function(response){
 			json=response;
-			alert(JSON.stringify(response));
+			//alert(JSON.stringify(response));
 
 		},
 		error: function(){
 		alert('Error Ajax:'+data);
 		}
 		});
+}
+function langList1(){
+	$(".langList").html("1");
+}
+function langList2(){
+	$(".langList").html("2");
+}
+function langList3(){
+	$(".langList").html("3");
+}
+function scroll_to2(selector) {
+    $('.account-pageContent2').animate({scrollTop: $(selector).offset().top}, 1000);
+    return false;
 }
