@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/templates/base.html.twig" line="206" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7d3ec400-2f0a-40f3-bcfd-70ee18dfb2fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Translation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Translation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
@@ -51,8 +56,8 @@
           <entry key="css" value="22" />
           <entry key="env" value="26" />
           <entry key="js" value="427" />
-          <entry key="php" value="17126" />
-          <entry key="twig" value="530" />
+          <entry key="php" value="17335" />
+          <entry key="twig" value="1018" />
           <entry key="yaml" value="15" />
         </counts>
       </usages-collector>
@@ -62,9 +67,9 @@
           <entry key="CSS" value="22" />
           <entry key="HTML" value="10" />
           <entry key="JavaScript" value="427" />
-          <entry key="PHP" value="17105" />
+          <entry key="PHP" value="17314" />
           <entry key="SQL" value="11" />
-          <entry key="Twig" value="530" />
+          <entry key="Twig" value="1018" />
           <entry key="YAML" value="15" />
         </counts>
       </usages-collector>
@@ -76,8 +81,8 @@
           <entry key="html" value="1" />
           <entry key="js" value="14" />
           <entry key="json" value="1" />
-          <entry key="php" value="190" />
-          <entry key="twig" value="7" />
+          <entry key="php" value="191" />
+          <entry key="twig" value="9" />
           <entry key="yaml" value="13" />
         </counts>
       </usages-collector>
@@ -88,9 +93,9 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="14" />
-          <entry key="PHP" value="190" />
+          <entry key="PHP" value="191" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Twig" value="7" />
+          <entry key="Twig" value="9" />
           <entry key="YAML" value="13" />
         </counts>
       </usages-collector>
@@ -106,11 +111,38 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="224" column="62" selection-start-line="224" selection-start-column="62" selection-end-line="224" selection-end-column="62" />
+            <state relative-caret-position="504">
+              <caret line="462" column="18" lean-forward="true" selection-start-line="462" selection-start-column="18" selection-end-line="462" selection-end-column="18" />
               <folding>
                 <element signature="e#7#680#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Translation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/basepassword.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1558">
+              <caret line="359" column="7" selection-start-line="359" selection-start-column="7" selection-end-line="359" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -168,10 +200,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scro</find>
-      <find>scroll</find>
-      <find>OPTION</find>
-      <find>diffic</find>
       <find>SCORE</find>
       <find>start</find>
       <find>background-ima</find>
@@ -190,7 +218,6 @@
       <find>by Mat</find>
       <find>#05</find>
       <find>#06</find>
-      <find>#07</find>
       <find>#08</find>
       <find>#09</find>
       <find>#10</find>
@@ -198,6 +225,11 @@
       <find>&amp;11.2</find>
       <find>#12</find>
       <find>#99</find>
+      <find>&amp;04.1</find>
+      <find>est</find>
+      <find>udm</find>
+      <find>Esperanto&lt;/b</find>
+      <find>#07</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -228,15 +260,15 @@
         <option value="$PROJECT_DIR$/src/Controller/Reset.php" />
         <option value="$PROJECT_DIR$/src/Controller/ScoreUpdate.php" />
         <option value="$PROJECT_DIR$/src/Controller/Difficulty.php" />
-        <option value="$PROJECT_DIR$/src/Controller/Translation.php" />
         <option value="$PROJECT_DIR$/src/Controller/LoginTest.php" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/public/assets/Img/style.css" />
         <option value="$PROJECT_DIR$/src/Controller/Registration.php" />
         <option value="$PROJECT_DIR$/src/Controller/Ranking.php" />
         <option value="$PROJECT_DIR$/templates/basepassword.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/PassRecovery.php" />
         <option value="$PROJECT_DIR$/src/Controller/NewPass.php" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/Translation.php" />
         <option value="$PROJECT_DIR$/src/Controller/Main.php" />
       </list>
     </option>
@@ -505,12 +537,12 @@
       <workItem from="1542209934145" duration="1649000" />
       <workItem from="1542267030093" duration="4846000" />
       <workItem from="1542277386774" duration="8347000" />
-      <workItem from="1542349344784" duration="6006000" />
+      <workItem from="1542349344784" duration="18686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125143000" />
+    <option name="totallyTimeSpent" value="137823000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,7 +557,7 @@
     <frame x="0" y="27" width="1920" height="1020" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21955128" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23344018" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -668,24 +700,10 @@
     <entry file="file://$PROJECT_DIR$/config/packages/validator.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Translation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/Img/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="72" column="47" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -744,13 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/basepassword.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/LoginTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
@@ -788,6 +799,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/basepassword.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1558">
+          <caret line="359" column="7" selection-start-line="359" selection-start-column="7" selection-end-line="359" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Difficulty.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -795,10 +820,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Translation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="224" column="62" selection-start-line="224" selection-start-column="62" selection-end-line="224" selection-end-column="62" />
+        <state relative-caret-position="504">
+          <caret line="462" column="18" lean-forward="true" selection-start-line="462" selection-start-column="18" selection-end-line="462" selection-end-column="18" />
           <folding>
             <element signature="e#7#680#0#PHP" expanded="true" />
           </folding>

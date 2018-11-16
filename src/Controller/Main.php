@@ -426,11 +426,13 @@ class Main extends AbstractController
          * +TRANSTEXT
          * OR
          * +YOUR TEXT HAVE INCCORECT SIGN /
-         * +TOUR TEXT IS TOO LONG
+         * +TOUR TEXT IS TOO LONG /
+         * +DIFFICULTY ERROR
          */
         if(isset($_POST['user_text']))
         {
             $user_text=$_POST['user_text'];
+            $difficulty=$session->get('difficulty');
 
             // VALIDATION //
             if (preg_match('/[\'^0-9£$%&*()}{@#~?><>,|=_+¬-]/', $user_text)) // DETECT SPECIAL SIGN
@@ -447,18 +449,28 @@ class Main extends AbstractController
 
             $response=$this->forward('App\Controller\Translation::translation', array(
                 'text' => $user_text,
+                'difficulty' => $difficulty,
             ));
 
             $response=$response->getContent();
-            $response=json_decode($response, true);
-            $randomlang=$response['randomlang'];
-            $user_lang=$response['detectlang'];
 
-            $session->set('random_lang', $randomlang);
-            $session->set('user_lang', $user_lang);
-            $session->set('user_text', $user_text);
+            if ($response=="Difficulty Error!")
+            {
+                return new JsonResponse($response);
+                exit;
+            }
 
-            return new JsonResponse($response);
+            else {
+                $response=json_decode($response, true);
+                $randomlang=$response['randomlang'];
+                $user_lang=$response['detectlang'];
+
+                $session->set('random_lang', $randomlang);
+                $session->set('user_lang', $user_lang);
+                $session->set('user_text', $user_text);
+
+                return new JsonResponse($response);
+            }
         }
 
         // TRANSLATION TEST // [#08]
