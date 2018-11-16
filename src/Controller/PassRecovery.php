@@ -67,21 +67,27 @@ class PassRecovery extends AbstractController
         if(!$user)
         {
             return new JsonResponse("E-mail was not found!");
-            exit;
         }
 
-        $random_code=generateRandomString(32);
-
-        $user->setAccessCode($random_code);
-        $entityManager->flush();
-
-        if(sendEmail($email, $random_code))
+        elseif ($user->getActive()==0)
         {
-            return new JsonResponse("Verfy code has been sent to your E-mail");
+            return new JsonResponse("This account isn't active!");
         }
 
         else {
-            return new JsonResponse("E-mail send error!");
+            $random_code=generateRandomString(32);
+
+            $user->setAccessCode($random_code);
+            $entityManager->flush();
+
+            if(sendEmail($email, $random_code))
+            {
+                return new JsonResponse("Verfy code has been sent to your E-mail");
+            }
+
+            else {
+                return new JsonResponse("E-mail send error!");
+            }
         }
     }
 
@@ -101,9 +107,11 @@ class PassRecovery extends AbstractController
         $id=$user->getIdUser();
         $nick=$user->getNick();
 
-        return $this->render('base.html.twig', [
-            'id' => $id,
-            'nick' => $nick,
-        ]);
+        $response = array(
+            "id" => $id,
+            "nick" => $nick,
+        );
+
+        return new JsonResponse($response);
     }
 }

@@ -287,15 +287,31 @@ class Main extends AbstractController
 
             if($new_pass1==$new_pass2)
             {
-                $response=$this->forward('App\Controller\NewPass::newpass', array(
-                    'newpass' => $new_pass1,
-                    'id_user' => $session->get('id_user'),
-                ));
+                if(isset($_POST['id_user']))
+                {
+                    $id_user=$_POST['id_user'];
 
-                return new JsonResponse($response->getContent());
+                    $response=$this->forward('App\Controller\NewPass::newpass', array(
+                        'newpass' => $new_pass1,
+                        'id_user' => $id_user,
+                    ));
+
+                    return new JsonResponse($response->getContent());
+                }
+
+                else {
+                    $response=$this->forward('App\Controller\NewPass::newpass', array(
+                        'newpass' => $new_pass1,
+                        'id_user' => $session->get('id_user'),
+                    ));
+
+                    return new JsonResponse($response->getContent());
+                }
             }
 
-            return new JsonResponse("Bad password");
+            else {
+                return new JsonResponse("Bad password");
+            }
         }
 
         /*
@@ -351,7 +367,19 @@ class Main extends AbstractController
                 'id_user' => $session->get('id_user'),
             ));
 
-            return new JsonResponse($response->getContent());
+            $response=$response->getContent();
+
+            if($response=="DB Error!")
+            {
+                return new JsonResponse($response);
+            }
+
+            else {
+                $session->set('difficulty', $difficulty);
+                $session->set('time', $response);
+                return new JsonResponse($response);
+            }
+
         }
 
         // TRANSLATION TEXT //
@@ -530,9 +558,20 @@ class Main extends AbstractController
 
             elseif ($status=="2") // CHENGE PASSWORD
             {
-                $this->forward('App\Controller\PassRecovery::chenge_pass', array(
+                $response=$this->forward('App\Controller\PassRecovery::chenge_pass', array(
                     'code' => $code,
                 ));
+
+                $response=$response->getContent();
+                $response=json_decode($response, true);
+
+                $id=$response['id'];
+                $nick=$response['nick'];
+
+                return $this->render('basepassword.html.twig', [
+                    'id' => $id,
+                    'nick' => $nick,
+                ]);
             }
 
             else {
@@ -543,7 +582,7 @@ class Main extends AbstractController
         // LOG OUT //
         if(isset($_POST['logout']))
         {
-            $session->clear(); // CLEAR ALL SESSION
+            $session->clear(); // CLEAR ALL SESSIONs
 
             return new JsonResponse(true);
         }
