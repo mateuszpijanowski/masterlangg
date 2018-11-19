@@ -117,9 +117,14 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t</div>
 \t<div class=\"about-page\">
 \t\t<input class=\"Back account\"type=\"submit\" value=\"Back\"/>
-\t\t<div class=\"form formChange\">
-\t\t\t<form class=\"formCHANGEE-MAIL\">
-Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV \t\t\t</form>
+\t\t<div class=\"about\">
+\t\t\t<p class=\"logo\">MasterLangg</p>
+\t\t\t<p class=\"text\"><b>MasterLangg</b> is a language translation game in which the player has to determine a random language based on a translated sentence or word entered by the player.</p>
+\t\t\t<p class=\"version\">Version: <i>1.0</i></p>
+\t\t\t<p class=\"build\">Build: Symfony 4.1 & jQuery 3.3 & Bootstrap 4.1 & PHP 7.2 & MySQL</p>
+\t\t\t<a href=\"https://github.com/mateuszpijanowski/masterlangg\" target=\"_blank\">
+\t\t\t\t<img class=\"github\" width=\"400px\" src=\"/assets/Img/github.png\" />
+\t\t\t</a>
 \t\t</div>
 \t</div>
 \t<div class=\"CHANGELOGIN-page\">
@@ -334,9 +339,14 @@ Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle p
 \t</div>
 \t<div class=\"about-page\">
 \t\t<input class=\"Back account\"type=\"submit\" value=\"Back\"/>
-\t\t<div class=\"form formChange\">
-\t\t\t<form class=\"formCHANGEE-MAIL\">
-Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV \t\t\t</form>
+\t\t<div class=\"about\">
+\t\t\t<p class=\"logo\">MasterLangg</p>
+\t\t\t<p class=\"text\"><b>MasterLangg</b> is a language translation game in which the player has to determine a random language based on a translated sentence or word entered by the player.</p>
+\t\t\t<p class=\"version\">Version: <i>1.0</i></p>
+\t\t\t<p class=\"build\">Build: Symfony 4.1 & jQuery 3.3 & Bootstrap 4.1 & PHP 7.2 & MySQL</p>
+\t\t\t<a href=\"https://github.com/mateuszpijanowski/masterlangg\" target=\"_blank\">
+\t\t\t\t<img class=\"github\" width=\"400px\" src=\"/assets/Img/github.png\" />
+\t\t\t</a>
 \t\t</div>
 \t</div>
 \t<div class=\"CHANGELOGIN-page\">

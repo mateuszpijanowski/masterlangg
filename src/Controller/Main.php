@@ -147,7 +147,8 @@ class Main extends AbstractController
          * +EMAIL HAVE INCORRECT SIGN /
          * +BAD PASSWORD /
          * +EMAIL MUST HAVE '@' /
-         * +E-MAIL SEND ERROR
+         * +E-MAIL SEND ERROR /
+         * +PASSWORD MUST HAVE MIN 8 SIGN
          */
         if(isset($_POST['loginRegister']) && isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['emailRegister'])) {
             $login_reg = $_POST['loginRegister'];
@@ -162,6 +163,11 @@ class Main extends AbstractController
             $pass_reg1=str_replace(" ","", $pass_reg1); // REMOVE SPACE
             $pass_reg2=str_replace(" ","", $pass_reg2); // REMOVE SPACE
             $email_reg=str_replace(" ","", $email_reg); // REMOVE SPACE
+            if (strlen($pass_reg1)<8) // MIN 8 SIGN IN PASSWORD
+            {
+                return new JsonResponse("Password mus have min 8 sign!");
+                exit;
+            }
             if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $login_reg)) // DETECT INCORRECT SIGN
             {
                 return new JsonResponse("Login have incorrect sign");
@@ -302,7 +308,8 @@ class Main extends AbstractController
          * OR
          * +ERROR /
          * +BAD PASSWORD /
-         * +NEW PASS HAVE INCORRECT SIGN
+         * +NEW PASS HAVE INCORRECT SIGN /
+         * +PASSWORD MUST HAVE MIN 8 SIGN
          */
         if(isset($_POST['ChangePASSWORD1']) && isset($_POST['ChangePASSWORD2']))
         {
@@ -312,6 +319,11 @@ class Main extends AbstractController
             // VALIDATION //
             $new_pass1=str_replace(" ","", $new_pass1); // REMOVE SPACE
             $new_pass2=str_replace(" ","", $new_pass2); // REMOVE SPACE
+            if (strlen($new_pass1)<8) // MIN 8 SIGN IN PASSWORD
+            {
+                return new JsonResponse("Password mus have min 8 sign!");
+                exit;
+            }
             if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $new_pass1)) // DETECT INCORRECT SIGN
             {
                 return new JsonResponse("New pass have incorrect sign");

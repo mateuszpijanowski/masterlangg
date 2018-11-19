@@ -775,3 +775,39 @@ width: 100%;
 tr{
 	border-bottom: 2px solid #cf324e;
 }
+
+.logo
+{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 52px;
+	color:#cf324e;
+}
+
+.text
+{
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.version
+{
+	font-size: 26px;
+	text-align: left;
+	color: #868686;
+	margin-bottom: 0px;
+}
+
+.build
+{
+	margin-top: 0px;
+	font-size: 24px;
+	text-align: left;
+	color: #868686;
+}
+
+.about
+{
+	text-align: center;
+	color: white;
+}
