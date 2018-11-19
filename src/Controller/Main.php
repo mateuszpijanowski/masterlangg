@@ -422,7 +422,6 @@ class Main extends AbstractController
                 $session->set('time', $response);
                 return new JsonResponse($response);
             }
-
         }
 
         // TRANSLATION TEXT // [#07]
@@ -472,10 +471,12 @@ class Main extends AbstractController
                 $response=json_decode($response, true);
                 $randomlang=$response['randomlang'];
                 $user_lang=$response['detectlang'];
+                $transtext=$response['transtext'];
 
                 $session->set('random_lang', $randomlang);
                 $session->set('user_lang', $user_lang);
                 $session->set('user_text', $user_text);
+                $session->set('transtext', $transtext);
 
                 return new JsonResponse($response);
             }

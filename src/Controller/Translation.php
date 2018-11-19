@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\LangList;
+use App\Entity\LangEasy;
+use App\Entity\LangNormal;
+use App\Entity\LangHard;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -12,24 +14,22 @@ class Translation extends AbstractController
 
     public function translation($text, $difficulty)
     {
-        $text=str_replace(" ","%20", $text);
-        $responseDetect = file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20181024T152959Z.102541e69e4b1ef4.7e3297d1e21110feb6f7ffe1672fcb702bc30b57&text='.$text);
-        $responseDetect = json_decode($responseDetect);
-        $responseDetect = $responseDetect->lang;
-
         if($difficulty=="EASY")
         {
+            $repository=$this->getDoctrine()->getRepository(LangEasy::class);
             $rand_trans=rand(1,20);
         }
 
         elseif($difficulty=="NORMAL")
         {
-            $rand_trans=rand(1,45);
+            $repository=$this->getDoctrine()->getRepository(LangNormal::class);
+            $rand_trans=rand(1,40);
         }
 
         elseif($difficulty=="HARD")
         {
-            $rand_trans=rand(1,93);
+            $repository=$this->getDoctrine()->getRepository(LangHard::class);
+            $rand_trans=rand(1,80);
         }
 
         else {
@@ -37,7 +37,11 @@ class Translation extends AbstractController
             exit;
         }
 
-        $repository=$this->getDoctrine()->getRepository(LangList::class);
+        $text=str_replace(" ","%20", $text);
+        $responseDetect = file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20181024T152959Z.102541e69e4b1ef4.7e3297d1e21110feb6f7ffe1672fcb702bc30b57&text='.$text);
+        $responseDetect = json_decode($responseDetect);
+        $responseDetect = $responseDetect->lang;
+
         $lang=$repository->findOneby([
             'idLang' => $rand_trans,
         ]);
