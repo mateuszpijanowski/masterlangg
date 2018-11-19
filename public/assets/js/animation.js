@@ -66,8 +66,8 @@ $(document).ready(function(){
 	   	    data['ChangeLOGIN'] = inputRead(".ChangeLOGIN");
 		ajax2(data);
 		setTimeout(function(){$("#error0").html(json);}, 1000);
-		$(".nick").html(inputRead(".ChangeLOGIN"));
-		$("#nick").html(inputRead(".ChangeLOGIN"));
+		$(".nick").html("Nick: "+inputRead(".ChangeLOGIN"));
+		$("#nick").html("Nick: "+inputRead(".ChangeLOGIN"));
         }
     });
     $( "#ChangePASSWORD" ).click(function() {
@@ -86,7 +86,7 @@ $(document).ready(function(){
 	   	    data['ChangeMAIL'] = inputRead(".ChangeMAIL");
 		ajax2(data);
 		setTimeout(function(){$("#error2").html(json);}, 1000);
-		$(".email").html(inputRead(".ChangeMAIL"));
+		$(".email").html("E-MAIL: "+inputRead(".ChangeMAIL"));
         }
     });
     $( "#startGame" ).click(function() {
