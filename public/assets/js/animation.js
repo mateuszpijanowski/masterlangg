@@ -21,7 +21,6 @@ const lang3="<button id='sq' class='langButton'>Albanian</button><button id='hy'
 $(document).ready(function(){
 	langList();
 	sesion();
-
     $( ".start" ).click(function() {
         if(clickAnimation==true){
             clickStop();
@@ -33,10 +32,6 @@ $(document).ready(function(){
 	    setTimeout(function(){
 			$("#errorLogin").html(json);
 			loadnig();
-			setTimeout(function(){
-				$("#login").val('');
-				$("#password").val('');
-			}, 1000);
 	    }, 1000);
         }
     });
@@ -71,6 +66,8 @@ $(document).ready(function(){
 	   	    data['ChangeLOGIN'] = inputRead(".ChangeLOGIN");
 		ajax2(data);
 		setTimeout(function(){$("#error0").html(json);}, 1000);
+		$(".nick").html(inputRead(".ChangeLOGIN"));
+		$("#nick").html(inputRead(".ChangeLOGIN"));
         }
     });
     $( "#ChangePASSWORD" ).click(function() {
@@ -89,6 +86,7 @@ $(document).ready(function(){
 	   	    data['ChangeMAIL'] = inputRead(".ChangeMAIL");
 		ajax2(data);
 		setTimeout(function(){$("#error2").html(json);}, 1000);
+		$(".email").html(inputRead(".ChangeMAIL"));
         }
     });
     $( "#startGame" ).click(function() {
@@ -595,6 +593,10 @@ function langList(){
 }
 function loadnig()
 {		if(json.id_user>0){
+			setTimeout(function(){
+				$("#login").val('');
+				$("#password").val('');
+			}, 1000);
 			$(".nick").html("Nick: "+json.login);
 			$("#nick").html("Nick: "+json.login);
 			$(".email").html("E-MAIL: "+json.email);
@@ -657,7 +659,7 @@ function game(){
 				$("#DETECTLANG").html(json.detectlang);
 				stopTime=false
 				timee();
-			}, 1000);
+			}, 1500);
 		}
 		else{
 

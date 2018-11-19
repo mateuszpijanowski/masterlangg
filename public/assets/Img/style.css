@@ -243,7 +243,7 @@ a:hover {
 	height:300px;
 	line-height:140% !important;
 	padding:10px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 #langButton{
 	background-color:#202227;
@@ -479,7 +479,7 @@ a:hover {
 
 .account-pageContent2{
 max-height: 600px;
-overflow-y: scroll;
+overflow-y: auto;
 
 }
 @keyframes animation17
