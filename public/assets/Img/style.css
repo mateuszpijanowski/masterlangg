@@ -811,3 +811,13 @@ tr{
 	text-align: center;
 	color: white;
 }
+
+.github
+{
+	opacity: 0.8;
+}
+
+.github:hover
+{
+	opacity: 1;
+}

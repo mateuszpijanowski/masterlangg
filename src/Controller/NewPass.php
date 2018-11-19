@@ -26,6 +26,7 @@ class NewPass extends AbstractController
         $pass_new_hash=password_hash($newpass, PASSWORD_DEFAULT);
 
         $update->setPass($pass_new_hash);
+        $update->setAccessCode("");
         $entityManager->flush();
 
         return new JsonResponse("Password has been chenged");

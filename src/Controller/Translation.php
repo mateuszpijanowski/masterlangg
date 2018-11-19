@@ -14,39 +14,75 @@ class Translation extends AbstractController
 
     public function translation($text, $difficulty)
     {
+        $text=str_replace(" ","%20", $text);
+        $responseDetect = file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20181024T152959Z.102541e69e4b1ef4.7e3297d1e21110feb6f7ffe1672fcb702bc30b57&text='.$text);
+        $responseDetect = json_decode($responseDetect);
+        $responseDetect = $responseDetect->lang;
+
         if($difficulty=="EASY")
         {
             $repository=$this->getDoctrine()->getRepository(LangEasy::class);
-            $rand_trans=rand(1,20);
+
+            while (1>0)
+            {
+                $rand_trans=rand(1,20);
+                $lang=$repository->findOneby([
+                    'idLang' => $rand_trans,
+                ]);
+
+                $lang=$lang->getLangName();
+
+                if ($lang!==$responseDetect)
+                {
+                    break;
+                }
+            }
         }
 
         elseif($difficulty=="NORMAL")
         {
             $repository=$this->getDoctrine()->getRepository(LangNormal::class);
-            $rand_trans=rand(1,40);
+
+            while (1>0)
+            {
+                $rand_trans=rand(1,40);
+                $lang=$repository->findOneby([
+                    'idLang' => $rand_trans,
+                ]);
+
+                $lang=$lang->getLangName();
+
+                if ($lang!==$responseDetect)
+                {
+                    break;
+                }
+            }
         }
 
         elseif($difficulty=="HARD")
         {
             $repository=$this->getDoctrine()->getRepository(LangHard::class);
-            $rand_trans=rand(1,80);
+
+            while (1>0)
+            {
+                $rand_trans=rand(1,80);
+                $lang=$repository->findOneby([
+                    'idLang' => $rand_trans,
+                ]);
+
+                $lang=$lang->getLangName();
+
+                if ($lang!==$responseDetect)
+                {
+                    break;
+                }
+            }
         }
 
         else {
             return new JsonResponse("Difficulty Error!");
             exit;
         }
-
-        $text=str_replace(" ","%20", $text);
-        $responseDetect = file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20181024T152959Z.102541e69e4b1ef4.7e3297d1e21110feb6f7ffe1672fcb702bc30b57&text='.$text);
-        $responseDetect = json_decode($responseDetect);
-        $responseDetect = $responseDetect->lang;
-
-        $lang=$repository->findOneby([
-            'idLang' => $rand_trans,
-        ]);
-
-        $lang=$lang->getLangName();
 
         $responseTrans = file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20181024T152959Z.102541e69e4b1ef4.7e3297d1e21110feb6f7ffe1672fcb702bc30b57&text='.$text.'&lang='.$responseDetect.'-'.$lang);
         $responseTrans = json_decode($responseTrans);
@@ -72,12 +108,12 @@ class Translation extends AbstractController
 
         elseif($difficulty=="NORMAL")
         {
-            $difficulty_add=50;
+            $difficulty_add=100;
         }
 
         elseif($difficulty=="HARD")
         {
-            $difficulty_add=250;
+            $difficulty_add=500;
         }
 
         else {

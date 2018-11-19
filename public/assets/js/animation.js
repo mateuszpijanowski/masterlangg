@@ -599,7 +599,7 @@ function loadnig()
 			}, 1000);
 			$(".nick").html("Nick: "+json.login);
 			$("#nick").html("Nick: "+json.login);
-			$(".email").html("E-MAIL: "+json.email);
+			$(".email").html("E-mail: "+json.email);
 			$("#score").html("Score: "+json.score);
 			$("#score2").html(json.score);
 			score=json.score;

@@ -148,7 +148,8 @@ class Main extends AbstractController
          * +BAD PASSWORD /
          * +EMAIL MUST HAVE '@' /
          * +E-MAIL SEND ERROR /
-         * +PASSWORD MUST HAVE MIN 8 SIGN
+         * +PASSWORD MUST HAVE MIN 8 SIGN /
+         * +LOGIN MUST HAVE MIN 5 SIGN
          */
         if(isset($_POST['loginRegister']) && isset($_POST['password1']) && isset($_POST['password2']) && isset($_POST['emailRegister'])) {
             $login_reg = $_POST['loginRegister'];
@@ -165,7 +166,12 @@ class Main extends AbstractController
             $email_reg=str_replace(" ","", $email_reg); // REMOVE SPACE
             if (strlen($pass_reg1)<8) // MIN 8 SIGN IN PASSWORD
             {
-                return new JsonResponse("Password mus have min 8 sign!");
+                return new JsonResponse("Password must have min 8 sign!");
+                exit;
+            }
+            if (strlen($login_reg)<5) // MIN 5 SIGN IN Nick
+            {
+                return new JsonResponse("Login must have min 5 sign!");
                 exit;
             }
             if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $login_reg)) // DETECT INCORRECT SIGN
@@ -271,7 +277,8 @@ class Main extends AbstractController
          * +NICK HAS BEEN CHENGED
          * OR
          * +ERROR /
-         * +NEW LOGIN HAVE INCORRECT SIGN
+         * +NEW LOGIN HAVE INCORRECT SIGN /
+         * +LOGIN MUST HAVE MIN 5 SIGN!
          */
         if(isset($_POST['ChangeLOGIN']))
         {
@@ -280,6 +287,11 @@ class Main extends AbstractController
             // VALIDATION //
             htmlentities($new_login); // REMOVE HTML SIGN
             $new_login=str_replace(" ","", $new_login); // REMOVE SPACE
+            if (strlen($new_login)<5) // MIN 5 SIGN IN Nick
+            {
+                return new JsonResponse("Login must have min 5 sign!");
+                exit;
+            }
             if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $new_login)) // DETECT INCORRECT SIGN
             {
                 return new JsonResponse("New login have incorrect sign");
@@ -321,7 +333,7 @@ class Main extends AbstractController
             $new_pass2=str_replace(" ","", $new_pass2); // REMOVE SPACE
             if (strlen($new_pass1)<8) // MIN 8 SIGN IN PASSWORD
             {
-                return new JsonResponse("Password mus have min 8 sign!");
+                return new JsonResponse("Password must have min 8 sign!");
                 exit;
             }
             if (preg_match("/[ĄĆĘŁŃÓŚŻŹąćęłńóśźż]/", $new_pass1)) // DETECT INCORRECT SIGN

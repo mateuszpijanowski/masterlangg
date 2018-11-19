@@ -55,8 +55,7 @@ class Registration extends AbstractController
             $headers .= 'Content-type: text/html; charset=iso-8859-2' . "\r\n";
             $headers .= 'From: MasterLangg <StrongBot@webstrong.com>' . "\r\n";
 
-            //return mail($to, $subject, $message, $headers);
-            return true;
+            return mail($to, $subject, $message, $headers);
         }
 
         $repository=$this->getDoctrine()->getRepository(UserData::class);
