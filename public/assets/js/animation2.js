@@ -3,12 +3,13 @@ $(document).ready(function(){
 	PageMenuShow(".account-page");
     $( "#ChangePASSWORD" ).click(function() {
 		var data = {};
+			 data['id_user'] = document.getElementById('id').innerHTML;
 		    data['ChangePASSWORD1'] = inputRead(".ChangePASSWORD1");
 	   	    data['ChangePASSWORD2'] = inputRead(".ChangePASSWORD2");
 		ajax2(data);
-		setTimeout(function(){$("#error1").html(json);}, 1000);      
+		setTimeout(function(){$("#error1").html(json);}, 1000);
     });
-  
+
 });
 
 function PageMenuShow(nameClass){
