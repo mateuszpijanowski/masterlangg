@@ -4,7 +4,7 @@ let LastFromTheList = 2;
 let currentOnTheList = 1;
 let currentOnTheChange = 1;
 let clickAnimation = true;
-let langClicki ;
+let langClicki='none';
 let dificultyClick;
 let json;
 let time;
@@ -14,7 +14,9 @@ let okLock=true;
 let okLock2=true;
 let score;
 let quotationLock=true;
-
+const lang1="<button id='zh' class='langButton'>Chinese</button><button id='es' class='langButton'>Spanish</button><button id='en' class='langButton'>English</button><button id='hi' class='langButton'>Hindi</button><button id='ar' class='langButton'>Arabic</button><button id='pt' class='langButton'>Portuguese</button><button id='bn' class='langButton'>Bengali</button><button id='ru' class='langButton'>Russian</button><button id='ja' class='langButton'>Japanese </button><button id='pa' class='langButton'>Punjabi</button><button id='de' class='langButton'>German</button><button id='jv' class='langButton'>Javanese</button><button id='ms' class='langButton'>Malay</button><button id='te' class='langButton'>Telugu</button><button id='vi' class='langButton'>Vietnamese</button><button id='ko' class='langButton'>Korean</button><button id='fr' class='langButton'>French</button><button id='mr' class='langButton'>Marathi</button><button id='ta' class='langButton'>Tamil</button><button id='ur' class='langButton'>Urdu</button>";
+const lang2="<button id='tr' class='langButton'>Turkish</button><button id='it' class='langButton'>Italian</button><button id='th' class='langButton'>Thai</button><button id='gu' class='langButton'>Gujarati</button><button id='fa' class='langButton'>Persian</button><button id='pl' class='langButton'>Polish</button><button id='kn' class='langButton'>Kannada</button><button id='ml' class='langButton'>Malayalam</button><button id='su' class='langButton'>Sundanese</button><button id='my' class='langButton'>Burmese</button><button id='uk' class='langButton'>Ukrainian</button><button id='tl' class='langButton'>Tagalog</button><button id='la' class='langButton'>Latin</button><button id='uz' class='langButton'>Uzbek</button><button id='si' class='langButton'>Sinhala</button><button id='am' class='langButton'>Amharic</button><button id='ro' class='langButton'>Romanian</button><button id='az' class='langButton'>Azerbaijan</button><button id='ceb' class='langButton'>Cebuano</button><button id='nl' class='langButton'>Dutch</button><button id='sr' class='langButton'>Serbian</button><button id='mg' class='langButton'>Malagasy</button><button id='ne' class='langButton'>Nepali</button><button id='km' class='langButton'>Khmer</button><button id='el' class='langButton'>Greek</button>";
+const lang3="<button id='sq' class='langButton'>Albanian</button><button id='hy' class='langButton'>Armenian</button><button id='af' class='langButton'>Afrikaans</button><button id='eu' class='langButton'>Basque</button><button id='ba' class='langButton'>Bashkir</button><button id='be' class='langButton'>Belarusian</button><button id='bg' class='langButton'>Bulgarian</button><button id='bs' class='langButton'>Bosnian</button><button id='cy' class='langButton'>Welsh</button><button id='hu' class='langButton'>Hungarian</button><button id='ht' class='langButton'>Haitian (Creole)</button><button id='gl' class='langButton'>Galician</button><button id='mrj' class='langButton'>Hill Mari</button><button id='ka' class='langButton'>Georgian</button><button id='da' class='langButton'>Danish</button><button id='he' class='langButton'>Hebrew</button><button id='yi' class='langButton'>Yiddish</button><button id='id' class='langButton'>Indonesian</button><button id='ga' class='langButton'>Irish</button><button id='is' class='langButton'>Icelandic</button><button id='kk' class='langButton'>Kazakh</button><button id='ca' class='langButton'>Catalan</button><button id='ky' class='langButton'>Kyrgyz</button><button id='xh' class='langButton'>Xhosa</button><button id='lo' class='langButton'>Laotian</button><button id='lv' class='langButton'>Latvian (Creole)</button><button id='lt' class='langButton'>Lithuanian</button><button id='lb' class='langButton'>Luxembourgish</button><button id='mt' class='langButton'>Maltese</button><button id='mk' class='langButton'>Macedonian</button><button id='mi' class='langButton'>Maori</button><button id='mhr' class='langButton'>Mari</button><button id='mn' class='langButton'>Mongolian</button><button id='no' class='langButton'>Norwegian</button><button id='pap' class='langButton'>Papiamento</button><button id='sk' class='langButton'>Slovakian (Creole)</button><button id='sl' class='langButton'>Slovenian</button><button id='sw' class='langButton'>Swahili</button><button id='tg' class='langButton'>Tajik</button><button id='tt' class='langButton'>Tatar</button><button id='udm' class='langButton'>Udmurt</button><button id='fi' class='langButton'>Finnish</button><button id='hr' class='langButton'>Croatian</button><button id='cs' class='langButton'>Czech</button><button id='sv' class='langButton'>Swedish</button><button id='gd'  class='langButton'>Scottish</button><button id='et' class='langButton'>Estonian</button><button id='eo' class='langButton'>Esperanto</button>";
 
 $(document).ready(function(){
 	langList();
@@ -31,8 +33,10 @@ $(document).ready(function(){
 	    setTimeout(function(){
 			$("#errorLogin").html(json);
 			loadnig();
-			$("#login").val('');
-			$("#password").val('');
+			setTimeout(function(){
+				$("#login").val('');
+				$("#password").val('');
+			}, 1000);
 	    }, 1000);
         }
     });
@@ -45,8 +49,8 @@ $(document).ready(function(){
 		    data['loginRegister'] = inputRead("#loginRegister");
 	   	    data['password1'] = inputRead("#password1");
 		    data['password2'] = inputRead("#password2");
-			$("#password1").value = null;
-			$("#password2").value = null;
+			$("#password1").val('');
+			$("#password2").val('');
 	   	    data['emailRegister'] = inputRead("#emailRegister");
 		ajax2(data);
 			setTimeout(function(){$("#errorRegister").html(json);}, 1000);
@@ -117,6 +121,7 @@ $(document).ready(function(){
 			data['ranking'] = 'position';
 			ajax2(data);
 			setTimeout(function(){
+				ranking();
 				$(".rankingPosition").html("Ranking position: "+json);
 			}, 750);
         }
@@ -243,7 +248,6 @@ $(document).ready(function(){
             clickStop();
             accountPageContentOut(2,currentOnTheList);
             registerAnimationMenu(1, 2, 0, 1, 2);
-			ranking();
 			setTimeout(function(){
 				let data = {};
 				data['ranking'] = 'position';
@@ -273,7 +277,6 @@ $(document).ready(function(){
     $('.account-pageMenu').on("click",".registerAnimationMenu2", function () {
         if(clickAnimation==true){
             clickStop();
-			ranking();
             accountPageContentOut(2,currentOnTheList);
             registerAnimationMenu(1, 2, 0, 1, 2);
         }
@@ -468,8 +471,7 @@ function inputRead(y){
 }
 function langList(){
 
-
-	$( ".langButton" ).click(function() {
+	$('.langList').on("click",".langButton", function () {
 		if(okLock==false){
 			$("#ok").css('background-color', '#4CAF50');
 			okLock2=false;
@@ -478,117 +480,117 @@ function langList(){
 
 
 
-	$( "#az" ).click(function() {   $("#langClick").html("az");  langClicki='az';  });
-	$( "#sq" ).click(function() {   $("#langClick").html("sq");langClicki='sq';    });
-	$( "#am" ).click(function() {   $("#langClick").html("am");langClicki='am';    });
-	$( "#en" ).click(function() {   $("#langClick").html("en");langClicki='en';    });
-	$( "#ar" ).click(function() {   $("#langClick").html("ar");langClicki='az';    });
+	$('.langList').on("click","#az", function () {   $("#langClick").html("az");  langClicki='az';  });
+	$('.langList').on("click","#sq", function () {   $("#langClick").html("sq");langClicki='sq';    });
+	$('.langList').on("click","#am", function () {   $("#langClick").html("am");langClicki='am';    });
+	$('.langList').on("click","#en", function () {   $("#langClick").html("en");langClicki='en';    });
+	$('.langList').on("click","#ar", function () {   $("#langClick").html("ar");langClicki='az';    });
 
-	$( "#hy" ).click(function() {   $("#langClick").html("hy");langClicki='hy';    });
-	$( "#af" ).click(function() {   $("#langClick").html("af");langClicki='af';    });
-	$( "#eu" ).click(function() {   $("#langClick").html("eu");langClicki='eu';    });
-	$( "#ba" ).click(function() {   $("#langClick").html("ba");langClicki='ba';    });
-	$( "#be" ).click(function() {   $("#langClick").html("be");langClicki='be';    });
+	$('.langList').on("click","#hy", function () {   $("#langClick").html("hy");langClicki='hy';    });
+	$('.langList').on("click","#af", function () {   $("#langClick").html("af");langClicki='af';    });
+	$('.langList').on("click","#eu", function () {   $("#langClick").html("eu");langClicki='eu';    });
+	$('.langList').on("click","#ba", function () {   $("#langClick").html("ba");langClicki='ba';    });
+	$('.langList').on("click","#be", function () {   $("#langClick").html("be");langClicki='be';    });
 
-	$( "#bn" ).click(function() {   $("#langClick").html("bn");langClicki='bn';    });
-	$( "#my" ).click(function() {   $("#langClick").html("my");langClicki='my';    });
-	$( "#bg" ).click(function() {   $("#langClick").html("bg");langClicki='bg';    });
-	$( "#bs" ).click(function() {   $("#langClick").html("bs");langClicki='bs';    });
-	$( "#cy" ).click(function() {   $("#langClick").html("cy");langClicki='cy';    });
+	$('.langList').on("click","#bn", function () {   $("#langClick").html("bn");langClicki='bn';    });
+	$('.langList').on("click","#my", function () {   $("#langClick").html("my");langClicki='my';    });
+	$('.langList').on("click","#bg", function () {   $("#langClick").html("bg");langClicki='bg';    });
+	$('.langList').on("click","#bs", function () {   $("#langClick").html("bs");langClicki='bs';    });
+	$('.langList').on("click","#cy", function () {   $("#langClick").html("cy");langClicki='cy';    });
 
-	$( "#hu" ).click(function() {   $("#langClick").html("hu");langClicki='hu';    });
-	$( "#vi" ).click(function() {   $("#langClick").html("vi");langClicki='vi';    });
-	$( "#ht" ).click(function() {   $("#langClick").html("ht");langClicki='ht';    });
-	$( "#gl" ).click(function() {   $("#langClick").html("gl");langClicki='gl';    });
-	$( "#nl" ).click(function() {   $("#langClick").html("nl");langClicki='nl';    });
+	$('.langList').on("click","#hu", function () {   $("#langClick").html("hu");langClicki='hu';    });
+	$('.langList').on("click","#vi", function () {   $("#langClick").html("vi");langClicki='vi';    });
+	$('.langList').on("click","#ht", function () {   $("#langClick").html("ht");langClicki='ht';    });
+	$('.langList').on("click","#gl", function () {   $("#langClick").html("gl");langClicki='gl';    });
+	$('.langList').on("click","#nl", function () {   $("#langClick").html("nl");langClicki='nl';    });
 
-	$( "#mrj" ).click(function() {   $("#langClick").html("mrj");langClicki='mrj'; });
-	$( "#el" ).click(function() {   $("#langClick").html("el");langClicki='el';    });
-	$( "#ka" ).click(function() {   $("#langClick").html("ka");langClicki='ka';    });
-	$( "#gu" ).click(function() {   $("#langClick").html("gu");langClicki='gu';    });
-	$( "#da" ).click(function() {   $("#langClick").html("da");langClicki='da';    });
+	$('.langList').on("click","#mrj", function () {   $("#langClick").html("mrj");langClicki='mrj'; });
+	$('.langList').on("click","#el", function () {   $("#langClick").html("el");langClicki='el';    });
+	$('.langList').on("click","#ka", function () {   $("#langClick").html("ka");langClicki='ka';    });
+	$('.langList').on("click","#gu", function () {   $("#langClick").html("gu");langClicki='gu';    });
+	$('.langList').on("click","#da", function () {   $("#langClick").html("da");langClicki='da';    });
 
-	$( "#is" ).click(function() {   $("#langClick").html("is");  langClicki='is';  });
-	$( "#es" ).click(function() {   $("#langClick").html("es");langClicki='es';    });
-	$( "#kk" ).click(function() {   $("#langClick").html("kk");langClicki='kk';    });
-	$( "#kn" ).click(function() {   $("#langClick").html("kn");langClicki='kn';    });
-	$( "#ca" ).click(function() {   $("#langClick").html("ca");langClicki='ca';    });
+	$('.langList').on("click","#is", function () {   $("#langClick").html("is");  langClicki='is';  });
+	$('.langList').on("click","#es", function () {   $("#langClick").html("es");langClicki='es';    });
+	$('.langList').on("click","#kk", function () {   $("#langClick").html("kk");langClicki='kk';    });
+	$('.langList').on("click","#kn", function () {   $("#langClick").html("kn");langClicki='kn';    });
+	$('.langList').on("click","#ca", function () {   $("#langClick").html("ca");langClicki='ca';    });
 
-	$( "#ky" ).click(function() {   $("#langClick").html("ky");langClicki='ky';    });
-	$( "#ko" ).click(function() {   $("#langClick").html("ko");langClicki='ko';    });
-	$( "#xh" ).click(function() {   $("#langClick").html("xh");langClicki='xh';    });
-	$( "#km" ).click(function() {   $("#langClick").html("km");langClicki='km';    });
-	$( "#lo" ).click(function() {   $("#langClick").html("lo");langClicki='lo';    });
+	$('.langList').on("click","#ky", function () {   $("#langClick").html("ky");langClicki='ky';    });
+	$('.langList').on("click","#ko", function () {   $("#langClick").html("ko");langClicki='ko';    });
+	$('.langList').on("click","#xh", function () {   $("#langClick").html("xh");langClicki='xh';    });
+	$('.langList').on("click","#km", function () {   $("#langClick").html("km");langClicki='km';    });
+	$('.langList').on("click","#lo", function () {   $("#langClick").html("lo");langClicki='lo';    });
 
-	$( "#la" ).click(function() {   $("#langClick").html("la");langClicki='la';    });
-	$( "#lv" ).click(function() {   $("#langClick").html("lv");langClicki='lv';    });
-	$( "#zh" ).click(function() {   $("#langClick").html("zh");langClicki='zh';    });
-	$( "#lt" ).click(function() {   $("#langClick").html("lt");langClicki='lt';    });
-	$( "#lb" ).click(function() {   $("#langClick").html("lb");langClicki='lb';    });
+	$('.langList').on("click","#la", function () {   $("#langClick").html("la");langClicki='la';    });
+	$('.langList').on("click","#lv", function () {   $("#langClick").html("lv");langClicki='lv';    });
+	$('.langList').on("click","#zh", function () {   $("#langClick").html("zh");langClicki='zh';    });
+	$('.langList').on("click","#lt", function () {   $("#langClick").html("lt");langClicki='lt';    });
+	$('.langList').on("click","#lb", function () {   $("#langClick").html("lb");langClicki='lb';    });
 
-	$( "#mg" ).click(function() {   $("#langClick").html("mg");langClicki='mg';    });
-	$( "#ms" ).click(function() {   $("#langClick").html("ms");langClicki='ms';    });
-	$( "#ml" ).click(function() {   $("#langClick").html("ml");langClicki='ml';    });
-	$( "#mt" ).click(function() {   $("#langClick").html("mt");langClicki='mt';    });
-	$( "#mk" ).click(function() {   $("#langClick").html("mk");langClicki='mk';    });
+	$('.langList').on("click","#mg", function () {   $("#langClick").html("mg");langClicki='mg';    });
+	$('.langList').on("click","#ms", function () {   $("#langClick").html("ms");langClicki='ms';    });
+	$('.langList').on("click","#ml", function () {   $("#langClick").html("ml");langClicki='ml';    });
+	$('.langList').on("click","#mt", function () {   $("#langClick").html("mt");langClicki='mt';    });
+	$('.langList').on("click","#mk", function () {   $("#langClick").html("mk");langClicki='mk';    });
 
-	$( "#he" ).click(function() {   $("#langClick").html("he");langClicki='he'; });
-	$( "#yi" ).click(function() {   $("#langClick").html("yi");langClicki='yi';    });
-	$( "#id" ).click(function() {   $("#langClick").html("id");langClicki='id';    });
-	$( "#ga" ).click(function() {   $("#langClick").html("ga");langClicki='ga';    });
-	$( "#it" ).click(function() {   $("#langClick").html("it");langClicki='it';    });
+	$('.langList').on("click","#he", function () {   $("#langClick").html("he");langClicki='he'; });
+	$('.langList').on("click","#yi", function () {   $("#langClick").html("yi");langClicki='yi';    });
+	$('.langList').on("click","#id", function () {   $("#langClick").html("id");langClicki='id';    });
+	$('.langList').on("click","#ga", function () {   $("#langClick").html("ga");langClicki='ga';    });
+	$('.langList').on("click","#it", function () {   $("#langClick").html("it");langClicki='it';    });
 
-	$( "#mi" ).click(function() {   $("#langClick").html("mi");  langClicki='mi';  });
-	$( "#mr" ).click(function() {   $("#langClick").html("mr");langClicki='mr';    });
-	$( "#mhr" ).click(function() {   $("#langClick").html("mhr");langClicki='mhr';    });
-	$( "#mn" ).click(function() {   $("#langClick").html("mn");langClicki='mn';    });
-	$( "#de" ).click(function() {   $("#langClick").html("de");langClicki='de';    });
+	$('.langList').on("click","#mi", function () {   $("#langClick").html("mi");  langClicki='mi';  });
+	$('.langList').on("click","#mr", function () {   $("#langClick").html("mr");langClicki='mr';    });
+	$('.langList').on("click","#mhr", function () {   $("#langClick").html("mhr");langClicki='mhr';    });
+	$('.langList').on("click","#mn", function () {   $("#langClick").html("mn");langClicki='mn';    });
+	$('.langList').on("click","#de", function () {   $("#langClick").html("de");langClicki='de';    });
 
-	$( "#ne" ).click(function() {   $("#langClick").html("ne");langClicki='ne';    });
-	$( "#no" ).click(function() {   $("#langClick").html("no");langClicki='no';    });
-	$( "#pa" ).click(function() {   $("#langClick").html("pa");langClicki='pa';    });
-	$( "#pap" ).click(function() {   $("#langClick").html("pap");langClicki='pap';    });
-	$( "#fa" ).click(function() {   $("#langClick").html("fa");langClicki='fa';    });
+	$('.langList').on("click","#ne", function () {   $("#langClick").html("ne");langClicki='ne';    });
+	$('.langList').on("click","#no", function () {   $("#langClick").html("no");langClicki='no';    });
+	$('.langList').on("click","#pa", function () {   $("#langClick").html("pa");langClicki='pa';    });
+	$('.langList').on("click","#pap", function () {   $("#langClick").html("pap");langClicki='pap';    });
+	$('.langList').on("click","#fa", function () {   $("#langClick").html("fa");langClicki='fa';    });
 
-	$( "#pl" ).click(function() {   $("#langClick").html("pl");langClicki='pl';    });
-	$( "#pt" ).click(function() {   $("#langClick").html("pt");langClicki='pt';    });
-	$( "#ro" ).click(function() {   $("#langClick").html("ro");langClicki='ro';    });
-	$( "#ru" ).click(function() {   $("#langClick").html("ru");langClicki='ru';    });
-	$( "#ceb" ).click(function() {   $("#langClick").html("ceb");langClicki='ceb';    });
+	$('.langList').on("click","#pl", function () {   $("#langClick").html("pl");langClicki='pl';    });
+	$('.langList').on("click","#pt", function () {   $("#langClick").html("pt");langClicki='pt';    });
+	$('.langList').on("click","#ro", function () {   $("#langClick").html("ro");langClicki='ro';    });
+	$('.langList').on("click","#ru", function () {   $("#langClick").html("ru");langClicki='ru';    });
+	$('.langList').on("click","#ceb", function () {   $("#langClick").html("ceb");langClicki='ceb';    });
 
-	$( "#sr" ).click(function() {   $("#langClick").html("sr");langClicki='sr';    });
-	$( "#si" ).click(function() {   $("#langClick").html("si");langClicki='si';    });
-	$( "#sk" ).click(function() {   $("#langClick").html("sk");langClicki='sk';    });
-	$( "#sl" ).click(function() {   $("#langClick").html("sl");langClicki='sl';    });
-	$( "#sw" ).click(function() {   $("#langClick").html("sw");langClicki='sw';    });
+	$('.langList').on("click","#sr", function () {   $("#langClick").html("sr");langClicki='sr';    });
+	$('.langList').on("click","#si", function () {   $("#langClick").html("si");langClicki='si';    });
+	$('.langList').on("click","#sk", function () {   $("#langClick").html("sk");langClicki='sk';    });
+	$('.langList').on("click","#sl", function () {   $("#langClick").html("sl");langClicki='sl';    });
+	$('.langList').on("click","#sw", function () {   $("#langClick").html("sw");langClicki='sw';    });
 
-	$( "#su" ).click(function() {   $("#langClick").html("su");langClicki='su'; });
-	$( "#tg" ).click(function() {   $("#langClick").html("tg");langClicki='tg';    });
-	$( "#th" ).click(function() {   $("#langClick").html("th");langClicki='th';    });
-	$( "#tl" ).click(function() {   $("#langClick").html("tl");langClicki='tl';    });
-	$( "#ta" ).click(function() {   $("#langClick").html("ta");langClicki='ta';    });
+	$('.langList').on("click","#su", function () {   $("#langClick").html("su");langClicki='su'; });
+	$('.langList').on("click","#tg", function () {   $("#langClick").html("tg");langClicki='tg';    });
+	$('.langList').on("click","#th", function () {   $("#langClick").html("th");langClicki='th';    });
+	$('.langList').on("click","#tl", function () {   $("#langClick").html("tl");langClicki='tl';    });
+	$('.langList').on("click","#ta", function () {   $("#langClick").html("ta");langClicki='ta';    });
 
-	$( "#ta" ).click(function() {   $("#langClick").html("ta");  langClicki='ta';  });
-	$( "#te" ).click(function() {   $("#langClick").html("te");langClicki='te';    });
-	$( "#tr" ).click(function() {   $("#langClick").html("tr");langClicki='tr';    });
-	$( "#udm" ).click(function() {   $("#langClick").html("udm");langClicki='udm';    });
-	$( "#uz" ).click(function() {   $("#langClick").html("uz");langClicki='uz';    });
+	$('.langList').on("click","#ta", function () {   $("#langClick").html("ta");  langClicki='ta';  });
+	$('.langList').on("click","#te", function () {   $("#langClick").html("te");langClicki='te';    });
+	$('.langList').on("click","#tr", function () {   $("#langClick").html("tr");langClicki='tr';    });
+	$('.langList').on("click","#udm", function () {   $("#langClick").html("udm");langClicki='udm';    });
+	$('.langList').on("click","#uz", function () {   $("#langClick").html("uz");langClicki='uz';    });
 
-	$( "#uk" ).click(function() {   $("#langClick").html("uk");langClicki='uk';    });
-	$( "#ur" ).click(function() {   $("#langClick").html("ur");langClicki='ur';    });
-	$( "#fi" ).click(function() {   $("#langClick").html("fi");langClicki='fi';    });
-	$( "#fr" ).click(function() {   $("#langClick").html("fr");langClicki='fr';    });
-	$( "#hi" ).click(function() {   $("#langClick").html("hi");langClicki='hi';    });
+	$('.langList').on("click","#uk", function () {   $("#langClick").html("uk");langClicki='uk';    });
+	$('.langList').on("click","#ur", function () {   $("#langClick").html("ur");langClicki='ur';    });
+	$('.langList').on("click","#fi", function () {   $("#langClick").html("fi");langClicki='fi';    });
+	$('.langList').on("click","#fr", function () {   $("#langClick").html("fr");langClicki='fr';    });
+	$('.langList').on("click","#hi", function () {   $("#langClick").html("hi");langClicki='hi';    });
 
-	$( "#hr" ).click(function() {   $("#langClick").html("hr");langClicki='hr';    });
-	$( "#cs" ).click(function() {   $("#langClick").html("cs");langClicki='cs';    });
-	$( "#sv" ).click(function() {   $("#langClick").html("sv");langClicki='sv';    });
-	$( "#gd" ).click(function() {   $("#langClick").html("gd");langClicki='gd';    });
-	$( "#et" ).click(function() {   $("#langClick").html("et");langClicki='et';    });
+	$('.langList').on("click","#hr", function () {   $("#langClick").html("hr");langClicki='hr';    });
+	$('.langList').on("click","#cs", function () {   $("#langClick").html("cs");langClicki='cs';    });
+	$('.langList').on("click","#sv", function () {   $("#langClick").html("sv");langClicki='sv';    });
+	$('.langList').on("click","#gd", function () {   $("#langClick").html("gd");langClicki='gd';    });
+	$('.langList').on("click","#et", function () {   $("#langClick").html("et");langClicki='et';    });
 
-	$( "#eo" ).click(function() {   $("#langClick").html("eo");langClicki='eo';    });
-	$( "#jv" ).click(function() {   $("#langClick").html("jv");langClicki='jv';    });
-	$( "#ja" ).click(function() {   $("#langClick").html("ja");langClicki='ja';    });
+	$('.langList').on("click","#eo", function () {   $("#langClick").html("eo");langClicki='eo';    });
+	$('.langList').on("click","#jv", function () {   $("#langClick").html("jv");langClicki='jv';    });
+	$('.langList').on("click","#ja", function () {   $("#langClick").html("ja");langClicki='ja';    });
 
 }
 function loadnig()
@@ -610,6 +612,12 @@ function loadnig()
 			//json.user_lang
 			//json.user_text
 			login();
+			let data = {};
+			data['ranking'] = 'position';
+			ajax2(data);
+			setTimeout(function(){
+				$(".rankingPosition").html("Ranking position: "+json);
+			}, 750);
 			if(json.transtext!=null){
 				$("#TRANSTEXT").html(json.transtext);
 				$("#DETECTLANG").html(json.detectlang);
@@ -617,10 +625,13 @@ function loadnig()
 		}
 }
 function timee(){
-	if(time>1 && stopTime==false){
+	if(time>=1 && stopTime==false){
 	setTimeout(function(){time=time-1;
 	$("#timer").html(time);
 	timee()}, 1000);}
+	if(time==0 && stopTime==false){
+		okClick();
+	}
 }
 function sesion()
 {
@@ -753,13 +764,13 @@ function ajax2(data){
 		});
 }
 function langList1(){
-	$(".langList").html("1");
+	$(".langList").html(lang1);
 }
 function langList2(){
-	$(".langList").html("2");
+	$(".langList").html(lang1+lang2);
 }
 function langList3(){
-	$(".langList").html("3");
+	$(".langList").html(lang1+lang2+lang3);
 }
 function scroll_to2(selector) {
     $('.account-pageContent2').animate({scrollTop: $(selector).offset().top}, 1000);
