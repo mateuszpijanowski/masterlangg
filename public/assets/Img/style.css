@@ -139,7 +139,6 @@ a:hover {
     height: 100vh;
     background-size:cover;
     background-repeat: no-repeat;
-    background-position:center center;
     text-align:center;
 }
 .formChange
@@ -151,7 +150,7 @@ a:hover {
     height: 100vh;
     background-size:cover;
     background-repeat: no-repeat;
-    background-position:center center;
+	background-position: center bottom;
     text-align:center;
 	display:none;
 	background-color:#202227;

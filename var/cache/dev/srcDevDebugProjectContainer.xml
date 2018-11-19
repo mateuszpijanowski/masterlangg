@@ -258,8 +258,6 @@
       <parameter key="default">swiftmailer.mailer.default</parameter>
     </parameter>
     <parameter key="swiftmailer.default_mailer">default</parameter>
-    <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
-    <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="twig.exception_listener.controller">twig.controller.exception::showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
@@ -1972,14 +1970,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2130,14 +2120,6 @@
           <argument>onTerminate</argument>
         </argument>
         <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>kernel.response</argument>
-        <argument type="collection">
-          <argument type="service" id="web_profiler.debug_toolbar"/>
-          <argument>onKernelResponse</argument>
-        </argument>
-        <argument>-128</argument>
       </call>
       <call method="addListener">
         <argument>kernel.exception</argument>
@@ -3625,16 +3607,6 @@
       <argument>?file=%%f&amp;line=%%l#line%%l</argument>
       <factory class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" method="generateUrlFormat"/>
     </service>
-    <service id="web_profiler.debug_toolbar" class="Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener" public="false">
-      <tag name="kernel.event_subscriber"/>
-      <tag name="container.hot_path"/>
-      <argument type="service" id="twig"/>
-      <argument>false</argument>
-      <argument>2</argument>
-      <argument type="service" id="router.default" on-invalid="ignore"/>
-      <argument>^/((index|app(_[\w]+)?)\.php/)?_wdt</argument>
-      <argument type="service" id="web_profiler.csp.handler"/>
-    </service>
     <service id="twig" class="Twig\Environment" public="true">
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
@@ -4022,7 +3994,7 @@
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
       <argument>UTF-8</argument>
-      <argument type="service" id="request_stack"/>
+      <argument>null</argument>
       <argument type="service" id="var_dumper.server_connection"/>
     </service>
     <service id="debug.dump_listener" class="Symfony\Component\HttpKernel\EventListener\DumpListener" public="false">
