@@ -55,14 +55,16 @@ class __TwigTemplate_1b8a18e093a0cb06a23134714e238c2e95ef5306ad39b6140660377efb5
 <div class=\"account-page\">
 \t\t<div class=\"CHANGEPASSWORD-page\">
 \t\t\t<input class=\"Back account\"type=\"submit\" value=\"Back\"/>
-\t\t\t<p>User ID: ";
-        // line 30
-        echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new Twig_Error_Runtime('Variable "id" does not exist.', 30, $this->source); })()), "html", null, true);
-        echo "</p>
-\t\t\t<p>User name: ";
+\t\t\t<div class=\"data\">
+\t\t\t\t<p>User ID: <span id=\"id\">";
         // line 31
-        echo twig_escape_filter($this->env, (isset($context["nick"]) || array_key_exists("nick", $context) ? $context["nick"] : (function () { throw new Twig_Error_Runtime('Variable "nick" does not exist.', 31, $this->source); })()), "html", null, true);
-        echo "</p>
+        echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new Twig_Error_Runtime('Variable "id" does not exist.', 31, $this->source); })()), "html", null, true);
+        echo "</span></p>
+\t\t\t\t<p>User name: <span id=\"nick\">";
+        // line 32
+        echo twig_escape_filter($this->env, (isset($context["nick"]) || array_key_exists("nick", $context) ? $context["nick"] : (function () { throw new Twig_Error_Runtime('Variable "nick" does not exist.', 32, $this->source); })()), "html", null, true);
+        echo "</span></p>
+\t\t\t</div>
 \t\t\t<div class=\"form formChange\">
 \t\t\t\t<form class=\"formCHANGEPASSWORD\">
 \t\t\t\t\t<input type=\"password\" class=\"ChangePASSWORD1\" placeholder=\"New Password\"/>
@@ -99,7 +101,7 @@ class __TwigTemplate_1b8a18e093a0cb06a23134714e238c2e95ef5306ad39b6140660377efb5
 
     public function getDebugInfo()
     {
-        return array (  64 => 31,  60 => 30,  29 => 1,);
+        return array (  65 => 32,  61 => 31,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -133,8 +135,10 @@ class __TwigTemplate_1b8a18e093a0cb06a23134714e238c2e95ef5306ad39b6140660377efb5
 <div class=\"account-page\">
 \t\t<div class=\"CHANGEPASSWORD-page\">
 \t\t\t<input class=\"Back account\"type=\"submit\" value=\"Back\"/>
-\t\t\t<p>User ID: {{ id }}</p>
-\t\t\t<p>User name: {{ nick }}</p>
+\t\t\t<div class=\"data\">
+\t\t\t\t<p>User ID: <span id=\"id\">{{ id }}</span></p>
+\t\t\t\t<p>User name: <span id=\"nick\">{{ nick }}</span></p>
+\t\t\t</div>
 \t\t\t<div class=\"form formChange\">
 \t\t\t\t<form class=\"formCHANGEPASSWORD\">
 \t\t\t\t\t<input type=\"password\" class=\"ChangePASSWORD1\" placeholder=\"New Password\"/>

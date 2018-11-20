@@ -820,3 +820,15 @@ tr{
 {
 	opacity: 1;
 }
+
+#id {
+	color: white;
+}
+
+#nick {
+	color: white;
+}
+
+.data {
+	margin-top: 50px;
+}

@@ -18,19 +18,25 @@ class AccessAcount extends AbstractController
 
         if($update)
         {
-            if($update->setActive('1'))
+            if ($update->getActive()=='0')
             {
-                if($update->setAccessCode(''))
+                if($update->setActive('1'))
                 {
-                    $entityManager->flush();
-                    return new JsonResponse("OK");
+                    if($update->setAccessCode(''))
+                    {
+                        $entityManager->flush();
+                        return new JsonResponse("OK");
+                    }
+                    else {
+                        return new JsonResponse("Remove access code ERROR");
+                    }
                 }
                 else {
-                    return new JsonResponse("Remove access code ERROR");
+                    return new JsonResponse("Active account error");
                 }
             }
             else {
-                return new JsonResponse("Active account error");
+                return new JsonResponse("This account is active");
             }
         }
         else {
