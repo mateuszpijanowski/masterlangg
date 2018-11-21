@@ -24,8 +24,20 @@
 </head>
 <body >
 <div class="dimness" ></div>
+<div class="CHANGEPASSWORD2-page">
+	<a href="/"><input class="Back account"type="submit" value="Back" /></a>
+	<div class="data">
+		<p>User ID: <span id="idCHANGE">{{ id }}</span></p>
+		<p>User name: <span id="nickCHANGE">{{ nick }}</span></p>
+	</div>
+	<div class="form formChange">
+			<input type="password" class="Change2PASSWORD1" placeholder="New Password"/>
+			<input type="password" class="Change2PASSWORD2" placeholder="Repeat New Password"/>
+			<p class="error" id="error1"><p>
+			<button id="Change2PASSWORD" >Change</button>
+	</div>
+</div>
 <div id="loginPanel">
-
 	<div class="login-page">
 		<div class="form">
 			<input type="text" id="login" placeholder="username"/>

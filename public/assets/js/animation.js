@@ -35,9 +35,10 @@ $(document).keydown(function(key) {
 		if(clickAnimation==true){
             clickStop();
 			if(okLock2==false){
+				clickAnimation=true;
 				okClick();
 			}
-			else if(clickAnimation==true && quotationLock==false){
+			else if(quotationLock==false){
 				clickStop();
 				game();
 			}
@@ -52,9 +53,21 @@ $(document).keydown(function(key) {
 
 
 
-
-	langList();
-	sesion();
+	if(document.getElementById('idCHANGE').innerHTML!=''){
+		PageMenuShow(".CHANGEPASSWORD2-page");
+		$( "#Change2PASSWORD" ).click(function() {
+			var data = {};
+				data['id_user'] = document.getElementById('idCHANGE').innerHTML;
+				data['ChangePASSWORD1'] = inputRead(".Change2PASSWORD1");
+				data['ChangePASSWORD2'] = inputRead(".Change2PASSWORD2");
+			ajax2(data);
+			setTimeout(function(){$("#error1").html(json);}, 1000);
+		});
+	}
+	else {
+		langList();
+		sesion();
+	}
     $( ".start" ).click(function() {
         if(clickAnimation==true){
             clickStop();
@@ -568,7 +581,7 @@ function langList(){
 
 	$('.langList').on("click","#he", function () {   $("#langClick").html("he");langClicki='he'; });
 	$('.langList').on("click","#yi", function () {   $("#langClick").html("yi");langClicki='yi';    });
-	$('.langList').on("click","#id5", function () {   $("#langClick").html("id5");langClicki='id';    });
+	$('.langList').on("click","#id5", function () {   $("#langClick").html("id");langClicki='id';    });
 	$('.langList').on("click","#ga", function () {   $("#langClick").html("ga");langClicki='ga';    });
 	$('.langList').on("click","#it", function () {   $("#langClick").html("it");langClicki='it';    });
 
@@ -654,8 +667,8 @@ function loadnig()
 			setTimeout(function(){
 				$(".rankingPosition").html("Ranking position: "+json);
 			}, 750);
-			if(json.transtext!=null){
-				$("#TRANSTEXT").html(json.transtext);
+			if(json.transtext!=null){//?????????????????????
+
 				$("#DETECTLANG").html(json.detectlang);
 				timee();}
 		}
@@ -689,10 +702,14 @@ function game(){
 		okLock=false;
 		ajax2(data);
 			setTimeout(function(){
-				$("#TRANSTEXT").html(json.transtext);
-				$("#DETECTLANG").html(json.detectlang);
-				stopTime=false
-				timee();
+				if(json.transtext==undefined){
+					alert(json);
+				}else {
+					$("#TRANSTEXT").html(json.transtext);
+					$("#DETECTLANG").html(json.detectlang);
+					stopTime=false
+					timee();
+				}
 			}, 1500);
 		}
 		else{
@@ -791,7 +808,7 @@ function ajax2(data){
 		data: data,
 		success: function(response){
 			json=response;
-			alert(JSON.stringify(response));
+			//alert(JSON.stringify(response));
 
 		},
 		error: function(){
