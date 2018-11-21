@@ -64,7 +64,10 @@ $(document).keydown(function(key) {
 			setTimeout(function(){$("#error1").html(json);}, 1000);
 		});
 	}
-	else {
+	else if(document.getElementById('status').innerHTML!=''){
+		PageMenuShow(".status-page");
+	}
+	else{
 		langList();
 		sesion();
 	}
@@ -85,6 +88,11 @@ $(document).keydown(function(key) {
 	$( "#quotation" ).click(function() {
 		inputWalidation();
 	});
+    $(".Back2").click(function() {
+        if(clickAnimation==true){
+		PageMenuHide(".status-page");
+        }
+    });
     $( "#startRegister" ).click(function() {
         if(clickAnimation==true){
 		let data = {};

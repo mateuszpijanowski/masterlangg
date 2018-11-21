@@ -5,6 +5,7 @@ body{
 
 	}
 @media only screen and (max-width: 1140px) {
+	.status-page,
 	.CHANGEPASSWORD2-page,
 	.account-page{
 	width:80% !important;
@@ -23,6 +24,7 @@ body{
 }
 }
 @media only screen and (max-width: 768px) {
+	.status-page,	
 	.CHANGEPASSWORD2-page,
 	.account-page{
 	width:100% !important;
@@ -127,6 +129,7 @@ a:hover {
 	margin-bottom:0px;
 	margin-top:10px;
 }
+.status-page,
 .CHANGEPASSWORD2-page,
 .about-page,
 .CHANGELOGIN-page,
@@ -306,6 +309,7 @@ a:hover {
     animation: animation8 0.5s normal forwards;
 	display:block;
 }
+.status-page,
 .CHANGEPASSWORD2-page,
 .account-page{
 	border:3px solid #cf324e;
