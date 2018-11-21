@@ -463,6 +463,7 @@ class Main extends AbstractController
          * OR
          * +YOUR TEXT HAVE INCCORECT SIGN /
          * +TOUR TEXT IS TOO LONG /
+         * +TOUR TEXT IS TOO SHORT /
          * +DIFFICULTY ERROR
          */
         if(isset($_POST['user_text']))
@@ -480,6 +481,12 @@ class Main extends AbstractController
             if (strlen($user_text)>50) // MAX 50 LETTERS
             {
                 return new JsonResponse("Your text is too long (max 50 lettesrs!)");
+                exit;
+            }
+
+            if (strlen($user_text)<3) // MIN 3 LETTERS
+            {
+                return new JsonResponse("Your text is too short (must have min 3 lettesrs!)");
                 exit;
             }
 

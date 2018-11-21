@@ -4,12 +4,8 @@
     <list default="true" id="7d3ec400-2f0a-40f3-bcfd-70ee18dfb2fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Translation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Translation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/2/Y/eis+XXe6jmiPbRBlxA94" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/2/Y/eis+XXe6jmiPbRBlxA94" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/9/0VkFqQO779r1q--dXb6z" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/9/0VkFqQO779r1q--dXb6z" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/A/T/TQUqyiPIRGVprkK3loa5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/O/C/17UuhBgV1este0Q5PzqG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/V/H/PqW8VvDVBjs8gMT+dBVG" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/xHUjMjQGx6/V/H/PqW8VvDVBjs8gMT+dBVG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
@@ -26,7 +22,7 @@
     <session id="1819834044">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="33" />
+          <entry key="project.closed" value="34" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.26" value="1" />
@@ -59,7 +55,7 @@
           <entry key="css" value="406" />
           <entry key="env" value="26" />
           <entry key="js" value="431" />
-          <entry key="php" value="18153" />
+          <entry key="php" value="18189" />
           <entry key="twig" value="1317" />
           <entry key="yaml" value="24" />
         </counts>
@@ -70,7 +66,7 @@
           <entry key="CSS" value="406" />
           <entry key="HTML" value="10" />
           <entry key="JavaScript" value="431" />
-          <entry key="PHP" value="18132" />
+          <entry key="PHP" value="18168" />
           <entry key="SQL" value="11" />
           <entry key="Twig" value="1317" />
           <entry key="YAML" value="24" />
@@ -84,7 +80,7 @@
           <entry key="html" value="1" />
           <entry key="js" value="17" />
           <entry key="json" value="1" />
-          <entry key="php" value="214" />
+          <entry key="php" value="216" />
           <entry key="twig" value="15" />
           <entry key="yaml" value="19" />
         </counts>
@@ -96,7 +92,7 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="17" />
-          <entry key="PHP" value="214" />
+          <entry key="PHP" value="216" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Twig" value="15" />
           <entry key="YAML" value="19" />
@@ -110,29 +106,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-              <folding>
-                <element signature="e#7#719#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/basepassword.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -169,10 +143,10 @@
       <find>OK</find>
       <find>ERROR</find>
       <find>@05.2.2</find>
-      <find>#07</find>
       <find>setAccessCode</find>
       <find>&quot;E-MAIL:</find>
       <find>backgro</find>
+      <find>#07</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -487,12 +461,12 @@
       <workItem from="1542613137628" duration="3204000" />
       <workItem from="1542626764431" duration="8874000" />
       <workItem from="1542700369624" duration="1398000" />
-      <workItem from="1542782000624" duration="2066000" />
+      <workItem from="1542782000624" duration="2579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155899000" />
+    <option name="totallyTimeSpent" value="156412000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -505,7 +479,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1020" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24412394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -778,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Translation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1021">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/basepassword.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -794,11 +760,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        <state relative-caret-position="309">
+          <caret line="473" column="28" lean-forward="true" selection-start-line="473" selection-start-column="28" selection-end-line="473" selection-end-column="28" />
           <folding>
             <element signature="e#7#719#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Translation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-661">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
         </state>
       </provider>
     </entry>
