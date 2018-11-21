@@ -22,66 +22,41 @@ class Translation extends AbstractController
         if($difficulty=="EASY")
         {
             $repository=$this->getDoctrine()->getRepository(LangEasy::class);
-
-            while (1>0)
-            {
-                $rand_trans=rand(1,20);
-                $lang=$repository->findOneby([
-                    'idLang' => $rand_trans,
-                ]);
-
-                $lang=$lang->getLangName();
-
-                if ($lang!==$responseDetect)
-                {
-                    break;
-                }
-            }
+            $records=5;
         }
 
         elseif($difficulty=="NORMAL")
         {
             $repository=$this->getDoctrine()->getRepository(LangNormal::class);
-
-            while (1>0)
-            {
-                $rand_trans=rand(1,40);
-                $lang=$repository->findOneby([
-                    'idLang' => $rand_trans,
-                ]);
-
-                $lang=$lang->getLangName();
-
-                if ($lang!==$responseDetect)
-                {
-                    break;
-                }
-            }
+            $records=40;
         }
 
         elseif($difficulty=="HARD")
         {
             $repository=$this->getDoctrine()->getRepository(LangHard::class);
-
-            while (1>0)
-            {
-                $rand_trans=rand(1,80);
-                $lang=$repository->findOneby([
-                    'idLang' => $rand_trans,
-                ]);
-
-                $lang=$lang->getLangName();
-
-                if ($lang!==$responseDetect)
-                {
-                    break;
-                }
-            }
+            $records=80;
         }
 
         else {
             return new JsonResponse("Difficulty Error!");
             exit;
+        }
+
+        $rand_trans=rand(1,$records);
+        $lang=$repository->findOneby([
+            'idLang' => $rand_trans,
+        ]);
+
+        $lang=$lang->getLangName();
+
+        while($lang==$responseDetect)
+        {
+            $rand_trans=rand(1,$records);
+            $lang=$repository->findOneby([
+                'idLang' => $rand_trans,
+            ]);
+
+            $lang=$lang->getLangName();
         }
 
         $responseTrans = file_get_contents('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20181024T152959Z.102541e69e4b1ef4.7e3297d1e21110feb6f7ffe1672fcb702bc30b57&text='.$text.'&lang='.$responseDetect.'-'.$lang);

@@ -48,6 +48,11 @@ class Main extends AbstractController
     public function main(SessionInterface $session) // IMPORT SESSION
     {
 
+        // GLOBAL PHP VARIABLES //
+        $id_recovery="";
+        $nick_recovery="";
+        $status_error="";
+
         // SESSION START //
         $session=new Session();
 
@@ -629,11 +634,19 @@ class Main extends AbstractController
 
                 if ($access=="OK")
                 {
-                    return $this->render('base.html.twig');
+                    return $this->render('base.html.twig', [
+                        'id' => $id_recovery,
+                        'nick' => $nick_recovery,
+                        'status' => $status_error,
+                    ]);
                 }
 
                 else {
-                    return new JsonResponse($access);
+                    return $this->render('base.html.twig', [
+                        'id' => $id_recovery,
+                        'nick' => $nick_recovery,
+                        'status' => $access,
+                    ]);
                 }
             }
 
@@ -650,9 +663,13 @@ class Main extends AbstractController
                 $id=$response['id'];
                 $nick=$response['nick'];
 
-                return $this->render('basepassword.html.twig', [
-                    'id' => $id,
-                    'nick' => $nick,
+                $id_recovery=$id;
+                $nick_recovery=$nick;
+
+                return $this->render('base.html.twig', [
+                    'id' => $id_recovery,
+                    'nick' => $nick_recovery,
+                    'status' => $status_error,
                 ]);
             }
 
@@ -670,6 +687,10 @@ class Main extends AbstractController
         }
 
         // HTML RENDER // [#99]
-        return $this->render('base.html.twig'); // NO TOUCH THIS!
+        return $this->render('base.html.twig', [
+            'id' => $id_recovery,
+            'nick' => $nick_recovery,
+            'status' => $status_error,
+        ]); // NO TOUCH THIS!
     }
 }
