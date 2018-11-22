@@ -102,17 +102,23 @@ class PassRecovery extends AbstractController
         if(!$user)
         {
             return new JsonResponse("Access code was not found!");
-            exit;
         }
 
-        $id=$user->getIdUser();
-        $nick=$user->getNick();
+        elseif ($user->getActive()==0)
+        {
+            return new JsonResponse("This account isn't active!");
+        }
 
-        $response = array(
-            "id" => $id,
-            "nick" => $nick,
-        );
+        else {
+            $id=$user->getIdUser();
+            $nick=$user->getNick();
 
-        return new JsonResponse($response);
+            $response = array(
+                "id" => $id,
+                "nick" => $nick,
+            );
+
+            return new JsonResponse($response);
+        }
     }
 }

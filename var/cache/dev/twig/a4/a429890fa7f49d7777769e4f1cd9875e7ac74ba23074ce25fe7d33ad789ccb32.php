@@ -50,10 +50,38 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
 
 </head>
-<body>
+<body >
 <div class=\"dimness\" ></div>
-<div id=\"loginPanel\">
+<div class=\"CHANGEPASSWORD2-page\">
+\t<a href=\"/\"><input class=\"Back account\"type=\"submit\" value=\"Back\" /></a>
+\t<div class=\"data\">
+\t\t<p>User ID: <span id=\"idCHANGE\">";
+        // line 30
+        echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new Twig_Error_Runtime('Variable "id" does not exist.', 30, $this->source); })()), "html", null, true);
+        echo "</span></p>
+\t\t<p>User name: <span id=\"nickCHANGE\">";
+        // line 31
+        echo twig_escape_filter($this->env, (isset($context["nick"]) || array_key_exists("nick", $context) ? $context["nick"] : (function () { throw new Twig_Error_Runtime('Variable "nick" does not exist.', 31, $this->source); })()), "html", null, true);
+        echo "</span></p>
+\t</div>
+\t<div class=\"form formChange\">
+\t\t\t<input type=\"password\" class=\"Change2PASSWORD1\" placeholder=\"New Password\"/>
+\t\t\t<input type=\"password\" class=\"Change2PASSWORD2\" placeholder=\"Repeat New Password\"/>
+\t\t\t<p class=\"error\" id=\"error1\"><p>
+\t\t\t<button id=\"Change2PASSWORD\" >Change password</button>
+\t</div>
+</div>
+<div class=\"status-page\">
+\t<input class=\"Back2 Back account\"type=\"submit\" value=\"Back\" />
+\t<div class=\"data\">
+\t<span id=\"status\">";
+        // line 43
+        echo twig_escape_filter($this->env, (isset($context["status"]) || array_key_exists("status", $context) ? $context["status"] : (function () { throw new Twig_Error_Runtime('Variable "status" does not exist.', 43, $this->source); })()), "html", null, true);
+        echo "</span>
+\t</div>
 
+</div>
+<div id=\"loginPanel\">
 \t<div class=\"login-page\">
 \t\t<div class=\"form\">
 \t\t\t<input type=\"text\" id=\"login\" placeholder=\"username\"/>
@@ -218,7 +246,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t</div>
 \t\t\t<div class=\"offset-md-2 col-md-8 offsset-md-2\">
 \t\t\t\t<div class=\"window langList\">
-\t\t\t\t\t
+
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
@@ -241,9 +269,14 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  29 => 1,);
+        return array (  79 => 43,  64 => 31,  60 => 30,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -272,10 +305,29 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
 
 </head>
-<body>
+<body >
 <div class=\"dimness\" ></div>
-<div id=\"loginPanel\">
+<div class=\"CHANGEPASSWORD2-page\">
+\t<a href=\"/\"><input class=\"Back account\"type=\"submit\" value=\"Back\" /></a>
+\t<div class=\"data\">
+\t\t<p>User ID: <span id=\"idCHANGE\">{{ id }}</span></p>
+\t\t<p>User name: <span id=\"nickCHANGE\">{{ nick }}</span></p>
+\t</div>
+\t<div class=\"form formChange\">
+\t\t\t<input type=\"password\" class=\"Change2PASSWORD1\" placeholder=\"New Password\"/>
+\t\t\t<input type=\"password\" class=\"Change2PASSWORD2\" placeholder=\"Repeat New Password\"/>
+\t\t\t<p class=\"error\" id=\"error1\"><p>
+\t\t\t<button id=\"Change2PASSWORD\" >Change password</button>
+\t</div>
+</div>
+<div class=\"status-page\">
+\t<input class=\"Back2 Back account\"type=\"submit\" value=\"Back\" />
+\t<div class=\"data\">
+\t<span id=\"status\">{{ status }}</span>
+\t</div>
 
+</div>
+<div id=\"loginPanel\">
 \t<div class=\"login-page\">
 \t\t<div class=\"form\">
 \t\t\t<input type=\"text\" id=\"login\" placeholder=\"username\"/>
@@ -440,7 +492,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 \t\t\t</div>
 \t\t\t<div class=\"offset-md-2 col-md-8 offsset-md-2\">
 \t\t\t\t<div class=\"window langList\">
-\t\t\t\t\t
+
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>

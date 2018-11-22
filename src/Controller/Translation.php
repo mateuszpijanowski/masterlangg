@@ -22,7 +22,7 @@ class Translation extends AbstractController
         if($difficulty=="EASY")
         {
             $repository=$this->getDoctrine()->getRepository(LangEasy::class);
-            $records=5;
+            $records=20;
         }
 
         elseif($difficulty=="NORMAL")

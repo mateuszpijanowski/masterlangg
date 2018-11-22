@@ -25,7 +25,7 @@ class AccessAcount extends AbstractController
                     if($update->setAccessCode(''))
                     {
                         $entityManager->flush();
-                        return new JsonResponse("OK");
+                        return new JsonResponse("Account has been activated");
                     }
                     else {
                         return new JsonResponse("Remove access code ERROR");
@@ -40,7 +40,7 @@ class AccessAcount extends AbstractController
             }
         }
         else {
-            return new JsonResponse("Code error");
+            return new JsonResponse("Access code error");
         }
     }
 }

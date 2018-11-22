@@ -638,23 +638,13 @@ class Main extends AbstractController
                 ));
 
                 $access=$access->getContent();
+                $access=json_decode($access);
 
-                if ($access=="OK")
-                {
-                    return $this->render('base.html.twig', [
-                        'id' => $id_recovery,
-                        'nick' => $nick_recovery,
-                        'status' => $status_error,
-                    ]);
-                }
-
-                else {
-                    return $this->render('base.html.twig', [
-                        'id' => $id_recovery,
-                        'nick' => $nick_recovery,
-                        'status' => $access,
-                    ]);
-                }
+                return $this->render('base.html.twig', [
+                    'id' => $id_recovery,
+                    'nick' => $nick_recovery,
+                    'status' => $access,
+                ]);
             }
 
             // [&11.2]
@@ -667,17 +657,25 @@ class Main extends AbstractController
                 $response=$response->getContent();
                 $response=json_decode($response, true);
 
-                $id=$response['id'];
-                $nick=$response['nick'];
+                if(isset($response['id']))
+                {
+                    $id=$response['id'];
+                    $nick=$response['nick'];
 
-                $id_recovery=$id;
-                $nick_recovery=$nick;
+                    return $this->render('base.html.twig', [
+                        'id' => $id,
+                        'nick' => $nick,
+                        'status' => $status_error,
+                    ]);
+                }
 
-                return $this->render('base.html.twig', [
-                    'id' => $id_recovery,
-                    'nick' => $nick_recovery,
-                    'status' => $status_error,
-                ]);
+                else {
+                    return $this->render('base.html.twig', [
+                        'id' => $id_recovery,
+                        'nick' => $nick_recovery,
+                        'status' => $response,
+                    ]);
+                }
             }
 
             else {
