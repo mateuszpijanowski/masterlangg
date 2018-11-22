@@ -51,26 +51,11 @@ $(document).keydown(function(key) {
 
 
 
-
-
-	if(document.getElementById('idCHANGE').innerHTML!=''){
-		PageMenuShow(".CHANGEPASSWORD2-page");
-		$( "#Change2PASSWORD" ).click(function() {
-			var data = {};
-				data['id_user'] = document.getElementById('idCHANGE').innerHTML;
-				data['ChangePASSWORD1'] = inputRead(".Change2PASSWORD1");
-				data['ChangePASSWORD2'] = inputRead(".Change2PASSWORD2");
-			ajax2(data);
-			setTimeout(function(){$("#error1").html(json);}, 1000);
-		});
-	}
-	else if(document.getElementById('status').innerHTML!=''){
-		PageMenuShow(".status-page");
-	}
-	else{
 		langList();
 		sesion();
-	}
+
+
+
     $( ".start" ).click(function() {
         if(clickAnimation==true){
             clickStop();
@@ -699,7 +684,21 @@ function sesion()
 	    if(json.id_user>0){
 			loadnig();
 	    }
-	}, 1000);
+	else if(document.getElementById('idCHANGE').innerHTML!=''){
+			PageMenuShow(".CHANGEPASSWORD2-page");
+			$( "#Change2PASSWORD" ).click(function() {
+				var data = {};
+					data['id_user'] = document.getElementById('idCHANGE').innerHTML;
+					data['ChangePASSWORD1'] = inputRead(".Change2PASSWORD1");
+					data['ChangePASSWORD2'] = inputRead(".Change2PASSWORD2");
+				ajax2(data);
+				setTimeout(function(){$("#error1").html(json);}, 1000);
+			});
+		}
+		else if(document.getElementById('status').innerHTML!=''){
+			PageMenuShow(".status-page");
+		}}
+	, 1000);
 }
 function game(){
 		refresh();
