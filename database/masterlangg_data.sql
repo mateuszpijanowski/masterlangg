@@ -259,11 +259,11 @@ CREATE TABLE `user_data` (
 --
 
 INSERT INTO `user_data` (`id_user`, `nick`, `pass`, `email`, `access_code`, `active`) VALUES
-(6, 'admin', '$2y$10$35ub8PDQ0Vulk/y6OY/Y4OWr0TH6Bnw5lYZtXYycAVumyqz89L9Ee', 'test@admin.com', 'McRn6q7eNRqR9pgJNWG3MyoA1VeqVMtP', 1),
-(7, 'tester1', '$2y$10$A1qWzPwaWlnGvW0XQvfGYeEPM2A/m.lNqxKesbRYyVHCXdiuKk3Oq', 'tester1@webstrong.pl', 'ByULLcVdzWGAkn0xVhC1JJfTkSG8Rn0M', 1),
-(8, 'tester2', '$2y$10$SWjRXqYa9oqUJfPB1hF9V.DLv2HfvlK24/BLq0Vo6MoOSHXVX8Y62', 'tester2@webstrong.pl', 'EI13p08hkaPTtzFgSzqCJny4q8mIxDGv', 1),
-(9, 'tester3', '$2y$10$eQj7sxFAk/OXOaK4YzOrZOf3Cdg8vQGb2ZyhrdmBqkzoWd4KLDKZ.', 'tester3@webstrong.pl', 'R2UFLJul8m3GhQaJ1y53iOAvCrwg0hbf', 1),
-(10, 'tester4', '$2y$10$M3D0/pwZmurTCL/NRlsqpOJpWZYE2GASMoAtpH4IlBZduCMNJr1EG', 'tester4@webstrong.pl', 'RNjuTbNZNkwmlN1nThsVAbzlYOnq0eRr', 0);
+(1, 'admin', '$2y$10$35ub8PDQ0Vulk/y6OY/Y4OWr0TH6Bnw5lYZtXYycAVumyqz89L9Ee', 'test@admin.com', 'McRn6q7eNRqR9pgJNWG3MyoA1VeqVMtP', 1),
+(2, 'tester1', '$2y$10$A1qWzPwaWlnGvW0XQvfGYeEPM2A/m.lNqxKesbRYyVHCXdiuKk3Oq', 'tester1@webstrong.pl', 'ByULLcVdzWGAkn0xVhC1JJfTkSG8Rn0M', 1),
+(3, 'tester2', '$2y$10$SWjRXqYa9oqUJfPB1hF9V.DLv2HfvlK24/BLq0Vo6MoOSHXVX8Y62', 'tester2@webstrong.pl', 'EI13p08hkaPTtzFgSzqCJny4q8mIxDGv', 1),
+(4, 'tester3', '$2y$10$eQj7sxFAk/OXOaK4YzOrZOf3Cdg8vQGb2ZyhrdmBqkzoWd4KLDKZ.', 'tester3@webstrong.pl', 'R2UFLJul8m3GhQaJ1y53iOAvCrwg0hbf', 1),
+(5, 'tester4', '$2y$10$M3D0/pwZmurTCL/NRlsqpOJpWZYE2GASMoAtpH4IlBZduCMNJr1EG', 'tester4@webstrong.pl', 'RNjuTbNZNkwmlN1nThsVAbzlYOnq0eRr', 0);
 
 --
 -- Indexes for dumped tables

@@ -4,14 +4,13 @@ namespace App\Controller;
 
 use App\Entity\UserData;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\Tests\Compiler\J;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class PassRecovery extends AbstractController
 {
 
-    public function recovery($email)
+    public function recovery(Request $request, $email)
     {
         function generateRandomString($length) {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -21,42 +20,6 @@ class PassRecovery extends AbstractController
                 $randomString .= $characters[rand(0, $charactersLength - 1)];
             }
             return $randomString;
-        }
-
-        function sendEmail($email, $code)
-        {
-            $to  = $email;
-            $subject = 'Password Recovery';
-
-            $message =
-                '
-                <html>
-                <head>
-                  <title>Birthday Reminders for August</title>
-                </head>
-                <body>
-                  <p>Here are the birthdays upcoming in August!</p>
-                  <table>
-                    <tr>
-                      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
-                    </tr>
-                    <tr>
-                      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
-                    </tr>
-                    <tr>
-                      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
-                    </tr>
-                  </table>
-                </body>
-                </html>
-                ';
-
-            $headers  = 'MIME-Version: 1.0' . "\r\n";
-            $headers .= 'Content-type: text/html; charset=iso-8859-2' . "\r\n";
-            $headers .= 'From: MasterLangg <StrongBot@webstrong.com>' . "\r\n";
-
-            //return mail($to, $subject, $message, $headers);
-            return true;
         }
 
         $entityManager=$this->getDoctrine()->getManager();
@@ -81,13 +44,32 @@ class PassRecovery extends AbstractController
             $user->setAccessCode($random_code);
             $entityManager->flush();
 
-            if(sendEmail($email, $random_code))
+            $url=$request->getUri();
+            $topic="Remind password";
+            $nick=$user->getNick();
+            $id=$user->getIdUser();
+            $url='href="'.$url.'?status=2&code='.$random_code.'"';
+
+            $arr_search=array('$nick','$id','href="test.com"');
+            $arr_replace=array($nick,$id,$url);
+            $message= str_replace($arr_search, $arr_replace, file_get_contents('../public/assets/remind_password.html'));
+
+            $response=$this->forward('App\Controller\Mail::email_send', array(
+                'recipient' => $email,
+                'topic' => $topic,
+                'message' => $message,
+            ));
+
+            $response=$response->getContent();
+            json_decode($response);
+
+            if ($response==true)
             {
-                return new JsonResponse("Verfy code has been sent to your E-mail");
+                return new JsonResponse("E-mail was sent");
             }
 
             else {
-                return new JsonResponse("E-mail send error!");
+                return new JsonResponse("E-mail sent error!");
             }
         }
     }

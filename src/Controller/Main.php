@@ -206,7 +206,10 @@ class Main extends AbstractController
                         'email_reg' => $email_reg,
                     ));
 
-                    return new JsonResponse($response->getContent());
+                    $response=$response->getContent();
+                    json_decode($response);
+
+                    return new JsonResponse($response);
 
                 } else {
                     return new JsonResponse("Bad password");
@@ -616,11 +619,14 @@ class Main extends AbstractController
                     'email' => $email,
                 ));
 
-                return new JsonResponse($response->getContent());
+                $response=$response->getContent();
+                json_decode($response);
+
+                return new JsonResponse($response);
             }
 
             else {
-                return new JsonResponse("Email must have '@'");
+                return new JsonResponse("E-mail must have '@'");
             }
         }
 
@@ -630,8 +636,17 @@ class Main extends AbstractController
             $status=$_GET['status'];
             $code=$_GET['code'];
 
+            if(strlen($code)<32)
+            {
+                return $this->render('base.html.twig', [
+                    'id' => $id_recovery,
+                    'nick' => $nick_recovery,
+                    'status' => "Bad access code!",
+                ]);
+            }
+
             // [&11.1]
-            if ($status=="1") // ACTIVE ACCOUNT
+            elseif ($status=="1") // ACTIVE ACCOUNT
             {
                 $access=$this->forward('App\Controller\AccessAcount::access', array(
                     'code' => $code,
@@ -679,7 +694,11 @@ class Main extends AbstractController
             }
 
             else {
-                return new JsonResponse("Bad status");
+                return $this->render('base.html.twig', [
+                    'id' => $id_recovery,
+                    'nick' => $nick_recovery,
+                    'status' => "Bad status",
+                ]);
             }
         }
 

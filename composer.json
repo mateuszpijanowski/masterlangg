@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
+        "phpmailer/phpmailer": "^6.0",
         "sensio/framework-extra-bundle": "^5.2",
         "symfony/asset": "*",
         "symfony/console": "*",
@@ -26,7 +27,6 @@
     },
     "require-dev": {
         "symfony/debug-pack": "*",
-        "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.8",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",

@@ -104,6 +104,9 @@
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
     },
+    "phpmailer/phpmailer": {
+        "version": "v6.0.6"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -177,9 +180,6 @@
         "version": "v4.1.6"
     },
     "symfony/dom-crawler": {
-        "version": "v4.1.6"
-    },
-    "symfony/dotenv": {
         "version": "v4.1.6"
     },
     "symfony/event-dispatcher": {

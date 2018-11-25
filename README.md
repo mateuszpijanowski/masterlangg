@@ -26,5 +26,5 @@ MasterLangg was created together with:
 ### WebStrong &copy;  
   
 This web was created by **Mateusz Pijanowski** and **Michał Kubiak** (<i>WebStrong team</i>) <br />
-**Online:** <i>Coming soon...</i> 
+**Online:** http://mprojectt.com/masterlangg
 >**License**: <i>GNU General Public License</i>
